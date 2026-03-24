@@ -35,256 +35,308 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --green:#78c832;--green-dark:#5aaa18;--green-pale:#edfad4;
-  --black:#0e0f0d;--black2:#141610;--black3:#1c1f17;
-  --off-white:#f5f8f0;--light:#f0f5e8;
-  --text:#1a1f14;--muted:#5a6650;
-  --dim:rgba(255,255,255,0.40);--on-dark:rgba(255,255,255,0.82);
-  --bd:rgba(255,255,255,0.08);--bd-g:rgba(120,200,50,0.28);--bd-l:rgba(26,31,20,0.10);
-  --shadow:0 4px 24px rgba(14,15,13,0.10);--shadow-lg:0 16px 56px rgba(14,15,13,0.18);
+:root {
+  --green: #78c832;
+  --green-light: #a8e063;
+  --green-pale: #edfad4;
+  --ink: #0e0f0d;
+  --ivory: #f5f8f0;
+  --ivory-dark: #e0e8d4;
+  --charcoal: #141610;
+  --copper: #5aaa18;
+  --on-dark: rgba(245,248,240,0.82);
+  --dim: rgba(245,248,240,0.40);
+  --bd: rgba(120,200,50,0.15);
+  --bd-g: rgba(120,200,50,0.28);
+  --muted: #5a6650;
+  --text: #1a1f14;
 }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Manrope',sans-serif;background:var(--off-white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--ink);color:var(--ivory);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{text-decoration:none}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.22s;text-decoration:none;white-space:nowrap}
-.btn-lg{font-size:15px;padding:18px 40px;border-radius:50px}
-.btn-md{font-size:13px;padding:14px 30px;border-radius:50px}
-.btn-sm{font-size:12px;padding:11px 22px;border-radius:50px}
-.btn-green{background:var(--green);color:var(--black)}
-.btn-green:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 12px 36px rgba(120,200,50,0.35)}
-.btn-black{background:var(--black);color:#fff}
-.btn-black:hover{background:var(--black3);transform:translateY(-2px)}
-.btn-outline-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.28)}
-.btn-outline-w:hover{border-color:var(--green);color:var(--green)}
-.btn-outline-g{background:transparent;color:var(--black);border:2px solid rgba(14,15,13,0.22)}
-.btn-outline-g:hover{border-color:var(--green);color:var(--green-dark)}
+/* GEOMETRIC DECORATIONS */
+.deco-diamond{display:inline-block;width:6px;height:6px;background:var(--green);transform:rotate(45deg)}
+.deco-line{width:60px;height:1px;background:var(--green);display:inline-block;vertical-align:middle}
+.deco-ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:1.5rem auto}
 
-.stag{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
-.stag-bar{width:28px;height:3px;background:var(--green);border-radius:2px;flex-shrink:0}
-.stag-txt{font-size:11px;font-weight:900;letter-spacing:0.24em;text-transform:uppercase;color:var(--green)}
-.sec-h{font-family:'Fraunces',serif;font-size:clamp(34px,3.8vw,58px);font-weight:900;line-height:1.05}
-.sec-h em{font-style:italic;font-weight:300}
-.sec-p{font-size:16px;line-height:1.8;color:var(--muted);max-width:480px}
-.rv{opacity:0;transform:translateY(22px);transition:opacity 0.7s cubic-bezier(.22,.61,.36,1),transform 0.7s cubic-bezier(.22,.61,.36,1)}
-.rv.vis{opacity:1;transform:none}
+/* DIVIDER */
+.deco-divider{width:100%;display:flex;align-items:center;justify-content:center;gap:16px;padding:1.5rem 4rem}
+.deco-divider-line{flex:1;max-width:200px;height:1px;background:linear-gradient(to right,transparent,var(--green))}
+.deco-divider-line.rev{background:linear-gradient(to left,transparent,var(--green))}
+.deco-divider-center{display:flex;align-items:center;gap:8px}
+.deco-divider-center .d{width:5px;height:5px;background:var(--green);transform:rotate(45deg)}
+.deco-divider-center .d-sm{width:3px;height:3px;background:var(--green-light);transform:rotate(45deg)}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,15,13,0.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd);transition:background 0.3s}
-.nav-logo{display:flex;align-items:center;gap:10px}
+/* SECTION SHARED */
+.section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.section-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,4vw,3.2rem);font-weight:400;letter-spacing:0.05em;line-height:1.2;margin-bottom:1.5rem}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 4rem;height:72px;border-bottom:1px solid rgba(120,200,50,0.15);background:rgba(14,15,13,0.92);backdrop-filter:blur(8px)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-img{height:42px;width:auto;object-fit:contain;flex-shrink:0}
 .nav-wordmark{display:flex;flex-direction:column;line-height:1}
-.nav-name{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:#fff;letter-spacing:0.01em}
-.nav-tag{font-size:8.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--green);font-weight:800;margin-top:2px}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:13px;font-weight:600;color:var(--on-dark);transition:color 0.2s}
-.nav-links a:hover,.nav-links a.active{color:var(--green)}
+.nav-name{font-family:'Cinzel Decorative',serif;font-size:1.1rem;letter-spacing:0.15em;color:var(--green)}
+.nav-tag{font-family:'Cinzel',serif;font-size:0.45rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory-dark);margin-top:2px}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory-dark);text-decoration:none;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--green);transform:scaleX(0);transition:transform 0.3s}
+.nav-links a:hover,
+.nav-links a.active{color:var(--green)}
+.nav-links a:hover::after,
+.nav-links a.active::after{transform:scaleX(1)}
 .nav-right{display:flex;align-items:center;gap:16px}
-.nav-phone{font-size:14px;font-weight:800;color:var(--green)}
+.nav-phone{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;color:var(--green)}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--green);border-radius:2px}
 
-.mob-nav{position:fixed;inset:0;background:var(--black);z-index:300;display:flex;flex-direction:column;justify-content:center;padding:60px 36px;transform:translateX(100%);transition:transform 0.42s cubic-bezier(.22,.61,.36,1)}
+/* BTN */
+.btn-primary{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--ink);background:var(--green);border:none;padding:1rem 2.5rem;cursor:pointer;transition:background 0.3s,transform 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:9px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-primary:hover{background:var(--green-light);transform:translateY(-2px)}
+.btn-outline{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);background:transparent;border:1px solid rgba(120,200,50,0.3);padding:1rem 2.5rem;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:9px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
+.btn-sm{font-size:0.55rem;padding:0.7rem 1.5rem}
+
+/* MOB NAV */
+.mob-nav{position:fixed;inset:0;background:var(--ink);z-index:300;display:flex;flex-direction:column;justify-content:center;padding:60px 36px;transform:translateX(100%);transition:transform 0.42s cubic-bezier(.22,.61,.36,1)}
 .mob-nav.open{transform:none}
-.mob-close{position:absolute;top:22px;right:26px;background:none;border:none;font-size:28px;color:#fff;cursor:pointer}
+.mob-close{position:absolute;top:22px;right:26px;background:none;border:none;font-size:28px;color:var(--green);cursor:pointer}
 .mob-nav ul{list-style:none;display:flex;flex-direction:column}
-.mob-nav ul li a{display:block;font-family:'Fraunces',serif;font-size:44px;font-weight:900;color:#fff;padding:10px 0;border-bottom:1px solid var(--bd);transition:color 0.2s;line-height:1.2}
+.mob-nav ul li a{display:block;font-family:'Cinzel Decorative',serif;font-size:2.2rem;font-weight:400;color:var(--ivory);padding:10px 0;border-bottom:1px solid rgba(120,200,50,0.15);transition:color 0.2s;line-height:1.3}
 .mob-nav ul li a:hover{color:var(--green)}
-.mob-phone-big{margin-top:44px;font-size:15px;font-weight:900;color:var(--green)}
+.mob-phone-big{margin-top:44px;font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.2em;color:var(--green)}
 
-.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;padding:12px 16px;background:var(--black);border-top:2px solid var(--green);gap:10px}
-.sticky-bar a{flex:1;text-align:center;font-size:14px;font-weight:800;padding:14px 10px;border-radius:10px;letter-spacing:0.05em;text-transform:uppercase}
+/* STICKY BAR */
+.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;padding:12px 16px;background:var(--ink);border-top:1px solid var(--green);gap:10px}
+.sticky-bar a{flex:1;text-align:center;font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;padding:14px 10px}
 
-/* ── HERO ── */
-#hero{min-height:100vh;background:var(--black);position:relative;display:flex;align-items:center;overflow:hidden;padding-top:72px}
-#hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(120,200,50,0.08) 1px,transparent 1px);background-size:28px 28px}
-#hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:90px;background:var(--off-white);clip-path:polygon(0 100%,100% 0,100% 100%)}
-.hero-glow{position:absolute;top:-200px;right:-140px;width:720px;height:720px;border-radius:50%;background:radial-gradient(ellipse,rgba(120,200,50,0.11) 0%,transparent 65%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:0.7}50%{opacity:1}}
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1240px;margin:0 auto;padding:72px 60px 150px;width:100%}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px;background:var(--ink)}
+.hero-bg{position:absolute;inset:0;opacity:0.07;background-image:repeating-linear-gradient(45deg,var(--green) 0px,var(--green) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(-45deg,var(--green) 0px,var(--green) 1px,transparent 1px,transparent 40px)}
+.hero-bg-radial{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(120,200,50,0.06) 0%,transparent 70%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1240px;margin:0 auto;padding:72px 4rem 120px;width:100%}
 .hero-left{opacity:0;transform:translateY(24px);animation:fadeUp 0.9s cubic-bezier(.22,.61,.36,1) 0.15s forwards}
 .hero-right{opacity:0;transform:translateY(24px);animation:fadeUp 0.9s cubic-bezier(.22,.61,.36,1) 0.38s forwards}
-@keyframes fadeUp{to{opacity:1;transform:none}}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;padding:7px 16px;background:rgba(120,200,50,0.10);border:1px solid var(--bd-g);border-radius:50px;font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:24px}
-.hero-h1{font-family:'Fraunces',serif;font-size:clamp(44px,5.5vw,80px);font-weight:900;color:#fff;line-height:0.97;margin-bottom:20px}
-.hero-h1 em{font-style:italic;font-weight:300;color:var(--green)}
-.hero-sub{font-size:17px;color:var(--on-dark);line-height:1.75;margin-bottom:32px;font-weight:400;max-width:480px}
-.hero-bullets{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:36px}
-.hero-bullets li{display:flex;align-items:center;gap:11px;font-size:15px;color:var(--on-dark);font-weight:600}
-.hero-bullets li::before{content:'';display:block;width:20px;height:20px;border-radius:50%;background:rgba(120,200,50,0.18) url("data:image/svg+xml,%3Csvg width='11' height='11' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%2378c832' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;flex-shrink:0}
-.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.nudge{margin-top:16px;font-size:12px;color:var(--dim);font-weight:600;display:flex;align-items:center;gap:8px}
+
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
+.hero-h1{font-family:'Cinzel Decorative',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;line-height:0.95;letter-spacing:0.05em;color:var(--ivory);margin-bottom:1.5rem}
+.hero-h1 em{font-style:italic;font-weight:400;color:var(--green);font-family:'Cormorant Garamond',serif}
+.hero-sub{font-size:1.1rem;font-style:italic;line-height:1.8;color:rgba(245,248,240,0.65);margin-bottom:1.5rem;max-width:480px}
+.hero-bullets{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:1.5rem}
+.hero-bullets li{display:flex;align-items:center;gap:11px;font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--on-dark)}
+.hero-bullets li::before{content:'◆';color:var(--green);font-size:0.5rem;flex-shrink:0}
+.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:1rem}
+.nudge{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--dim);display:flex;align-items:center;gap:8px}
 .ndot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 
-/* hero right — concrete visual */
-.conc-visual{position:relative;width:100%;aspect-ratio:1;max-width:440px;margin:0 auto}
-.conc-img-main{border-radius:24px;overflow:hidden;aspect-ratio:4/3;position:relative}
+/* Trust box */
+.trust-box{padding:13px 18px;background:rgba(120,200,50,0.06);border:1px solid rgba(120,200,50,0.2);border-radius:0;clip-path:polygon(12px 0%,100% 0%,100% calc(100% - 12px),calc(100% - 12px) 100%,0% 100%,0% 12px);margin-bottom:1.5rem}
+.trust-box p{font-size:0.9rem;font-style:italic;color:var(--on-dark);margin-bottom:8px}
+.trust-badge{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--green);display:flex;align-items:center;gap:5px}
+
+/* Hero visual */
+.conc-visual{position:relative;width:100%;max-width:440px;margin:0 auto}
+.conc-img-main{overflow:hidden;aspect-ratio:4/3;position:relative;border:1px solid rgba(120,200,50,0.2);clip-path:polygon(20px 0%,100% 0%,100% calc(100% - 20px),calc(100% - 20px) 100%,0% 100%,0% 20px)}
 .conc-img-main img{width:100%;height:100%;object-fit:cover;filter:brightness(0.8)}
 .conc-img-main::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,15,13,0.5) 0%,transparent 50%)}
-.conc-stat-card{position:absolute;background:#fff;border-radius:16px;padding:14px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 16px 48px rgba(0,0,0,0.28)}
+.conc-stat-card{position:absolute;background:rgba(14,15,13,0.9);border:1px solid rgba(120,200,50,0.25);padding:14px 20px;display:flex;align-items:center;gap:12px;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px)}
 .csc-1{bottom:-20px;left:-20px;animation:float 4s ease-in-out infinite}
 .csc-2{top:-16px;right:-20px;animation:float 4s ease-in-out infinite;animation-delay:-2s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.csc-ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--green-pale)}
-.csc-val{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:var(--text);line-height:1}
-.csc-lbl{font-size:10px;font-weight:700;color:var(--muted);margin-top:2px}
+.csc-ico{width:38px;height:38px;border-radius:0;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(120,200,50,0.15)}
+.csc-val{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--green);line-height:1;letter-spacing:0.1em}
+.csc-lbl{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-top:2px}
 
-/* ── TRUST BAR ── */
-.trust-band{background:var(--black2);padding:0 60px}
+/* CORNER DECORATIONS */
+.card-corner{position:absolute;width:16px;height:16px;border-color:var(--green);border-style:solid;z-index:2;transition:width 0.3s,height 0.3s}
+.card-corner.tl{top:6px;left:6px;border-width:1px 0 0 1px}
+.card-corner.tr{top:6px;right:6px;border-width:1px 1px 0 0}
+.card-corner.bl{bottom:6px;left:6px;border-width:0 0 1px 1px}
+.card-corner.br{bottom:6px;right:6px;border-width:0 1px 1px 0}
+
+/* TRUST BAR */
+.trust-band{background:var(--charcoal);padding:0 4rem;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
 .trust-band-inner{max-width:1200px;margin:0 auto;display:flex;align-items:stretch;border-left:1px solid var(--bd);border-right:1px solid var(--bd)}
 .tb{flex:1;display:flex;align-items:center;gap:14px;padding:20px 26px;border-right:1px solid var(--bd)}
 .tb:last-child{border-right:none}
-.tb-ico{width:36px;height:36px;border-radius:10px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.tb-t{font-size:13px;font-weight:800;color:#fff;margin-bottom:2px}
-.tb-s{font-size:11px;color:var(--dim);font-weight:600}
+.tb-ico{width:36px;height:36px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tb-t{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:2px}
+.tb-s{font-size:0.75rem;color:var(--dim);font-style:italic}
 
-/* ── SERVICES GRID ── */
-.sec-pad{padding:96px 60px;position:relative;z-index:2}
-.sec-light{background:var(--off-white)}
-.sec-lighter{background:var(--light)}
-.sec-dark{background:var(--black)}
-.sec-dark2{background:var(--black2)}
+/* SECTIONS */
+.sec-pad{padding:7rem 4rem;position:relative;z-index:2}
+.sec-dark{background:var(--ink)}
+.sec-dark2{background:var(--charcoal)}
+.sec-light{background:var(--ivory)}
+.sec-lighter{background:var(--ivory-dark)}
+.sec-inner{max-width:1200px;margin:0 auto}
 
+/* Section headers */
+.stag{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.stag-bar{width:40px;height:1px;background:var(--green)}
+.stag-txt{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--green)}
+.sec-h{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,3.8vw,3rem);font-weight:400;line-height:1.1;letter-spacing:0.03em}
+.sec-h em{font-style:italic;font-weight:300;font-family:'Cormorant Garamond',serif}
+.sec-p{font-size:1rem;line-height:1.9;color:var(--muted);max-width:480px;font-style:italic}
+
+/* SERVICES GRID */
 .svc-hdr-2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:52px}
 .conc-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.csvc-card{background:#fff;border-radius:20px;padding:34px 28px;border:1.5px solid var(--bd-l);transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden}
-.csvc-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:var(--green);transition:width 0.4s}
-.csvc-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(120,200,50,0.18)}
-.csvc-card:hover::after{width:100%}
-.csvc-ico{width:50px;height:50px;border-radius:14px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.csvc-name{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
-.csvc-desc{font-size:13.5px;color:var(--muted);line-height:1.7}
-.csvc-card.dark-card{background:var(--black);border-color:var(--bd)}
-.csvc-card.dark-card .csvc-name{color:#fff}
-.csvc-card.dark-card .csvc-desc{color:rgba(255,255,255,0.55)}
+.csvc-card{position:relative;padding:34px 28px;border:1px solid rgba(120,200,50,0.15);transition:all 0.3s;cursor:pointer;overflow:hidden;background:var(--ivory);clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)}
+.csvc-card:hover{transform:translateY(-5px);border-color:rgba(120,200,50,0.4)}
+.csvc-ico{width:50px;height:50px;background:rgba(120,200,50,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.csvc-name{font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.15em;color:var(--text);margin-bottom:10px}
+.csvc-desc{font-size:0.9rem;color:var(--muted);line-height:1.7;font-style:italic}
+.csvc-card.dark-card{background:var(--charcoal);border-color:rgba(120,200,50,0.2)}
+.csvc-card.dark-card .csvc-name{color:var(--ivory)}
+.csvc-card.dark-card .csvc-desc{color:rgba(245,248,240,0.55)}
 .csvc-card.dark-card .csvc-ico{background:rgba(120,200,50,0.13)}
 
-/* ── PRICING SECTION ── */
+/* PRICING */
 .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 .price-cards{display:flex;flex-direction:column;gap:14px}
-.price-row{background:#fff;border-radius:16px;padding:20px 24px;border:1.5px solid var(--bd-l);display:flex;align-items:center;justify-content:space-between;gap:20px;transition:all 0.2s}
-.price-row:hover{border-color:rgba(120,200,50,0.3);transform:translateX(4px)}
-.pr-label{font-size:15px;font-weight:700;color:var(--text)}
-.pr-sub{font-size:12px;color:var(--muted);margin-top:3px}
-.pr-price{font-family:'Fraunces',serif;font-size:22px;font-weight:900;color:var(--green-dark);white-space:nowrap;flex-shrink:0}
-.price-note-box{background:var(--black3);border-radius:20px;padding:36px 32px;border:1px solid var(--bd)}
-.price-note-box h4{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:16px}
+.price-row{background:rgba(120,200,50,0.04);border:1px solid rgba(120,200,50,0.15);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;transition:all 0.2s;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px)}
+.price-row:hover{border-color:rgba(120,200,50,0.4);transform:translateX(4px)}
+.pr-label{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.1em;color:var(--ivory)}
+.pr-sub{font-size:0.8rem;color:var(--dim);margin-top:3px;font-style:italic}
+.pr-price{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--green);white-space:nowrap;flex-shrink:0}
+.price-note-box{background:var(--charcoal);border:1px solid var(--bd);padding:36px 32px;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)}
+.price-note-box h4{font-family:'Cinzel Decorative',serif;font-size:1.2rem;color:var(--ivory);margin-bottom:16px;letter-spacing:0.05em}
 .price-factor{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--bd)}
 .price-factor:last-child{border-bottom:none}
-.pf-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px}
-.pf-text{font-size:13.5px;color:var(--on-dark);line-height:1.55;font-weight:500}
+.pf-dot{width:6px;height:6px;background:var(--green);transform:rotate(45deg);flex-shrink:0;margin-top:7px}
+.pf-text{font-size:0.9rem;color:var(--on-dark);line-height:1.55;font-style:italic}
 
-/* ── WHY CHOOSE ── */
-.why-list{display:flex;flex-direction:column;gap:0}
-.why-item{display:flex;align-items:flex-start;gap:18px;padding:24px 0;border-bottom:1px solid var(--bd-l)}
-.why-item:last-child{border-bottom:none}
-.why-ico{width:46px;height:46px;border-radius:13px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.why-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px}
-.why-desc{font-size:13.5px;color:var(--muted);line-height:1.65}
-
-/* dark variant */
+/* WHY CHOOSE */
 .why-item-d{display:flex;align-items:flex-start;gap:18px;padding:22px 0;border-bottom:1px solid var(--bd)}
 .why-item-d:last-child{border-bottom:none}
-.why-ico-d{width:46px;height:46px;border-radius:13px;background:rgba(120,200,50,0.13);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.why-title-d{font-size:15px;font-weight:800;color:#fff;margin-bottom:5px}
-.why-desc-d{font-size:13.5px;color:var(--on-dark);line-height:1.65}
+.why-ico-d{width:46px;height:46px;background:rgba(120,200,50,0.13);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.why-title-d{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:5px}
+.why-desc-d{font-size:0.9rem;color:var(--on-dark);line-height:1.65;font-style:italic}
 
-/* ── PROJECTS ── */
+/* PROJECTS */
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.proj-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1.5px solid var(--bd-l);transition:all 0.28s}
-.proj-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.proj-img{aspect-ratio:4/3;overflow:hidden;background:#d8d5cf;position:relative}
+.proj-card{background:var(--charcoal);overflow:hidden;border:1px solid var(--bd);transition:all 0.28s;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)}
+.proj-card:hover{transform:translateY(-4px)}
+.proj-img{aspect-ratio:4/3;overflow:hidden;position:relative}
 .proj-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.85);transition:transform 0.4s}
 .proj-card:hover .proj-img img{transform:scale(1.04)}
-.proj-type{font-size:10px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
-.proj-title{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px}
-.proj-meta{font-size:12px;color:var(--muted);font-weight:600}
+.proj-type{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.proj-title{font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.1em;color:var(--ivory);margin-bottom:4px}
+.proj-meta{font-size:0.75rem;color:var(--dim);font-style:italic}
 .proj-info{padding:20px 22px}
 
-/* ── MID CTA BANNER ── */
-.mid-cta{background:var(--green);padding:60px;position:relative;overflow:hidden}
-.mid-cta::before{content:'';position:absolute;top:-100px;right:-80px;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,0.13)}
-.mid-cta::after{content:'';position:absolute;bottom:-70px;left:-50px;width:260px;height:260px;border-radius:50%;background:rgba(14,15,13,0.08)}
+/* QUOTE SECTION */
+.quote-section{background:linear-gradient(180deg,var(--charcoal) 0%,var(--ink) 100%);text-align:center;padding:6rem 4rem;position:relative;overflow:hidden}
+.quote-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 50% 0%,rgba(120,200,50,0.07) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 50% 100%,rgba(120,200,50,0.04) 0%,transparent 70%)}
+.quote-mark{font-family:'Cinzel Decorative',serif;font-size:6rem;line-height:0.6;color:rgba(120,200,50,0.15);margin-bottom:1rem}
+blockquote{font-size:clamp(1.1rem,2vw,1.5rem);font-style:italic;font-weight:300;line-height:1.7;max-width:700px;margin:0 auto 2rem;color:var(--ivory-dark);position:relative;z-index:1}
+.quote-attr{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.4em;color:var(--green);text-transform:uppercase}
+
+/* MID CTA */
+.mid-cta{background:var(--green);padding:60px 4rem;position:relative;overflow:hidden}
+.mid-cta::before{content:'';position:absolute;inset:0;opacity:0.08;background-image:repeating-linear-gradient(45deg,var(--ink) 0px,var(--ink) 1px,transparent 1px,transparent 30px),repeating-linear-gradient(-45deg,var(--ink) 0px,var(--ink) 1px,transparent 1px,transparent 30px)}
 .mid-cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;z-index:1;flex-wrap:wrap}
-.mid-cta h3{font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,48px);font-weight:900;color:var(--black);line-height:1.0}
-.mid-cta h3 em{font-style:italic;font-weight:300}
+.mid-cta h3{font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:400;color:var(--ink);line-height:1.1;letter-spacing:0.03em}
+.mid-cta h3 em{font-style:italic;font-weight:300;font-family:'Cormorant Garamond',serif}
 .mid-cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
 
-/* ── CONTACT FORM ── */
+/* CONTACT FORM */
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;max-width:1200px;margin:0 auto}
 .ci-items{margin-top:36px;display:flex;flex-direction:column}
-.ci-item{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--bd-l)}
-.ci-item:first-child{border-top:1px solid var(--bd-l)}
-.ci-ico{width:44px;height:44px;border-radius:12px;background:var(--green-pale);flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.ci-lbl{font-size:10px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-.ci-val{font-size:15px;font-weight:700;color:var(--text)}
+.ci-item{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--bd)}
+.ci-item:first-child{border-top:1px solid var(--bd)}
+.ci-ico{width:44px;height:44px;background:rgba(120,200,50,0.1);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.ci-lbl{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.ci-val{font-size:0.95rem;font-weight:600;color:var(--text)}
 .ci-val a{color:var(--text);transition:color 0.2s}
-.ci-val a:hover{color:var(--green-dark)}
-.cform{background:var(--black);border-radius:24px;padding:48px 42px}
-.cform-h{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:4px}
-.cform-sub{font-size:13px;color:var(--dim);margin-bottom:30px}
+.ci-val a:hover{color:var(--copper)}
+.cform{background:var(--ink);border:1px solid var(--bd);padding:48px 42px;clip-path:polygon(20px 0%,100% 0%,100% calc(100% - 20px),calc(100% - 20px) 100%,0% 100%,0% 20px)}
+.cform-h{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--ivory);margin-bottom:4px;letter-spacing:0.05em}
+.cform-sub{font-size:0.85rem;color:var(--dim);margin-bottom:30px;font-style:italic}
 .fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fg-g{display:flex;flex-direction:column;gap:6px}
 .fg-g.full{grid-column:1/-1}
-.fg-g label{font-size:10px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.36)}
-.fg-g input,.fg-g select,.fg-g textarea{padding:13px 16px;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.09);border-radius:12px;font-family:'Manrope',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color 0.2s}
-.fg-g input::placeholder,.fg-g textarea::placeholder{color:rgba(255,255,255,0.2)}
+.fg-g label{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,248,240,0.36)}
+.fg-g input,.fg-g select,.fg-g textarea{padding:13px 16px;background:rgba(120,200,50,0.03);border:1px solid rgba(120,200,50,0.12);font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ivory);outline:none;transition:border-color 0.2s}
+.fg-g input::placeholder,.fg-g textarea::placeholder{color:rgba(245,248,240,0.2)}
 .fg-g input:focus,.fg-g select:focus,.fg-g textarea:focus{border-color:var(--green)}
-.fg-g select option{background:var(--black2)}
+.fg-g select option{background:var(--charcoal)}
 .fg-g textarea{resize:none;height:100px}
-.fsub{width:100%;padding:17px;background:var(--green);color:var(--black);font-family:'Manrope',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;border:none;border-radius:12px;cursor:pointer;transition:all 0.22s}
-.fsub:hover{background:var(--green-dark)}
-.form-g{display:flex;align-items:center;gap:8px;margin-top:11px;font-size:11px;color:var(--dim);font-weight:600}
+.fsub{width:100%;padding:17px;background:var(--green);color:var(--ink);font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.22s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.fsub:hover{background:var(--green-light)}
+.form-g{display:flex;align-items:center;gap:8px;margin-top:11px;font-size:0.75rem;color:var(--dim);font-style:italic}
 
-/* ── FOOTER ── */
-footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(--bd)}
-.foot-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--bd);margin-bottom:32px}
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:68px 4rem 36px}
+.foot-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--bd);margin-bottom:32px}
 .foot-logo-img{height:38px;width:auto;object-fit:contain;margin-bottom:14px}
-.foot-brand p{font-size:13px;color:var(--dim);line-height:1.8;max-width:240px}
-.foot-col h5{font-size:10px;font-weight:900;letter-spacing:0.24em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.foot-brand p{font-size:0.85rem;color:var(--dim);line-height:1.8;max-width:240px;font-style:italic}
+.foot-col h5{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.foot-col ul li a{font-size:13px;color:var(--dim);font-weight:500;transition:color 0.2s}
-.foot-col ul li a:hover{color:#fff}
+.foot-col ul li a{font-size:0.85rem;color:var(--dim);transition:color 0.2s}
+.foot-col ul li a:hover{color:var(--ivory)}
 .foot-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.foot-copy{font-size:11.5px;color:var(--dim)}
+.foot-copy{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.2em;color:rgba(245,248,240,0.25);text-transform:uppercase}
 .foot-links{display:flex;gap:20px}
-.foot-links a{font-size:11.5px;color:var(--dim);transition:color 0.2s}
-.foot-links a:hover{color:#fff}
+.foot-links a{font-size:0.75rem;color:var(--dim);transition:color 0.2s}
+.foot-links a:hover{color:var(--ivory)}
 
-/* ── RESPONSIVE ── */
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Google trust card (dark variant) */
+.google-trust{display:flex;align-items:center;gap:14px;margin-top:18px;padding:12px 18px;background:rgba(120,200,50,0.04);border:1px solid rgba(120,200,50,0.15);width:fit-content;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px)}
+.google-trust .rating{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--ivory)}
+.google-trust .stars{font-size:0.85rem;color:#fbbc05;letter-spacing:1px}
+.google-trust .count{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--dim)}
+
+/* SERVICE AREA CHIPS */
+.sarea-chips{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.sarea-chip{background:rgba(120,200,50,0.04);border:1px solid rgba(120,200,50,0.15);padding:18px;text-align:center;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px)}
+.sarea-chip .city{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:4px}
+.sarea-chip .desc{font-size:0.8rem;color:var(--dim);font-style:italic}
+
+/* FAQ */
+.faq-conc .faq-item{border-bottom:1px solid var(--bd);overflow:hidden}
+.faq-conc .faq-item:first-child{border-top:1px solid var(--bd)}
+.faq-q-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.1em;color:var(--text);transition:color 0.2s}
+.faq-q-btn:hover{color:var(--copper)}
+.faq-a-panel{max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1)}
+.faq-a-content{padding:0 0 20px;font-size:0.95rem;color:var(--muted);line-height:1.75;font-style:italic}
+
+/* RESPONSIVE */
 @media(max-width:1024px){
-  nav,.trust-band,.sec-pad,footer{padding-left:32px;padding-right:32px}
+  nav,.trust-band,.sec-pad,footer,.mid-cta{padding-left:32px;padding-right:32px}
   .foot-top{grid-template-columns:1fr 1fr!important;gap:36px!important}
-  .hero-inner{padding:60px 32px 150px;grid-template-columns:1fr;gap:60px}
+  .hero-inner{padding:60px 32px 120px;grid-template-columns:1fr;gap:60px}
   .svc-hdr-2,.pricing-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
   .conc-svc-grid,.proj-grid{grid-template-columns:repeat(2,1fr)}
-  .foot-top{grid-template-columns:1fr 1fr;gap:36px}
   .nav-links{display:none}
   .nav-right{display:none}
   .hamburger{display:flex}
-  .mid-cta{padding:48px 32px}
+  .deco-divider{padding:1.5rem 32px}
+  .quote-section{padding:6rem 32px}
+  .sarea-chips{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:640px){
   nav{padding:0 18px;height:64px}
   .nav-logo-img{height:34px}
-  .hero-inner,.sec-pad,.trust-band,footer{padding-left:18px;padding-right:18px}
-  .hero-inner{padding-top:48px;padding-bottom:130px}
-  .hero-h1{font-size:clamp(32px,9vw,48px)}
+  .hero-inner,.sec-pad,.trust-band,footer,.mid-cta{padding-left:18px;padding-right:18px}
+  .hero-inner{padding-top:48px;padding-bottom:100px}
   .conc-svc-grid,.proj-grid,.fg{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr}
   .hero-ctas{flex-direction:column;width:100%}
-  .hero-ctas .btn{width:100%;justify-content:center}
-  .btn-lg{font-size:14px;padding:16px 24px}
-  .btn-md{font-size:12px;padding:12px 20px}
-  .mid-cta{padding:36px 18px}
+  .hero-ctas a{width:100%;justify-content:center}
   .mid-cta-inner{flex-direction:column;align-items:flex-start}
   .mid-cta-btns{flex-direction:column;width:100%}
   .mid-cta-btns a{width:100%;justify-content:center}
@@ -294,12 +346,17 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
   .tb{width:100%;border-right:none;border-bottom:1px solid var(--bd)}
   .foot-bottom{flex-direction:column;align-items:flex-start}
   .cform{padding:32px 20px}
-  .sec-h{font-size:clamp(28px,7vw,42px)}
-  .sec-p{font-size:14px}
-  .mob-nav ul li a{font-size:32px}
-  .hero-service-area{flex-direction:column;align-items:flex-start}
-  .area-dots{flex-wrap:wrap}
-  .area-dot{font-size:10px;padding:3px 9px}
+  .deco-divider{padding:1.5rem 18px}
+  .quote-section{padding:4rem 18px}
+  .sarea-chips{grid-template-columns:repeat(2,1fr)}
+  .mob-nav ul li a{font-size:1.8rem}
+  .google-trust{width:100%}
+}
+@media(max-width:768px){
+  .fails-grid{grid-template-columns:1fr!important;gap:40px!important}
+  .why-two-col{grid-template-columns:1fr!important;gap:40px!important}
+  .rev-3-grid{grid-template-columns:1fr!important}
+  .intlink-grid{grid-template-columns:1fr!important}
 }
 </style>
 </head>
@@ -319,8 +376,8 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
 
 <!-- STICKY BAR -->
 <div class="sticky-bar">
-  <a href="tel:4054122924" class="btn btn-green">📞 Call Now</a>
-  <a href="#contact" class="btn btn-black">Get Estimate</a>
+  <a href="tel:4054122924" class="btn-primary" style="flex:1;justify-content:center">📞 Call Now</a>
+  <a href="#contact" class="btn-outline" style="flex:1;justify-content:center;color:var(--ivory)">Get Estimate</a>
 </div>
 
 <!-- NAV -->
@@ -341,23 +398,40 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
   </ul>
   <div class="nav-right">
     <a class="nav-phone" href="tel:4054122924">(405) 412-2924</a>
-    <a class="btn btn-sm btn-green" href="#contact">Get Estimate</a>
+    <a class="btn-primary btn-sm" href="#contact">Get Estimate</a>
   </div>
   <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ══ HERO ══ -->
-<section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-radial"></div>
 
+  <!-- Rotating geometric ring -->
+  <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:rotateSlow 40s linear infinite;opacity:0.05;pointer-events:none" width="700" height="700" viewBox="0 0 700 700">
+    <polygon points="350,20 680,192 680,508 350,680 20,508 20,192" fill="none" stroke="#78c832" stroke-width="1"/>
+    <polygon points="350,60 640,212 640,488 350,640 60,488 60,212" fill="none" stroke="#78c832" stroke-width="0.5"/>
+    <polygon points="350,100 600,232 600,468 350,600 100,468 100,232" fill="none" stroke="#78c832" stroke-width="0.3"/>
+  </svg>
+  <style>@keyframes rotateSlow{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}</style>
+
+  <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#78c832" stroke-width="2"/><path d="M2 11h20" stroke="#78c832" stroke-width="2"/></svg>
-        Residential &amp; Commercial Concrete
+      <div class="hero-eyebrow">
+        <span class="deco-diamond"></span>
+        <span>Residential &amp; Commercial Concrete</span>
+        <span class="deco-diamond"></span>
       </div>
       <h1 class="hero-h1">Concrete Done<br><em>Right</em> — Built<br>to Last.</h1>
+
+      <div class="deco-ornament" style="justify-content:flex-start;margin:1rem 0">
+        <div class="deco-line" style="max-width:40px"></div>
+        <div class="deco-diamond"></div>
+      </div>
+
       <p class="hero-sub">Driveways, patios, sidewalks, slabs, and commercial flatwork. Tear-out, prep, pour, and finish — handled by one crew, from start to finish.</p>
+
       <ul class="hero-bullets">
         <li>New concrete installation — any size job</li>
         <li>Tear-out and full replacement</li>
@@ -366,48 +440,33 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
         <li>Residential and commercial work</li>
       </ul>
 
-      <!-- near-me + trust -->
-      <div style="margin-bottom:24px;padding:13px 18px;background:rgba(120,200,50,0.08);border:1px solid rgba(120,200,50,0.2);border-radius:12px;">
-        <div style="font-size:13px;color:var(--on-dark);font-weight:600;margin-bottom:8px;font-style:italic;">Searching for a concrete contractor near you? Sparrow serves OKC, Yukon, Edmond, Moore &amp; Norman.</div>
+      <div class="trust-box">
+        <p>Searching for a concrete contractor near you? Sparrow serves OKC, Yukon, Edmond, Moore &amp; Norman.</p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;">
-          <span style="font-size:12px;color:var(--green);font-weight:800;display:flex;align-items:center;gap:5px;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg>
-            Fully licensed &amp; insured
-          </span>
-          <span style="font-size:12px;color:var(--green);font-weight:800;display:flex;align-items:center;gap:5px;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg>
-            Serving Oklahoma since 2007
-          </span>
+          <span class="trust-badge">◆ Fully licensed &amp; insured</span>
+          <span class="trust-badge">◆ Serving Oklahoma since 2007</span>
         </div>
       </div>
 
       <div class="hero-ctas">
-        <a class="btn btn-lg btn-green" href="#contact">
-          Get Concrete Estimate
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a class="btn btn-lg btn-outline-w" href="tel:4054122924">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M14 10.67c-1.06 0-2.09-.17-3.05-.48a.92.92 0 00-.95.23L8.45 11.9A11.04 11.04 0 014.1 7.55l1.44-1.6a.93.93 0 00.23-.96A9.63 9.63 0 015.3 2C5.3 1.45 4.85 1 4.3 1H2C1.45 1 1 1.45 1 2c0 7.18 5.82 13 13 13 .55 0 1-.45 1-1v-2.33c0-.55-.45-1-1-1z" fill="currentColor"/></svg>
-          (405) 412-2924
-        </a>
+        <a class="btn-primary" href="#contact">Get Concrete Estimate →</a>
+        <a class="btn-outline" href="tel:4054122924">(405) 412-2924</a>
       </div>
-      <div class="nudge">
+      <div class="nudge" style="margin-top:16px">
         <span class="ndot"></span>
         Trusted by homeowners &amp; businesses across Oklahoma since 2007
       </div>
-      <!-- Google trust signal -->
-      <div style="display:flex;align-items:center;gap:14px;margin-top:18px;padding:12px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);border-radius:12px;width:fit-content">
+
+      <div class="google-trust">
         <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:#fff">4.9</span>
-          <span style="font-size:14px;color:#fbbc05;letter-spacing:1px">★★★★★</span>
-          <span style="font-size:12px;color:var(--dim);font-weight:600">100+ Google reviews</span>
-        </div>
+        <span class="rating">4.9</span>
+        <span class="stars">★★★★★</span>
+        <span class="count">100+ Google reviews</span>
       </div>
-      <!-- Urgency -->
-      <div style="margin-top:14px;display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(120,200,50,0.85);font-weight:700;letter-spacing:0.04em">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#78c832" stroke-width="2" stroke-linecap="round"/></svg>
-        Currently scheduling 1–2 weeks out — secure your spot now
+
+      <div style="margin-top:14px;display:flex;align-items:center;gap:8px">
+        <span class="deco-diamond" style="width:4px;height:4px"></span>
+        <span style="font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:rgba(120,200,50,0.85)">Currently scheduling 1–2 weeks out — secure your spot now</span>
       </div>
     </div>
 
@@ -417,571 +476,398 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
           <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Concrete driveway installation" loading="eager">
         </div>
         <div class="conc-stat-card csc-1">
-          <div class="csc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div>
+          <div class="csc-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div>
           <div><div class="csc-val">1 Crew</div><div class="csc-lbl">Start to Finish</div></div>
         </div>
         <div class="conc-stat-card csc-2">
-          <div class="csc-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#78c832" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <div class="csc-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div>
           <div><div class="csc-val">18+ yrs</div><div class="csc-lbl">Oklahoma Contractor</div></div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
+
+<!-- DIVIDER -->
+<div class="deco-divider" style="background:var(--charcoal)">
+  <div class="deco-divider-line"></div>
+  <div class="deco-divider-center"><div class="d-sm d"></div><div class="d"></div><div class="d-sm d"></div></div>
+  <div class="deco-divider-line rev"></div>
+</div>
 
 <!-- TRUST BAR -->
 <div class="trust-band">
   <div class="trust-band-inner">
-    <div class="tb rv"><div class="tb-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="tb-t">Proper Prep First</div><div class="tb-s">Base, grading &amp; compaction</div></div></div>
-    <div class="tb rv"><div class="tb-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#78c832" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="tb-t">Clean Forms &amp; Finish</div><div class="tb-s">Professional edges &amp; surface</div></div></div>
-    <div class="tb rv"><div class="tb-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="tb-t">Residential &amp; Commercial</div><div class="tb-s">Any size flatwork project</div></div></div>
-    <div class="tb rv"><div class="tb-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#78c832" stroke-width="2" stroke-linecap="round"/></svg></div><div><div class="tb-t">Reliable Scheduling</div><div class="tb-s">On time, every time</div></div></div>
-    <div class="tb rv"><div class="tb-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="tb-t">Licensed &amp; Insured</div><div class="tb-s">Oklahoma contractor since 2007</div></div></div>
+    <div class="tb reveal"><div class="tb-ico"><span class="deco-diamond" style="width:6px;height:6px"></span></div><div><div class="tb-t">Proper Prep First</div><div class="tb-s">Base, grading &amp; compaction</div></div></div>
+    <div class="tb reveal"><div class="tb-ico"><span class="deco-diamond" style="width:6px;height:6px"></span></div><div><div class="tb-t">Clean Forms &amp; Finish</div><div class="tb-s">Professional edges &amp; surface</div></div></div>
+    <div class="tb reveal"><div class="tb-ico"><span class="deco-diamond" style="width:6px;height:6px"></span></div><div><div class="tb-t">Residential &amp; Commercial</div><div class="tb-s">Any size flatwork project</div></div></div>
+    <div class="tb reveal"><div class="tb-ico"><span class="deco-diamond" style="width:6px;height:6px"></span></div><div><div class="tb-t">Reliable Scheduling</div><div class="tb-s">On time, every time</div></div></div>
+    <div class="tb reveal"><div class="tb-ico"><span class="deco-diamond" style="width:6px;height:6px"></span></div><div><div class="tb-t">Licensed &amp; Insured</div><div class="tb-s">Oklahoma contractor since 2007</div></div></div>
   </div>
 </div>
 
 <!-- ══ CONCRETE SERVICES ══ -->
 <section class="sec-pad sec-light" id="services">
-  <div style="max-width:1200px;margin:0 auto">
+  <div class="sec-inner">
     <div class="svc-hdr-2">
-      <div class="rv">
+      <div class="reveal">
         <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Concrete Services</div></div>
-        <h2 class="sec-h">Every Type of<br><em>Concrete Work</em><br>We Handle.</h2>
+        <h2 class="sec-h" style="color:var(--text)">Every Type of<br><em>Concrete Work</em><br>We Handle.</h2>
       </div>
-      <div class="rv">
+      <div class="reveal">
         <p class="sec-p">Whether you need a new driveway, a replacement slab, or large-scale commercial flatwork — we bring the crew, equipment, and experience to do it right.</p>
-        <a class="btn btn-md btn-green" href="#contact" style="margin-top:22px;display:inline-flex">Request Concrete Quote</a>
+        <a class="btn-primary" href="#contact" style="margin-top:22px">Request Concrete Quote</a>
       </div>
     </div>
-    <div class="conc-svc-grid rv">
-
+    <div class="conc-svc-grid reveal">
       <div class="csvc-card dark-card">
-        <div class="csvc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="1" y="10" width="22" height="8" rx="2" stroke="#78c832" stroke-width="1.8"/><path d="M5 10V8a2 2 0 012-2h10a2 2 0 012 2v2M8 18v2M16 18v2" stroke="#78c832" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="csvc-ico"><span class="deco-diamond" style="width:10px;height:10px"></span></div>
         <div class="csvc-name">Driveways</div>
         <p class="csvc-desc">New pours and full replacements. We handle tear-out of old material, proper grading, compaction, rebar if needed, and a clean professional finish.</p>
       </div>
-
       <div class="csvc-card">
-        <div class="csvc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 17h18M3 17V7l9-4 9 4v10" stroke="#78c832" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="12" width="6" height="5" stroke="#78c832" stroke-width="1.8"/></svg></div>
+        <div class="csvc-ico"><span class="deco-diamond" style="width:10px;height:10px;background:var(--copper)"></span></div>
         <div class="csvc-name">Sidewalks</div>
         <p class="csvc-desc">Residential sidewalks, city code-compliant sections, replacement of cracked or heaved walks — installed to last and look right from day one.</p>
       </div>
-
       <div class="csvc-card">
-        <div class="csvc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="14" width="20" height="8" rx="2" stroke="#78c832" stroke-width="1.8"/><path d="M6 14V8a2 2 0 012-2h8a2 2 0 012 2v6" stroke="#78c832" stroke-width="1.8"/></svg></div>
+        <div class="csvc-ico"><span class="deco-diamond" style="width:10px;height:10px;background:var(--copper)"></span></div>
         <div class="csvc-name">Patios</div>
         <p class="csvc-desc">Outdoor concrete patios poured flat and level with a clean edge. We can broom finish, exposed aggregate, or smooth depending on your preference.</p>
       </div>
-
       <div class="csvc-card">
-        <div class="csvc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="18" width="20" height="4" rx="1" stroke="#78c832" stroke-width="1.8"/><path d="M4 18V8M20 18V8M4 8h16" stroke="#78c832" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="csvc-ico"><span class="deco-diamond" style="width:10px;height:10px;background:var(--copper)"></span></div>
         <div class="csvc-name">Foundations &amp; Slabs</div>
         <p class="csvc-desc">Shop slabs, garage slabs, building foundations, and accessory structure pads — poured to spec with proper depth, vapor barrier, and reinforcement.</p>
       </div>
-
       <div class="csvc-card dark-card">
-        <div class="csvc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="18" rx="2" stroke="#78c832" stroke-width="1.8"/><path d="M2 9h20M2 15h20M9 3v18M15 3v18" stroke="#78c832" stroke-width="1.8"/></svg></div>
+        <div class="csvc-ico"><span class="deco-diamond" style="width:10px;height:10px"></span></div>
         <div class="csvc-name">Commercial Flatwork</div>
         <p class="csvc-desc">Parking lots, loading areas, warehouse floors, and large-scale commercial pours. We have the crew size and equipment to handle volume jobs efficiently.</p>
       </div>
-
       <div class="csvc-card">
-        <div class="csvc-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6l9-3 9 3v6c0 5-4 9-9 10C7 21 3 17 3 12V6z" stroke="#78c832" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="csvc-ico"><span class="deco-diamond" style="width:10px;height:10px;background:var(--copper)"></span></div>
         <div class="csvc-name">Concrete Replacement</div>
         <p class="csvc-desc">Cracked, heaved, or deteriorated concrete? We demo and haul the old material, re-prep the base, and pour fresh — like it was never there.</p>
       </div>
-
     </div>
   </div>
 </section>
+
+<!-- DIVIDER -->
+<div class="deco-divider" style="background:var(--charcoal)">
+  <div class="deco-divider-line"></div>
+  <div class="deco-divider-center"><div class="d-sm d"></div><div class="d"></div><div class="d-sm d"></div></div>
+  <div class="deco-divider-line rev"></div>
+</div>
 
 <!-- ══ WHY CONCRETE FAILS ══ -->
 <section class="sec-pad sec-dark2" id="quality">
-  <div style="max-width:1200px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center" class="fails-grid rv">
-
-      <!-- Left: the problem -->
+  <div class="sec-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center" class="fails-grid reveal">
       <div>
         <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Why Quality Matters</div></div>
-        <h2 class="sec-h" style="color:#fff;margin-top:8px">Why Does <em style="color:var(--green)">Concrete Crack</em><br>and Fail?</h2>
-        <p style="font-size:15px;color:var(--on-dark);line-height:1.85;margin-top:16px">Most concrete failures aren't about the concrete itself — they're about the shortcuts taken before the pour. Cheap contractors skip the prep, rush the forms, and skip reinforcement. You end up paying twice.</p>
-
+        <h2 class="sec-h" style="color:var(--ivory)">Why Does <em style="color:var(--green)">Concrete Crack</em><br>and Fail?</h2>
+        <p style="font-size:1rem;color:var(--on-dark);line-height:1.85;margin-top:16px;font-style:italic">Most concrete failures aren't about the concrete itself — they're about the shortcuts taken before the pour. Cheap contractors skip the prep, rush the forms, and skip reinforcement. You end up paying twice.</p>
         <div style="margin-top:28px;display:flex;flex-direction:column;gap:0">
           <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--bd)">
-            <div style="width:40px;height:40px;border-radius:10px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#e05252" stroke-width="2" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#e05252" stroke-width="1.8"/></svg>
-            </div>
-            <div>
-              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Poor Base Prep &amp; No Compaction</div>
-              <div style="font-size:13px;color:var(--on-dark);line-height:1.6">Soft or unstable sub-base is the #1 cause of cracking and settlement. If the ground underneath shifts, the concrete above cracks — guaranteed.</div>
-            </div>
+            <div style="width:40px;height:40px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:#e05252;font-size:1.2rem">✕</span></div>
+            <div><div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ivory);margin-bottom:4px">Poor Base Prep &amp; No Compaction</div><div style="font-size:0.85rem;color:var(--on-dark);line-height:1.6;font-style:italic">Soft or unstable sub-base is the #1 cause of cracking and settlement. If the ground underneath shifts, the concrete above cracks — guaranteed.</div></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--bd)">
-            <div style="width:40px;height:40px;border-radius:10px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#e05252" stroke-width="2" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#e05252" stroke-width="1.8"/></svg>
-            </div>
-            <div>
-              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Skipping Reinforcement</div>
-              <div style="font-size:13px;color:var(--on-dark);line-height:1.6">Unreinforced concrete handles compression well but fails under tensile stress. Rebar or wire mesh isn't optional on driveways and slabs — it's what holds things together over time.</div>
-            </div>
+            <div style="width:40px;height:40px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:#e05252;font-size:1.2rem">✕</span></div>
+            <div><div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ivory);margin-bottom:4px">Skipping Reinforcement</div><div style="font-size:0.85rem;color:var(--on-dark);line-height:1.6;font-style:italic">Unreinforced concrete handles compression well but fails under tensile stress. Rebar or wire mesh isn't optional on driveways and slabs — it's what holds things together over time.</div></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--bd)">
-            <div style="width:40px;height:40px;border-radius:10px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#e05252" stroke-width="2" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#e05252" stroke-width="1.8"/></svg>
-            </div>
-            <div>
-              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Wrong Mix or Rushed Cure</div>
-              <div style="font-size:13px;color:var(--on-dark);line-height:1.6">Adding too much water to the mix weakens it significantly. Not allowing proper cure time leads to surface scaling and premature deterioration — especially in Oklahoma's heat.</div>
-            </div>
+            <div style="width:40px;height:40px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:#e05252;font-size:1.2rem">✕</span></div>
+            <div><div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ivory);margin-bottom:4px">Wrong Mix or Rushed Cure</div><div style="font-size:0.85rem;color:var(--on-dark);line-height:1.6;font-style:italic">Adding too much water to the mix weakens it significantly. Not allowing proper cure time leads to surface scaling and premature deterioration — especially in Oklahoma's heat.</div></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;padding:18px 0">
-            <div style="width:40px;height:40px;border-radius:10px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="#e05252" stroke-width="2" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#e05252" stroke-width="1.8"/></svg>
-            </div>
-            <div>
-              <div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Sloppy Forming &amp; Drainage Ignored</div>
-              <div style="font-size:13px;color:var(--on-dark);line-height:1.6">Poorly set forms mean uneven thickness. No drainage plan means water pools and works its way underneath — the freeze-thaw cycle in Oklahoma winters does the rest.</div>
-            </div>
+            <div style="width:40px;height:40px;background:rgba(220,50,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="color:#e05252;font-size:1.2rem">✕</span></div>
+            <div><div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ivory);margin-bottom:4px">Sloppy Forming &amp; Drainage Ignored</div><div style="font-size:0.85rem;color:var(--on-dark);line-height:1.6;font-style:italic">Poorly set forms mean uneven thickness. No drainage plan means water pools and works its way underneath — the freeze-thaw cycle in Oklahoma winters does the rest.</div></div>
           </div>
         </div>
       </div>
-
-      <!-- Right: Sparrow's solution -->
-      <div style="background:rgba(120,200,50,0.06);border:1.5px solid var(--bd-g);border-radius:24px;padding:44px 40px">
-        <div style="font-size:10px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);margin-bottom:16px">The Sparrow Standard</div>
-        <h3 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:20px">Proper Prep. Proper Reinforcement. <em style="font-style:italic;font-weight:300">No Shortcuts.</em></h3>
+      <div style="background:rgba(120,200,50,0.04);border:1px solid var(--bd-g);padding:44px 40px;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)">
+        <p class="section-label">◆ &nbsp; The Sparrow Standard</p>
+        <h3 style="font-family:'Cinzel Decorative',serif;font-size:1.4rem;color:var(--ivory);line-height:1.15;margin-bottom:20px;letter-spacing:0.03em">Proper Prep. Proper Reinforcement. <em style="font-style:italic;font-weight:300;font-family:'Cormorant Garamond',serif">No Shortcuts.</em></h3>
         <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:32px">
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <svg style="flex-shrink:0;margin-top:2px" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg>
-            <span style="font-size:14px;color:var(--on-dark);font-weight:600;line-height:1.55">We grade, compact, and inspect the base before we set a single form</span>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <svg style="flex-shrink:0;margin-top:2px" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg>
-            <span style="font-size:14px;color:var(--on-dark);font-weight:600;line-height:1.55">We use rebar or wire mesh on every driveway and structural slab — not as an upsell, as a standard</span>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <svg style="flex-shrink:0;margin-top:2px" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg>
-            <span style="font-size:14px;color:var(--on-dark);font-weight:600;line-height:1.55">We use proper mix designs and never dilute on site to speed up the pour</span>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <svg style="flex-shrink:0;margin-top:2px" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg>
-            <span style="font-size:14px;color:var(--on-dark);font-weight:600;line-height:1.55">We plan drainage into every job — so water goes where it's supposed to go, not under your slab</span>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <svg style="flex-shrink:0;margin-top:2px" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg>
-            <span style="font-size:14px;color:var(--on-dark);font-weight:600;line-height:1.55">We set forms clean and pull them clean — your edges will look right, not rough and ragged</span>
-          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span class="deco-diamond" style="width:5px;height:5px;margin-top:7px;flex-shrink:0"></span><span style="font-size:0.9rem;color:var(--on-dark);line-height:1.55;font-style:italic">We grade, compact, and inspect the base before we set a single form</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span class="deco-diamond" style="width:5px;height:5px;margin-top:7px;flex-shrink:0"></span><span style="font-size:0.9rem;color:var(--on-dark);line-height:1.55;font-style:italic">We use rebar or wire mesh on every driveway and structural slab — not as an upsell, as a standard</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span class="deco-diamond" style="width:5px;height:5px;margin-top:7px;flex-shrink:0"></span><span style="font-size:0.9rem;color:var(--on-dark);line-height:1.55;font-style:italic">We use proper mix designs and never dilute on site to speed up the pour</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span class="deco-diamond" style="width:5px;height:5px;margin-top:7px;flex-shrink:0"></span><span style="font-size:0.9rem;color:var(--on-dark);line-height:1.55;font-style:italic">We plan drainage into every job — so water goes where it's supposed to go, not under your slab</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px"><span class="deco-diamond" style="width:5px;height:5px;margin-top:7px;flex-shrink:0"></span><span style="font-size:0.9rem;color:var(--on-dark);line-height:1.55;font-style:italic">We set forms clean and pull them clean — your edges will look right, not rough and ragged</span></div>
         </div>
-        <div style="padding:16px 20px;background:rgba(120,200,50,0.10);border-radius:12px;margin-bottom:28px">
-          <div style="font-size:13px;color:var(--green);font-weight:800;margin-bottom:4px">The result?</div>
-          <div style="font-size:14px;color:var(--on-dark);line-height:1.6;font-weight:500">Concrete that lasts 20–30 years without the cracking, heaving, or crumbling you see on cheaply done jobs. The upfront cost is similar — the long-term difference is enormous.</div>
+        <div style="padding:16px 20px;background:rgba(120,200,50,0.10);margin-bottom:28px">
+          <div style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--green);margin-bottom:4px">THE RESULT</div>
+          <div style="font-size:0.9rem;color:var(--on-dark);line-height:1.6;font-style:italic">Concrete that lasts 20–30 years without the cracking, heaving, or crumbling you see on cheaply done jobs. The upfront cost is similar — the long-term difference is enormous.</div>
         </div>
-        <a class="btn btn-md btn-green" href="#contact">Get a Proper Concrete Estimate</a>
+        <a class="btn-primary" href="#contact">Get a Proper Concrete Estimate</a>
       </div>
-
     </div>
   </div>
 </section>
-<style>@media(max-width:768px){.fails-grid{grid-template-columns:1fr!important;gap:40px!important}}</style>
 
 <!-- ══ PRICING ══ -->
-<section class="sec-pad sec-dark2" id="pricing">
-  <div style="max-width:1200px;margin:0 auto">
-    <div class="rv" style="text-align:center;max-width:560px;margin:0 auto 52px">
+<section class="sec-pad sec-dark" id="pricing">
+  <div class="sec-inner">
+    <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto 52px">
       <div class="stag" style="justify-content:center"><div class="stag-bar"></div><div class="stag-txt">Pricing Guide</div><div class="stag-bar"></div></div>
-      <h2 class="sec-h" style="color:#fff;margin-top:10px">What Does <em style="color:var(--green)">Concrete Cost</em><br>in Oklahoma?</h2>
-      <p style="font-size:15px;color:var(--on-dark);line-height:1.8;margin-top:14px">These are realistic starting ranges — not bait-and-switch lowball numbers. Final pricing depends on thickness, reinforcement, access, demo requirements, and site conditions. We'll give you a firm written quote after seeing the job.</p>
+      <h2 class="sec-h" style="color:var(--ivory)">What Does <em style="color:var(--green)">Concrete Cost</em><br>in Oklahoma?</h2>
+      <div class="deco-ornament"><div class="deco-line" style="max-width:60px"></div><div class="deco-diamond"></div><div class="deco-line" style="max-width:60px"></div></div>
+      <p style="font-size:1rem;color:var(--on-dark);line-height:1.8;font-style:italic">These are realistic starting ranges — not bait-and-switch lowball numbers. Final pricing depends on thickness, reinforcement, access, demo requirements, and site conditions. We'll give you a firm written quote after seeing the job.</p>
     </div>
-
-    <div class="pricing-grid rv">
+    <div class="pricing-grid reveal">
       <div class="price-cards">
-        <div class="price-row">
-          <div><div class="pr-label">Standard Driveway / Flatwork</div><div class="pr-sub">4" slab, broom finish, no rebar</div></div>
-          <div class="pr-price">$8–$12 /sq ft</div>
-        </div>
-        <div class="price-row">
-          <div><div class="pr-label">Reinforced Flatwork</div><div class="pr-sub">With rebar or wire mesh, 4–6"</div></div>
-          <div class="pr-price">$10–$15 /sq ft</div>
-        </div>
-        <div class="price-row">
-          <div><div class="pr-label">Demo + Replace</div><div class="pr-sub">Tear-out, haul, re-prep &amp; pour</div></div>
-          <div class="pr-price">$10–$18 /sq ft</div>
-        </div>
-        <div class="price-row">
-          <div><div class="pr-label">Foundations &amp; Slabs</div><div class="pr-sub">Deep pour, engineered specs</div></div>
-          <div class="pr-price">$12–$20 /sq ft</div>
-        </div>
-        <div class="price-row">
-          <div><div class="pr-label">Commercial Flatwork</div><div class="pr-sub">Varies by scope, thickness &amp; access</div></div>
-          <div class="pr-price">Call for quote</div>
-        </div>
-        <a class="btn btn-md btn-green" href="#contact" style="margin-top:8px;display:inline-flex;align-self:flex-start">
-          Get My Concrete Estimate
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </a>
+        <div class="price-row"><div><div class="pr-label">Standard Driveway / Flatwork</div><div class="pr-sub">4" slab, broom finish, no rebar</div></div><div class="pr-price">$8–$12 /sq ft</div></div>
+        <div class="price-row"><div><div class="pr-label">Reinforced Flatwork</div><div class="pr-sub">With rebar or wire mesh, 4–6"</div></div><div class="pr-price">$10–$15 /sq ft</div></div>
+        <div class="price-row"><div><div class="pr-label">Demo + Replace</div><div class="pr-sub">Tear-out, haul, re-prep &amp; pour</div></div><div class="pr-price">$10–$18 /sq ft</div></div>
+        <div class="price-row"><div><div class="pr-label">Foundations &amp; Slabs</div><div class="pr-sub">Deep pour, engineered specs</div></div><div class="pr-price">$12–$20 /sq ft</div></div>
+        <div class="price-row"><div><div class="pr-label">Commercial Flatwork</div><div class="pr-sub">Varies by scope, thickness &amp; access</div></div><div class="pr-price">Call for quote</div></div>
+        <a class="btn-primary" href="#contact" style="margin-top:8px;align-self:flex-start">Get My Concrete Estimate →</a>
       </div>
-
       <div class="price-note-box">
         <h4>What Affects Your Final Price</h4>
-        <div style="font-size:13px;color:var(--on-dark);margin-bottom:20px;line-height:1.65">Every concrete job is different. Here's what we look at when building your quote:</div>
-        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:#fff">Thickness</strong> — standard residential driveways are 4", commercial and heavy-load areas may need 6" or more</div></div>
-        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:#fff">Reinforcement</strong> — wire mesh or rebar adds cost but dramatically extends lifespan</div></div>
-        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:#fff">Demolition</strong> — tearing out existing concrete adds labor and haul-away cost</div></div>
-        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:#fff">Site access</strong> — tight spaces or slope can affect how we stage equipment</div></div>
-        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:#fff">Finish type</strong> — broom, smooth, exposed aggregate, or stamped affect labor time</div></div>
-        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:#fff">Site conditions</strong> — soft soil may require additional base material or compaction work</div></div>
+        <div style="font-size:0.85rem;color:var(--on-dark);margin-bottom:20px;line-height:1.65;font-style:italic">Every concrete job is different. Here's what we look at when building your quote:</div>
+        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:var(--ivory)">Thickness</strong> — standard residential driveways are 4", commercial and heavy-load areas may need 6" or more</div></div>
+        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:var(--ivory)">Reinforcement</strong> — wire mesh or rebar adds cost but dramatically extends lifespan</div></div>
+        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:var(--ivory)">Demolition</strong> — tearing out existing concrete adds labor and haul-away cost</div></div>
+        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:var(--ivory)">Site access</strong> — tight spaces or slope can affect how we stage equipment</div></div>
+        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:var(--ivory)">Finish type</strong> — broom, smooth, exposed aggregate, or stamped affect labor time</div></div>
+        <div class="price-factor"><div class="pf-dot"></div><div class="pf-text"><strong style="color:var(--ivory)">Site conditions</strong> — soft soil may require additional base material or compaction work</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══ MID CTA ══ -->
-<div class="mid-cta rv">
+<div class="mid-cta reveal">
   <div class="mid-cta-inner">
     <div>
-      <div style="font-size:10px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;color:rgba(14,15,13,0.5);margin-bottom:8px">Ready to Get Started?</div>
+      <p class="section-label" style="color:rgba(14,15,13,0.5)">◆ &nbsp; Ready to Get Started?</p>
       <h3>Get a Concrete <em>Estimate</em><br>This Week.</h3>
-      <div style="font-size:14px;color:rgba(14,15,13,0.58);font-weight:700;margin-top:8px">Fast turnaround. Straightforward pricing. No surprises.</div>
-      <div style="margin-top:10px;display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(14,15,13,0.5);font-weight:800">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(14,15,13,0.5)" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="rgba(14,15,13,0.5)" stroke-width="2" stroke-linecap="round"/></svg>
-        Currently scheduling 1–2 weeks out — limited spots available
-      </div>
+      <div style="font-size:0.9rem;color:rgba(14,15,13,0.58);margin-top:8px;font-style:italic">Fast turnaround. Straightforward pricing. No surprises.</div>
     </div>
     <div class="mid-cta-btns">
-      <a class="btn btn-lg btn-black" href="#contact">
-        Request Concrete Quote
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </a>
-      <a class="btn btn-lg btn-outline-g" href="tel:4054122924">Call (405) 412-2924</a>
+      <a class="btn-primary" href="#contact" style="background:var(--ink);color:var(--ivory)">Request Concrete Quote →</a>
+      <a class="btn-outline" href="tel:4054122924" style="color:var(--ink);border-color:rgba(14,15,13,0.3)">Call (405) 412-2924</a>
     </div>
   </div>
 </div>
 
 <!-- ══ PROJECTS ══ -->
-<section class="sec-pad sec-lighter" id="projects">
-  <div style="max-width:1200px;margin:0 auto">
+<section class="sec-pad" style="background:var(--ivory-dark)" id="projects">
+  <div class="sec-inner">
     <div class="svc-hdr-2" style="margin-bottom:48px">
-      <div class="rv">
-        <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Recent Work</div></div>
-        <h2 class="sec-h">Concrete We've<br><em>Poured</em> Across Oklahoma.</h2>
+      <div class="reveal">
+        <div class="stag"><div class="stag-bar" style="background:var(--copper)"></div><div class="stag-txt" style="color:var(--copper)">Recent Work</div></div>
+        <h2 class="sec-h" style="color:var(--text)">Concrete We've<br><em>Poured</em> Across Oklahoma.</h2>
       </div>
-      <div class="rv">
+      <div class="reveal">
         <p class="sec-p">Real jobs completed by our crew. Every project below started with a phone call — yours can too.</p>
-        <div style="display:flex;align-items:center;gap:8px;margin-top:14px;font-size:12px;color:var(--muted);font-weight:700">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M15 10l-4 4L7 10" stroke="#5a6650" stroke-width="2" stroke-linecap="round"/><path d="M12 3v11M3 21h18" stroke="#5a6650" stroke-width="2" stroke-linecap="round"/></svg>
-          Hover each card to see project details
-        </div>
       </div>
     </div>
-    <div class="proj-grid rv">
-
-      <!-- Project 1 -->
+    <div class="proj-grid reveal">
       <div class="proj-card">
-        <div class="proj-img" style="position:relative">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Driveway replacement Edmond" loading="lazy">
-          <!-- Before/After badge -->
-          <div style="position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2">
-            <span style="padding:4px 10px;background:rgba(14,15,13,0.75);color:#fff;border-radius:50px;font-size:10px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase">Before</span>
-            <span style="padding:4px 10px;background:var(--green);color:var(--black);border-radius:50px;font-size:10px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase">After ✓</span>
-          </div>
-          <!-- Photo placeholder note -->
-          <div style="position:absolute;bottom:10px;right:10px;background:rgba(14,15,13,0.6);padding:4px 10px;border-radius:8px;font-size:10px;color:rgba(255,255,255,0.7);font-weight:600">Replace with job photo</div>
-        </div>
+        <div class="proj-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Driveway replacement Edmond" loading="lazy"></div>
         <div class="proj-info">
           <div class="proj-type">Driveway Replacement</div>
           <div class="proj-title">Full Demo &amp; Repour — Edmond, OK</div>
           <div class="proj-meta" style="margin-bottom:10px">~1,200 sq ft · 4" reinforced · Broom finish</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.6">Old cracked concrete torn out, base re-graded and compacted, rebar installed, fresh pour completed in one day. Client had zero out-of-pocket surprises.</div>
+          <div style="font-size:0.85rem;color:var(--dim);line-height:1.6;font-style:italic">Old cracked concrete torn out, base re-graded and compacted, rebar installed, fresh pour completed in one day. Client had zero out-of-pocket surprises.</div>
         </div>
       </div>
-
-      <!-- Project 2 -->
       <div class="proj-card">
-        <div class="proj-img" style="position:relative">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Patio slab Yukon" loading="lazy">
-          <div style="position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2">
-            <span style="padding:4px 10px;background:rgba(14,15,13,0.75);color:#fff;border-radius:50px;font-size:10px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase">Before</span>
-            <span style="padding:4px 10px;background:var(--green);color:var(--black);border-radius:50px;font-size:10px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase">After ✓</span>
-          </div>
-          <div style="position:absolute;bottom:10px;right:10px;background:rgba(14,15,13,0.6);padding:4px 10px;border-radius:8px;font-size:10px;color:rgba(255,255,255,0.7);font-weight:600">Replace with job photo</div>
-        </div>
+        <div class="proj-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Patio slab Yukon" loading="lazy"></div>
         <div class="proj-info">
           <div class="proj-type">Outdoor Patio Slab</div>
           <div class="proj-title">New Patio Pour — Yukon, OK</div>
           <div class="proj-meta" style="margin-bottom:10px">~640 sq ft · Smooth finish · Integrated drain</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.6">Gravel patio replaced with a clean concrete slab. Proper drainage slope built in. Job completed in 2 days including cure check — no cracking at 6-month follow-up.</div>
+          <div style="font-size:0.85rem;color:var(--dim);line-height:1.6;font-style:italic">Gravel patio replaced with a clean concrete slab. Proper drainage slope built in. Job completed in 2 days including cure check — no cracking at 6-month follow-up.</div>
         </div>
       </div>
-
-      <!-- Project 3 -->
       <div class="proj-card">
-        <div class="proj-img" style="position:relative">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Commercial flatwork OKC" loading="lazy">
-          <div style="position:absolute;top:12px;left:12px;display:flex;gap:6px;z-index:2">
-            <span style="padding:4px 10px;background:rgba(14,15,13,0.75);color:#fff;border-radius:50px;font-size:10px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase">Before</span>
-            <span style="padding:4px 10px;background:var(--green);color:var(--black);border-radius:50px;font-size:10px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase">After ✓</span>
-          </div>
-          <div style="position:absolute;bottom:10px;right:10px;background:rgba(14,15,13,0.6);padding:4px 10px;border-radius:8px;font-size:10px;color:rgba(255,255,255,0.7);font-weight:600">Replace with job photo</div>
-        </div>
+        <div class="proj-img"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Commercial flatwork OKC" loading="lazy"></div>
         <div class="proj-info">
           <div class="proj-type">Commercial Flatwork</div>
           <div class="proj-title">Parking Lot Expansion — OKC</div>
           <div class="proj-meta" style="margin-bottom:10px">~8,400 sq ft · 6" with rebar · 3-day pour</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.6">Large-scale commercial pour staged across three days. Heavy equipment access planned, proper sub-base installed, and all expansion joints cut to spec. On schedule, no issues.</div>
+          <div style="font-size:0.85rem;color:var(--dim);line-height:1.6;font-style:italic">Large-scale commercial pour staged across three days. Heavy equipment access planned, proper sub-base installed, and all expansion joints cut to spec. On schedule, no issues.</div>
         </div>
       </div>
-
     </div>
-
-    <!-- CTA after projects -->
-    <div class="rv" style="margin-top:48px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:28px 36px;flex-wrap:wrap">
-      <div>
-        <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:5px">Want results like these on your property?</div>
-        <div style="font-size:13.5px;color:var(--muted)">We'll come out, assess your project, and give you a firm written estimate — usually within 48 hours.</div>
-      </div>
-      <a class="btn btn-md btn-green" href="#contact" style="flex-shrink:0">
-        Get Concrete Estimate
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </a>
-    </div>
-
   </div>
 </section>
 
-<!-- ══ WHY CHOOSE SPARROW FOR CONCRETE ══ -->
+<!-- ══ WHY CHOOSE SPARROW ══ -->
 <section class="sec-pad sec-dark" id="why">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="why-two-col">
-    <div class="rv">
+  <div class="sec-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start" class="why-two-col">
+    <div class="reveal">
       <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Why Sparrow</div></div>
-      <h2 class="sec-h" style="color:#fff;margin-top:8px">Why Choose Sparrow<br>for <em style="color:var(--green)">Concrete Work?</em></h2>
-      <p style="font-size:15px;color:var(--on-dark);line-height:1.85;margin-top:18px">Most concrete problems you see — cracks, heaving, settlement — start with bad prep. We don't skip steps. Here's what makes our work different:</p>
-      <a class="btn btn-md btn-green" href="#contact" style="margin-top:36px;display:inline-flex">Get Concrete Estimate</a>
+      <h2 class="sec-h" style="color:var(--ivory)">Why Choose Sparrow<br>for <em style="color:var(--green)">Concrete Work?</em></h2>
+      <div class="deco-ornament" style="justify-content:flex-start"><div class="deco-line" style="max-width:40px"></div><div class="deco-diamond"></div></div>
+      <p style="font-size:1rem;color:var(--on-dark);line-height:1.85;font-style:italic">Most concrete problems you see — cracks, heaving, settlement — start with bad prep. We don't skip steps. Here's what makes our work different:</p>
+      <a class="btn-primary" href="#contact" style="margin-top:36px">Get Concrete Estimate</a>
     </div>
-    <div class="rv">
-      <div class="why-list" style="margin-top:0">
-        <div class="why-item-d"><div class="why-ico-d"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="why-title-d">Proper Prep Before the Pour</div><div class="why-desc-d">We grade, compact, and set forms correctly before a single yard of concrete is placed. This is where most contractors cut corners. We don't.</div></div></div>
-        <div class="why-item-d"><div class="why-ico-d"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#78c832" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="why-title-d">Clean Forms and Professional Finish</div><div class="why-desc-d">Straight edges, consistent surface, and clean pull of forms. The finish matters — you'll see this concrete every day.</div></div></div>
-        <div class="why-item-d"><div class="why-ico-d"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="why-title-d">Residential and Commercial Capability</div><div class="why-desc-d">We pour everything from a single sidewalk section to full commercial parking lots — and we bring the right equipment for the scope.</div></div></div>
-        <div class="why-item-d"><div class="why-ico-d"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#78c832" stroke-width="2" stroke-linecap="round"/></svg></div><div><div class="why-title-d">Reliable Scheduling and Follow-Through</div><div class="why-desc-d">We show up when we say we will. Concrete has a pour window — we plan around weather and schedule to protect the job.</div></div></div>
-        <div class="why-item-d"><div class="why-ico-d"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#78c832" stroke-width="2" stroke-linejoin="round"/></svg></div><div><div class="why-title-d">Built for Long-Term Durability</div><div class="why-desc-d">We use proper mix designs, reinforcement where needed, and curing time. Good concrete should last 20–30 years. That's what we build toward.</div></div></div>
+    <div class="reveal">
+      <div style="margin-top:0">
+        <div class="why-item-d"><div class="why-ico-d"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="why-title-d">Proper Prep Before the Pour</div><div class="why-desc-d">We grade, compact, and set forms correctly before a single yard of concrete is placed. This is where most contractors cut corners. We don't.</div></div></div>
+        <div class="why-item-d"><div class="why-ico-d"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="why-title-d">Clean Forms and Professional Finish</div><div class="why-desc-d">Straight edges, consistent surface, and clean pull of forms. The finish matters — you'll see this concrete every day.</div></div></div>
+        <div class="why-item-d"><div class="why-ico-d"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="why-title-d">Residential and Commercial Capability</div><div class="why-desc-d">We pour everything from a single sidewalk section to full commercial parking lots — and we bring the right equipment for the scope.</div></div></div>
+        <div class="why-item-d"><div class="why-ico-d"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="why-title-d">Reliable Scheduling and Follow-Through</div><div class="why-desc-d">We show up when we say we will. Concrete has a pour window — we plan around weather and schedule to protect the job.</div></div></div>
+        <div class="why-item-d"><div class="why-ico-d"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="why-title-d">Built for Long-Term Durability</div><div class="why-desc-d">We use proper mix designs, reinforcement where needed, and curing time. Good concrete should last 20–30 years. That's what we build toward.</div></div></div>
       </div>
     </div>
   </div>
 </section>
-<style>@media(max-width:768px){.why-two-col{grid-template-columns:1fr!important;gap:40px!important}}</style>
 
 <!-- ══ REVIEWS ══ -->
 <section class="sec-pad sec-dark2" id="reviews">
-  <div style="max-width:1200px;margin:0 auto">
-    <div class="rv" style="text-align:center;max-width:540px;margin:0 auto 48px">
+  <div class="sec-inner">
+    <div class="reveal" style="text-align:center;max-width:540px;margin:0 auto 48px">
       <div class="stag" style="justify-content:center"><div class="stag-bar"></div><div class="stag-txt">Client Reviews</div><div class="stag-bar"></div></div>
-      <h2 class="sec-h" style="color:#fff;margin-top:10px">What Oklahoma Clients Say</h2>
-      <div style="display:inline-flex;align-items:center;gap:12px;margin-top:16px;background:rgba(255,255,255,0.05);padding:12px 20px;border-radius:50px;border:1px solid rgba(255,255,255,0.08)">
+      <h2 class="sec-h" style="color:var(--ivory)">What Oklahoma Clients Say</h2>
+      <div class="deco-ornament"><div class="deco-line" style="max-width:60px"></div><div class="deco-diamond"></div><div class="deco-line" style="max-width:60px"></div></div>
+      <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(120,200,50,0.05);padding:12px 20px;border:1px solid rgba(120,200,50,0.15)">
         <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        <span style="font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:#fff">4.9</span>
-        <span style="font-size:16px;color:var(--green);letter-spacing:2px">★★★★★</span>
-        <span style="font-size:12px;color:var(--dim);font-weight:600">94 Google reviews</span>
+        <span style="font-family:'Cinzel',serif;font-size:1.3rem;color:var(--ivory)">4.9</span>
+        <span style="font-size:1rem;color:var(--green);letter-spacing:2px">★★★★★</span>
+        <span style="font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--dim)">94 Google reviews</span>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;" class="rv rev-3-grid">
-      <div style="background:var(--green);border-radius:20px;padding:36px 30px">
-        <div style="font-size:14px;color:var(--black);letter-spacing:2px;margin-bottom:16px">★★★★★</div>
-        <p style="font-family:'Fraunces',serif;font-size:16px;font-style:italic;color:var(--black);line-height:1.7;margin-bottom:24px">"Had them pour a new driveway after the old one cracked from tree roots. They demoed everything, fixed the base, and poured in one day. Looks completely new. Neighbors keep asking who did it."</p>
-        <div style="display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;border-radius:50%;background:rgba(14,15,13,0.12);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:15px;font-weight:900;color:var(--black)">RB</div><div><div style="font-size:14px;font-weight:800;color:var(--black)">Robert B.</div><div style="font-size:11px;color:rgba(14,15,13,0.5);font-weight:600">Edmond, OK · Driveway replacement</div></div></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px" class="reveal rev-3-grid">
+      <div style="background:var(--green);padding:36px 30px;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)">
+        <div style="font-size:0.85rem;color:var(--ink);letter-spacing:2px;margin-bottom:16px">★★★★★</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:24px">"Had them pour a new driveway after the old one cracked from tree roots. They demoed everything, fixed the base, and poured in one day. Looks completely new. Neighbors keep asking who did it."</p>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;background:rgba(14,15,13,0.12);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:0.7rem;color:var(--ink)">RB</div><div><div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ink)">Robert B.</div><div style="font-size:0.7rem;color:rgba(14,15,13,0.5);font-style:italic">Edmond, OK · Driveway replacement</div></div></div>
       </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px 30px">
-        <div style="font-size:14px;color:var(--green);letter-spacing:2px;margin-bottom:16px">★★★★★</div>
-        <p style="font-family:'Fraunces',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.88);line-height:1.7;margin-bottom:24px">"Needed a large patio slab poured before summer. They came out fast, measured up, gave us a fair price, and knocked it out in two days. Finished product is perfect — no cracks, level edge-to-edge."</p>
-        <div style="display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;border-radius:50%;background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:15px;font-weight:900;color:var(--green)">TH</div><div><div style="font-size:14px;font-weight:800;color:#fff">Tracy H.</div><div style="font-size:11px;color:var(--dim);font-weight:600">Yukon, OK · Patio slab · 4 months ago</div></div></div>
+      <div style="background:rgba(120,200,50,0.03);border:1px solid rgba(120,200,50,0.12);padding:36px 30px;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)">
+        <div style="font-size:0.85rem;color:var(--green);letter-spacing:2px;margin-bottom:16px">★★★★★</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(245,248,240,0.88);line-height:1.7;margin-bottom:24px">"Needed a large patio slab poured before summer. They came out fast, measured up, gave us a fair price, and knocked it out in two days. Finished product is perfect — no cracks, level edge-to-edge."</p>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;background:var(--charcoal);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:0.7rem;color:var(--green)">TH</div><div><div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ivory)">Tracy H.</div><div style="font-size:0.7rem;color:var(--dim);font-style:italic">Yukon, OK · Patio slab · 4 months ago</div></div></div>
       </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px 30px">
-        <div style="font-size:14px;color:var(--green);letter-spacing:2px;margin-bottom:16px">★★★★★</div>
-        <p style="font-family:'Fraunces',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.88);line-height:1.7;margin-bottom:24px">"Used Sparrow for a commercial parking expansion. They handled a big pour professionally, showed up with the right crew size, and finished on schedule. Would absolutely use them again for future projects."</p>
-        <div style="display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;border-radius:50%;background:var(--black3);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:15px;font-weight:900;color:var(--green)">MK</div><div><div style="font-size:14px;font-weight:800;color:#fff">M. Kowalski</div><div style="font-size:11px;color:var(--dim);font-weight:600">Oklahoma City · Commercial flatwork</div></div></div>
+      <div style="background:rgba(120,200,50,0.03);border:1px solid rgba(120,200,50,0.12);padding:36px 30px;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)">
+        <div style="font-size:0.85rem;color:var(--green);letter-spacing:2px;margin-bottom:16px">★★★★★</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(245,248,240,0.88);line-height:1.7;margin-bottom:24px">"Used Sparrow for a commercial parking expansion. They handled a big pour professionally, showed up with the right crew size, and finished on schedule. Would absolutely use them again for future projects."</p>
+        <div style="display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;background:var(--charcoal);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:0.7rem;color:var(--green)">MK</div><div><div style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ivory)">M. Kowalski</div><div style="font-size:0.7rem;color:var(--dim);font-style:italic">Oklahoma City · Commercial flatwork</div></div></div>
       </div>
     </div>
   </div>
 </section>
-<style>@media(max-width:768px){.rev-3-grid{grid-template-columns:1fr!important}}</style>
 
 <!-- ══ CLOSING CTA ══ -->
-<div style="background:var(--black);padding:80px 60px;position:relative;overflow:hidden;" class="rv">
-  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(120,200,50,0.06) 1px,transparent 1px);background-size:26px 26px;pointer-events:none"></div>
-  <div style="max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1">
-    <div class="stag" style="justify-content:center;margin-bottom:16px"><div class="stag-bar"></div><div class="stag-txt">Get Started Today</div><div class="stag-bar"></div></div>
-    <h2 style="font-family:'Fraunces',serif;font-size:clamp(36px,4.5vw,64px);font-weight:900;color:#fff;line-height:1.0;margin-bottom:14px">Ready for Concrete<br>Done <em style="font-style:italic;font-weight:300;color:var(--green)">Right?</em></h2>
-    <p style="font-size:16px;color:var(--on-dark);line-height:1.8;max-width:520px;margin:0 auto 32px">Fast turnaround. Straightforward pricing. No surprises. We measure the job, give you a firm quote, and schedule you in — usually within 1–2 weeks.</p>
-    <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:20px">
-      <a class="btn btn-lg btn-green" href="#contact">
-        Get Concrete Estimate
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </a>
-      <a class="btn btn-lg btn-outline-w" href="tel:4054122924">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M14 10.67c-1.06 0-2.09-.17-3.05-.48a.92.92 0 00-.95.23L8.45 11.9A11.04 11.04 0 014.1 7.55l1.44-1.6a.93.93 0 00.23-.96A9.63 9.63 0 015.3 2C5.3 1.45 4.85 1 4.3 1H2C1.45 1 1 1.45 1 2c0 7.18 5.82 13 13 13 .55 0 1-.45 1-1v-2.33c0-.55-.45-1-1-1z" fill="currentColor"/></svg>
-        Call (405) 412-2924
-      </a>
-    </div>
-    <div style="font-size:12px;color:var(--dim);font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.35)" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round"/></svg>
-      Currently scheduling 1–2 weeks out — limited spots available each month
-    </div>
+<div class="quote-section reveal">
+  <div class="quote-mark reveal">"</div>
+  <blockquote class="reveal">Ready for Concrete<br>Done <span style="color:var(--green)">Right?</span></blockquote>
+  <div class="deco-ornament reveal"><div class="deco-line" style="max-width:80px"></div><div class="deco-diamond"></div><div class="deco-line" style="max-width:80px"></div></div>
+  <p style="font-size:1rem;color:var(--on-dark);line-height:1.8;max-width:520px;margin:0 auto 2rem;font-style:italic;position:relative;z-index:1">Fast turnaround. Straightforward pricing. No surprises. We measure the job, give you a firm quote, and schedule you in — usually within 1–2 weeks.</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1">
+    <a class="btn-primary" href="#contact">Get Concrete Estimate →</a>
+    <a class="btn-outline" href="tel:4054122924">(405) 412-2924</a>
   </div>
 </div>
-<style>@media(max-width:640px){div[style*="padding:80px 60px"]{padding:60px 18px!important}}</style>
 
 <!-- ══ SERVICE AREA ══ -->
-<section style="background:var(--light);padding:72px 60px;position:relative;z-index:2;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="rv" style="text-align:center;max-width:640px;margin:0 auto 40px;">
-      <div class="stag" style="justify-content:center;"><div class="stag-bar"></div><div class="stag-txt">Concrete Services in Oklahoma</div><div class="stag-bar"></div></div>
-      <h2 class="sec-h" style="margin-top:10px;">Concrete Contractor Serving <em>OKC &amp; Surrounding Areas</em></h2>
-      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-top:14px;">We're a local concrete contractor based in Yukon, Oklahoma. Whether you need a <strong style="color:var(--text)">driveway replacement in Edmond</strong>, a <strong style="color:var(--text)">concrete patio in Moore</strong>, or <strong style="color:var(--text)">commercial flatwork in Oklahoma City</strong> — our crew handles the job right.</p>
+<section class="sec-pad sec-dark2">
+  <div class="sec-inner">
+    <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 40px">
+      <div class="stag" style="justify-content:center"><div class="stag-bar"></div><div class="stag-txt">Concrete Services in Oklahoma</div><div class="stag-bar"></div></div>
+      <h2 class="sec-h" style="color:var(--ivory)">Concrete Contractor Serving <em>OKC &amp; Surrounding Areas</em></h2>
+      <div class="deco-ornament"><div class="deco-line" style="max-width:60px"></div><div class="deco-diamond"></div><div class="deco-line" style="max-width:60px"></div></div>
+      <p style="font-size:1rem;color:var(--on-dark);line-height:1.8;font-style:italic">We're a local concrete contractor based in Yukon, Oklahoma. Whether you need a <strong style="color:var(--ivory)">driveway replacement in Edmond</strong>, a <strong style="color:var(--ivory)">concrete patio in Moore</strong>, or <strong style="color:var(--ivory)">commercial flatwork in Oklahoma City</strong> — our crew handles the job right.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;" class="rv sarea-chips">
-      <div style="background:#fff;border-radius:14px;padding:18px;text-align:center;border:1.5px solid var(--bd-l);">
-        <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px;">Oklahoma City</div>
-        <div style="font-size:11px;color:var(--muted);">Residential &amp; commercial concrete</div>
-      </div>
-      <div style="background:#fff;border-radius:14px;padding:18px;text-align:center;border:1.5px solid var(--bd-l);">
-        <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px;">Yukon</div>
-        <div style="font-size:11px;color:var(--muted);">Our home base — driveways, patios</div>
-      </div>
-      <div style="background:#fff;border-radius:14px;padding:18px;text-align:center;border:1.5px solid var(--bd-l);">
-        <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px;">Edmond</div>
-        <div style="font-size:11px;color:var(--muted);">Driveways, sidewalks, patios</div>
-      </div>
-      <div style="background:#fff;border-radius:14px;padding:18px;text-align:center;border:1.5px solid var(--bd-l);">
-        <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px;">Moore</div>
-        <div style="font-size:11px;color:var(--muted);">Flatwork, slabs, replacement</div>
-      </div>
-      <div style="background:#fff;border-radius:14px;padding:18px;text-align:center;border:1.5px solid var(--bd-l);">
-        <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px;">Norman</div>
-        <div style="font-size:11px;color:var(--muted);">Residential &amp; commercial</div>
-      </div>
+    <div class="sarea-chips reveal">
+      <div class="sarea-chip"><div class="city">Oklahoma City</div><div class="desc">Residential &amp; commercial concrete</div></div>
+      <div class="sarea-chip"><div class="city">Yukon</div><div class="desc">Our home base — driveways, patios</div></div>
+      <div class="sarea-chip"><div class="city">Edmond</div><div class="desc">Driveways, sidewalks, patios</div></div>
+      <div class="sarea-chip"><div class="city">Moore</div><div class="desc">Flatwork, slabs, replacement</div></div>
+      <div class="sarea-chip"><div class="city">Norman</div><div class="desc">Residential &amp; commercial</div></div>
     </div>
-    <div style="text-align:center;margin-top:28px;" class="rv">
-      <a class="btn btn-md btn-green" href="#contact">Get Concrete Estimate — Free</a>
-      <div style="font-size:12px;color:var(--muted);margin-top:10px;font-weight:700;">Limited availability — book now before we fill up</div>
+    <div style="text-align:center;margin-top:28px" class="reveal">
+      <a class="btn-primary" href="#contact">Get Concrete Estimate — Free</a>
     </div>
   </div>
 </section>
-<style>@media(max-width:768px){.sarea-chips{grid-template-columns:repeat(2,1fr)!important}}</style>
 
 <!-- ══ CONCRETE FAQ ══ -->
-<section style="background:var(--off-white);padding:72px 60px;position:relative;z-index:2;">
-  <div style="max-width:900px;margin:0 auto;">
-    <div class="rv" style="text-align:center;margin-bottom:44px;">
-      <div class="stag" style="justify-content:center;"><div class="stag-bar"></div><div class="stag-txt">Concrete FAQ</div><div class="stag-bar"></div></div>
-      <h2 class="sec-h" style="margin-top:10px;">Common Concrete <em>Questions</em></h2>
+<section class="sec-pad sec-light">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:44px">
+      <div class="stag" style="justify-content:center"><div class="stag-bar" style="background:var(--copper)"></div><div class="stag-txt" style="color:var(--copper)">Concrete FAQ</div><div class="stag-bar" style="background:var(--copper)"></div></div>
+      <h2 class="sec-h" style="color:var(--text)">Common Concrete <em>Questions</em></h2>
+      <div class="deco-ornament"><div class="deco-line" style="max-width:60px;background:var(--copper)"></div><div class="deco-diamond" style="background:var(--copper)"></div><div class="deco-line" style="max-width:60px;background:var(--copper)"></div></div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:0;" class="rv faq-conc">
-
-      <div style="border-top:1px solid var(--bd-l);border-bottom:1px solid var(--bd-l);overflow:hidden;">
-        <button onclick="toggleFaqConc(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">
-          How much does a concrete driveway cost in Oklahoma?
-          <svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);">
-          <div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">A standard concrete driveway in the OKC area typically runs <strong style="color:var(--text)">$8–$12 per square foot</strong> for a new pour, and <strong style="color:var(--text)">$10–$18 per square foot</strong> for demo-and-replace. Final pricing depends on thickness, reinforcement, site access, demolition of old concrete, finish type, and site conditions. A typical 2-car driveway (~800 sq ft) runs $6,400–$9,600+ depending on scope. We'll give you a firm written quote after seeing the job — no guesswork.</div>
-        </div>
+    <div class="reveal faq-conc">
+      <div class="faq-item">
+        <button class="faq-q-btn" onclick="toggleFaqConc(this)">How much does a concrete driveway cost in Oklahoma?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a-panel"><div class="faq-a-content">A standard concrete driveway in the OKC area typically runs <strong style="color:var(--text)">$8–$12 per square foot</strong> for a new pour, and <strong style="color:var(--text)">$10–$18 per square foot</strong> for demo-and-replace. Final pricing depends on thickness, reinforcement, site access, demolition of old concrete, finish type, and site conditions. A typical 2-car driveway (~800 sq ft) runs $6,400–$9,600+ depending on scope. We'll give you a firm written quote after seeing the job — no guesswork.</div></div>
       </div>
-
-      <div style="border-bottom:1px solid var(--bd-l);overflow:hidden;">
-        <button onclick="toggleFaqConc(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">
-          How thick should a concrete driveway or slab be?
-          <svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);">
-          <div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Standard residential driveways should be poured at <strong style="color:var(--text)">4 inches minimum</strong> — 5 to 6 inches if the driveway will bear heavier vehicles like RVs or trucks. Patios are typically 4 inches. Foundations and building slabs are usually 4–6 inches depending on load requirements. Going thinner to save money is one of the most common shortcuts — and one of the most common causes of early cracking and failure.</div>
-        </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" onclick="toggleFaqConc(this)">How thick should a concrete driveway or slab be?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a-panel"><div class="faq-a-content">Standard residential driveways should be poured at <strong style="color:var(--text)">4 inches minimum</strong> — 5 to 6 inches if the driveway will bear heavier vehicles like RVs or trucks. Patios are typically 4 inches. Foundations and building slabs are usually 4–6 inches depending on load requirements. Going thinner to save money is one of the most common shortcuts — and one of the most common causes of early cracking and failure.</div></div>
       </div>
-
-      <div style="border-bottom:1px solid var(--bd-l);overflow:hidden;">
-        <button onclick="toggleFaqConc(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">
-          Do you remove and haul away old concrete?
-          <svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);">
-          <div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Yes — we handle full tear-out, demo, and haul-away of existing concrete as part of our replacement process. Demo costs are factored into your quote. After demolition, we re-grade and compact the base properly before pouring fresh concrete — this step is critical and many cheap contractors skip it entirely. We don't.</div>
-        </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" onclick="toggleFaqConc(this)">Do you remove and haul away old concrete?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a-panel"><div class="faq-a-content">Yes — we handle full tear-out, demo, and haul-away of existing concrete as part of our replacement process. Demo costs are factored into your quote. After demolition, we re-grade and compact the base properly before pouring fresh concrete — this step is critical and many cheap contractors skip it entirely. We don't.</div></div>
       </div>
-
-      <div style="border-bottom:1px solid var(--bd-l);overflow:hidden;">
-        <button onclick="toggleFaqConc(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">
-          How long does concrete last?
-          <svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);">
-          <div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Properly installed concrete — with correct base prep, appropriate thickness, and reinforcement — should last <strong style="color:var(--text)">20 to 30 years</strong> or more in Oklahoma's climate. Concrete that was poorly prepared, under-reinforced, or poured with too much water can show significant cracking within 5–10 years. The difference is entirely in how the job is done.</div>
-        </div>
+      <div class="faq-item">
+        <button class="faq-q-btn" onclick="toggleFaqConc(this)">How long does concrete last?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a-panel"><div class="faq-a-content">Properly installed concrete — with correct base prep, appropriate thickness, and reinforcement — should last <strong style="color:var(--text)">20 to 30 years</strong> or more in Oklahoma's climate. Concrete that was poorly prepared, under-reinforced, or poured with too much water can show significant cracking within 5–10 years. The difference is entirely in how the job is done.</div></div>
       </div>
-
-      <div style="overflow:hidden;">
-        <button onclick="toggleFaqConc(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">
-          How long does a concrete pour take?
-          <svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);">
-          <div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Most residential concrete jobs — a driveway, patio, or set of sidewalks — are completed in 1–2 days. The pour itself often takes a few hours; the bulk of the time is in proper prep (grading, compacting, forming) and the curing period. Concrete should not be driven on for at least 3–7 days after pouring. Large commercial jobs are staged across multiple days. We'll give you a realistic timeline with your estimate.</div>
-        </div>
+      <div class="faq-item" style="border-bottom:none">
+        <button class="faq-q-btn" onclick="toggleFaqConc(this)">How long does a concrete pour take?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div class="faq-a-panel"><div class="faq-a-content">Most residential concrete jobs — a driveway, patio, or set of sidewalks — are completed in 1–2 days. The pour itself often takes a few hours; the bulk of the time is in proper prep (grading, compacting, forming) and the curing period. Concrete should not be driven on for at least 3–7 days after pouring. Large commercial jobs are staged across multiple days. We'll give you a realistic timeline with your estimate.</div></div>
       </div>
-
     </div>
-    <div style="text-align:center;margin-top:40px;" class="rv">
-      <a class="btn btn-md btn-green" href="#contact">Get Your Concrete Estimate</a>
-      <div style="font-size:12px;color:var(--muted);margin-top:12px;font-weight:600;">Scheduling 1–2 weeks out — limited spots available</div>
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a class="btn-primary" href="#contact" style="background:var(--copper)">Get Your Concrete Estimate</a>
     </div>
   </div>
 </section>
 
 <!-- ══ INTERNAL LINKS ══ -->
-<section style="background:var(--black2);padding:60px;position:relative;z-index:2;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="rv" style="text-align:center;margin-bottom:36px;">
-      <div class="stag" style="justify-content:center;"><div class="stag-bar"></div><div class="stag-txt">More From Sparrow</div><div class="stag-bar"></div></div>
-      <h3 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#fff;margin-top:10px;">We're More Than a <em style="font-style:italic;font-weight:300;color:var(--green)">Concrete Contractor.</em></h3>
+<section class="sec-pad sec-dark2" style="padding-top:4rem;padding-bottom:4rem">
+  <div class="sec-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:36px">
+      <div class="stag" style="justify-content:center"><div class="stag-bar"></div><div class="stag-txt">More From Sparrow</div><div class="stag-bar"></div></div>
+      <h3 style="font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--ivory);letter-spacing:0.03em">We're More Than a <em style="font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--green)">Concrete Contractor.</em></h3>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;" class="rv intlink-grid">
-      <a href="/" style="background:var(--black3);border:1.5px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px 36px;display:flex;align-items:center;gap:20px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="24" height="24" viewBox="0 0 48 48" fill="none"><path d="M4 36L24 12L44 36H4Z" stroke="#78c832" stroke-width="2"/><path d="M14 36V26h20v10" stroke="#78c832" stroke-width="2"/></svg>
-        </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px" class="reveal intlink-grid">
+      <a href="/" style="background:var(--charcoal);border:1px solid var(--bd);padding:32px 36px;display:flex;align-items:center;gap:20px;transition:border-color 0.2s;clip-path:polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px)" onmouseover="this.style.borderColor='rgba(120,200,50,0.4)'" onmouseout="this.style.borderColor='rgba(120,200,50,0.15)'">
+        <div style="width:48px;height:48px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="deco-diamond" style="width:12px;height:12px"></span></div>
         <div>
-          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;">Roofing &amp; Storm Damage</div>
-          <div style="font-size:13px;color:var(--dim);">Hail damage, roof replacement, insurance claim help — free inspection</div>
+          <div style="font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:4px">Roofing &amp; Storm Damage</div>
+          <div style="font-size:0.85rem;color:var(--dim);font-style:italic">Hail damage, roof replacement, insurance claim help — free inspection</div>
         </div>
-        <svg style="flex-shrink:0;margin-left:auto;color:var(--green)" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span style="flex-shrink:0;margin-left:auto;color:var(--green);font-family:'Cinzel',serif;font-size:0.7rem">→</span>
       </a>
-      <a href="/custom-homes.html" style="background:var(--black3);border:1.5px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px 36px;display:flex;align-items:center;gap:20px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="1.8"/><polyline points="9 22 9 12 15 12 15 22" stroke="#78c832" stroke-width="1.8"/></svg>
-        </div>
+      <a href="/custom-homes.html" style="background:var(--charcoal);border:1px solid var(--bd);padding:32px 36px;display:flex;align-items:center;gap:20px;transition:border-color 0.2s;clip-path:polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px)" onmouseover="this.style.borderColor='rgba(120,200,50,0.4)'" onmouseout="this.style.borderColor='rgba(120,200,50,0.15)'">
+        <div style="width:48px;height:48px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="deco-diamond" style="width:12px;height:12px"></span></div>
         <div>
-          <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;">Custom Home Builds</div>
-          <div style="font-size:13px;color:var(--dim);">Licensed builder, ground-up construction, construction loans welcome</div>
+          <div style="font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:4px">Custom Home Builds</div>
+          <div style="font-size:0.85rem;color:var(--dim);font-style:italic">Licensed builder, ground-up construction, construction loans welcome</div>
         </div>
-        <svg style="flex-shrink:0;margin-left:auto;color:var(--green)" width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span style="flex-shrink:0;margin-left:auto;color:var(--green);font-family:'Cinzel',serif;font-size:0.7rem">→</span>
       </a>
     </div>
   </div>
 </section>
-<style>@media(max-width:768px){.intlink-grid{grid-template-columns:1fr!important}}</style>
 
 <!-- ══ CONTACT ══ -->
 <section class="sec-pad sec-light" id="contact">
   <div class="contact-grid">
-    <div class="rv">
-      <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Get Your Estimate</div></div>
-      <h2 class="sec-h" style="margin-top:6px">Tell Us About<br>Your <em>Concrete Job.</em></h2>
+    <div class="reveal">
+      <div class="stag"><div class="stag-bar" style="background:var(--copper)"></div><div class="stag-txt" style="color:var(--copper)">Get Your Estimate</div></div>
+      <h2 class="sec-h" style="color:var(--text)">Tell Us About<br>Your <em>Concrete Job.</em></h2>
+      <div class="deco-ornament" style="justify-content:flex-start"><div class="deco-line" style="max-width:40px;background:var(--copper)"></div><div class="deco-diamond" style="background:var(--copper)"></div></div>
       <p class="sec-p" style="margin-top:14px">We'll come out, measure the job, and give you a firm written estimate — usually within 48 hours of your call.</p>
       <div class="ci-items">
-        <div class="ci-item"><div class="ci-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M14 10.67c-1.06 0-2.09-.17-3.05-.48a.92.92 0 00-.95.23L8.45 11.9A11.04 11.04 0 014.1 7.55l1.44-1.6a.93.93 0 00.23-.96A9.63 9.63 0 015.3 2C5.3 1.45 4.85 1 4.3 1H2C1.45 1 1 1.45 1 2c0 7.18 5.82 13 13 13 .55 0 1-.45 1-1v-2.33c0-.55-.45-1-1-1z" fill="#78c832"/></svg></div><div><div class="ci-lbl">Call or Text</div><div class="ci-val"><a href="tel:4054122924">(405) 412-2924</a></div></div></div>
-        <div class="ci-item"><div class="ci-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#78c832" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="ci-lbl">Based In</div><div class="ci-val">Yukon, Oklahoma — serving statewide</div></div></div>
-        <div class="ci-item"><div class="ci-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#78c832" stroke-width="2" stroke-linecap="round"/></svg></div><div><div class="ci-lbl">Hours</div><div class="ci-val">Mon – Fri, 8:00 AM – 6:00 PM</div></div></div>
+        <div class="ci-item"><div class="ci-ico"><span class="deco-diamond" style="width:6px;height:6px;background:var(--copper)"></span></div><div><div class="ci-lbl">Call or Text</div><div class="ci-val"><a href="tel:4054122924">(405) 412-2924</a></div></div></div>
+        <div class="ci-item"><div class="ci-ico"><span class="deco-diamond" style="width:6px;height:6px;background:var(--copper)"></span></div><div><div class="ci-lbl">Based In</div><div class="ci-val">Yukon, Oklahoma — serving statewide</div></div></div>
+        <div class="ci-item"><div class="ci-ico"><span class="deco-diamond" style="width:6px;height:6px;background:var(--copper)"></span></div><div><div class="ci-lbl">Hours</div><div class="ci-val">Mon – Fri, 8:00 AM – 6:00 PM</div></div></div>
       </div>
     </div>
-    <div class="rv">
+    <div class="reveal">
       <div class="cform">
         <div class="cform-h">Request Concrete Estimate</div>
         <div class="cform-sub">We'll follow up within 2 business hours.</div>
@@ -1005,7 +891,7 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
           </div>
           <div class="fg-g full"><label>Tell Us About the Job</label><textarea placeholder="Approximate size, current condition, timeline..."></textarea></div>
           <div class="fg-g full"><button class="fsub" onclick="submitForm(this)">Get My Concrete Estimate →</button>
-          <div class="form-g"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#78c832" stroke-width="2"/></svg>No commitment. We'll give you a firm price and let you decide.</div></div>
+          <div class="form-g"><span class="deco-diamond" style="width:4px;height:4px;flex-shrink:0"></span> No commitment. We'll give you a firm price and let you decide.</div></div>
         </div>
       </div>
     </div>
@@ -1013,63 +899,28 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
 </section>
 
 <!-- ══ FOOTER ══ -->
-<!-- ══ SERVICE AREAS ══ -->
-<div style="background:var(--black2);padding:44px 60px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);">
-  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;">
+<div style="background:var(--charcoal);padding:44px 4rem;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap">
     <div>
-      <div style="font-size:10px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Service Areas</div>
-      <h3 style="font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:8px;">Concrete Services Across Oklahoma</h3>
-      <p style="font-size:14px;color:var(--dim);font-weight:500;max-width:580px;line-height:1.7;">We proudly serve Oklahoma City, Yukon, Edmond, Moore, Norman, Midwest City, Mustang and surrounding areas. One crew. Consistent quality. No subcontractor surprises.</p>
+      <p class="section-label">◆ &nbsp; Service Areas</p>
+      <h3 style="font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:var(--ivory);margin-bottom:8px;letter-spacing:0.05em">Concrete Services Across Oklahoma</h3>
+      <p style="font-size:0.9rem;color:var(--dim);max-width:580px;line-height:1.7;font-style:italic">We proudly serve Oklahoma City, Yukon, Edmond, Moore, Norman, Midwest City, Mustang and surrounding areas. One crew. Consistent quality. No subcontractor surprises.</p>
     </div>
-    <a class="btn btn-md btn-green" href="#contact" style="flex-shrink:0;">Get Estimate →</a>
+    <a class="btn-primary" href="#contact">Get Estimate →</a>
   </div>
 </div>
 
-<!-- ══ FINAL CTA ══ -->
-<section style="background:var(--black);padding:80px 60px;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(120,200,50,0.06) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;"></div>
-  <div style="max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;">
-    <div style="font-family:'Fraunces',serif;font-size:clamp(26px,4vw,48px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;">
-      Ready to replace your concrete?<br>
-      <em style="font-style:italic;font-weight:300;color:var(--green)">Get a fast, straightforward estimate today.</em>
-    </div>
-    <p style="font-size:16px;color:var(--on-dark);line-height:1.8;margin-bottom:32px;">Fast turnaround. Straightforward pricing. No surprises. We'll come out, measure the job, and give you a firm written quote — usually within 48 hours of your call.</p>
-    <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:16px;">
-      <a class="btn btn-lg btn-green" href="#contact">
-        Get Concrete Estimate
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </a>
-      <a class="btn btn-lg btn-outline-w" href="tel:4054122924">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M14 10.67c-1.06 0-2.09-.17-3.05-.48a.92.92 0 00-.95.23L8.45 11.9A11.04 11.04 0 014.1 7.55l1.44-1.6a.93.93 0 00.23-.96A9.63 9.63 0 015.3 2C5.3 1.45 4.85 1 4.3 1H2C1.45 1 1 1.45 1 2c0 7.18 5.82 13 13 13 .55 0 1-.45 1-1v-2.33c0-.55-.45-1-1-1z" fill="currentColor"/></svg>
-        (405) 412-2924
-      </a>
-    </div>
-    <div style="font-size:12px;color:var(--dim);font-weight:700;">⏰ Limited availability — book now before we fill up</div>
-    <div style="margin-top:32px;padding-top:28px;border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;">
-      <span style="font-size:13px;color:var(--dim);font-weight:600;">Also need:</span>
-      <a href="/" style="font-size:13px;color:var(--green);font-weight:700;text-decoration:none;" onmouseover="this.style.color='#5aaa18'" onmouseout="this.style.color='#78c832'">Roof repair or replacement? → See roofing services</a>
-      <a href="/custom-homes.html" style="font-size:13px;color:var(--green);font-weight:700;text-decoration:none;" onmouseover="this.style.color='#5aaa18'" onmouseout="this.style.color='#78c832'">Planning a new home? → Learn about custom builds</a>
-    </div>
-  </div>
-</section>
-
 <footer>
-  <div class="foot-top" style="grid-template-columns:1.3fr 0.9fr 0.9fr 0.9fr 0.9fr;">
+  <div class="foot-top">
     <div class="foot-brand">
       <a href="/" style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
         <img class="foot-logo-img" src="https://mysparrow.net/wp-content/uploads/2016/02/Sparrow-Construction-Logo-688x424-copy-compressor.png" alt="Sparrow Construction">
-        <div style="display:flex;flex-direction:column;line-height:1"><span style="font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:#fff">Sparrow</span><span style="font-size:8px;letter-spacing:0.26em;text-transform:uppercase;color:var(--green);font-weight:800;margin-top:2px">Construction</span></div>
+        <div style="display:flex;flex-direction:column;line-height:1"><span style="font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--green);letter-spacing:0.1em">Sparrow</span><span style="font-family:'Cinzel',serif;font-size:0.4rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory-dark);margin-top:2px">Construction</span></div>
       </a>
       <p>Licensed Oklahoma contractor. Roofing, concrete, and custom homes — built right since 2007.</p>
+      <div class="deco-ornament" style="justify-content:flex-start;margin-top:1rem"><div class="deco-line" style="max-width:32px"></div><div class="deco-diamond"></div></div>
     </div>
-    <div class="foot-col">
-      <h5>Our Services</h5>
-      <ul>
-        <li><a href="/">Roofing Services</a></li>
-        <li><a href="/concrete.html">Concrete Services</a></li>
-        <li><a href="/custom-homes.html">Custom Home Builder</a></li>
-      </ul>
-    </div>
+    <div class="foot-col"><h5>Our Services</h5><ul><li><a href="/">Roofing Services</a></li><li><a href="/concrete.html">Concrete Services</a></li><li><a href="/custom-homes.html">Custom Home Builder</a></li></ul></div>
     <div class="foot-col"><h5>Concrete Services</h5><ul><li><a href="#">Driveways</a></li><li><a href="#">Patios</a></li><li><a href="#">Sidewalks</a></li><li><a href="#">Foundations &amp; Slabs</a></li><li><a href="#">Commercial Flatwork</a></li><li><a href="#">Concrete Replacement</a></li></ul></div>
     <div class="foot-col"><h5>Other Services</h5><ul><li><a href="/">Roofing &amp; Storm Damage</a></li><li><a href="/custom-homes.html">Custom Home Builds</a></li><li><a href="/#insurance">Insurance Claims</a></li><li><a href="/#reviews">Client Reviews</a></li></ul></div>
     <div class="foot-col"><h5>Contact</h5><ul><li><a href="tel:4054122924">(405) 412-2924</a></li><li><a href="#">209 Arlington Drive</a></li><li><a href="#">Yukon, Oklahoma</a></li><li><a href="#">Mon–Fri 8am–6pm</a></li></ul></div>
@@ -1082,11 +933,13 @@ footer{background:var(--black2);padding:68px 60px 36px;border-top:1px solid var(
 
 <script>
 function toggleNav(){document.getElementById('mobNav').classList.toggle('open')}
-function toggleFaqConc(btn){const p=btn.nextElementSibling;const ic=btn.querySelector('svg');const open=p.style.maxHeight&&p.style.maxHeight!=='0px';document.querySelectorAll('.faq-conc [onclick] + div').forEach(x=>{x.style.maxHeight='0px'});document.querySelectorAll('.faq-conc [onclick] svg').forEach(x=>{x.style.transform='rotate(0deg)'});if(!open){p.style.maxHeight=p.scrollHeight+'px';ic.style.transform='rotate(45deg)'}}
-window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.background=window.scrollY>60?'rgba(14,15,13,0.99)':'rgba(14,15,13,0.96)'})
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const s=[...e.target.parentElement.querySelectorAll('.rv')];const i=s.indexOf(e.target);e.target.style.transitionDelay=(i*75)+'ms';e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:0.08})
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el))
-function submitForm(btn){btn.textContent='Sending...';setTimeout(()=>{btn.textContent='✓ Estimate Request Sent!';btn.style.background='#3d7a0e'},1000)}
+function toggleFaqConc(btn){const p=btn.nextElementSibling;const ic=btn.querySelector('svg');const open=p.style.maxHeight&&p.style.maxHeight!=='0px';document.querySelectorAll('.faq-conc .faq-a-panel').forEach(x=>{x.style.maxHeight='0px'});document.querySelectorAll('.faq-conc .faq-q-btn svg').forEach(x=>{x.style.transform='rotate(0deg)'});if(!open){p.style.maxHeight=p.scrollHeight+'px';ic.style.transform='rotate(45deg)'}}
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.background=window.scrollY>60?'rgba(14,15,13,0.99)':'rgba(14,15,13,0.92)'})
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.08});
+reveals.forEach(el=>io.observe(el));
+function submitForm(btn){btn.textContent='Submitted ✓';btn.disabled=true;btn.style.opacity='0.7'}
 </script>
+
 </body>
 </html>
