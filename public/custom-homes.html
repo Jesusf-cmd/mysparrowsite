@@ -36,251 +36,193 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&display=swap" rel="stylesheet">
 <style>
-:root {
-  --green:#78c832;--green-light:#a8e063;--green-pale:#edfad4;
-  --ink:#0e0f0d;--ivory:#f5f8f0;--ivory-dark:#e0e8d4;
-  --charcoal:#141610;--copper:#5aaa18;
-  --on-dark:rgba(245,248,240,0.82);--dim:rgba(245,248,240,0.40);
-  --bd:rgba(120,200,50,0.15);--bd-g:rgba(120,200,50,0.28);
-  --muted:#5a6650;--text:#1a1f14;
-}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#78c832;--green-dark:#5aaa18;--green-pale:#edfad4;
+  --black:#0e0f0d;--black2:#141610;--black3:#1c1f17;
+  --off-white:#f5f8f0;--light:#f0f5e8;
+  --text:#1a1f14;--muted:#5a6650;
+  --dim:rgba(255,255,255,0.40);--on-dark:rgba(255,255,255,0.82);
+  --bd:rgba(255,255,255,0.08);--bd-g:rgba(120,200,50,0.28);--bd-l:rgba(26,31,20,0.10);
+  --radius:16px;--shadow:0 4px 24px rgba(14,15,13,0.10);--shadow-lg:0 16px 56px rgba(14,15,13,0.18);
+}
 html{scroll-behavior:smooth}
-body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--ink);color:var(--ivory);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Manrope',sans-serif;background:var(--off-white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{text-decoration:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
 
-.deco-diamond{display:inline-block;width:6px;height:6px;background:var(--green);transform:rotate(45deg)}
-.deco-line{width:60px;height:1px;background:var(--green);display:inline-block;vertical-align:middle}
-.deco-ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:1.5rem auto}
-.deco-divider{width:100%;display:flex;align-items:center;justify-content:center;gap:16px;padding:1.5rem 4rem}
-.deco-divider-line{flex:1;max-width:200px;height:1px;background:linear-gradient(to right,transparent,var(--green))}
-.deco-divider-line.rev{background:linear-gradient(to left,transparent,var(--green))}
-.deco-divider-center{display:flex;align-items:center;gap:8px}
-.deco-divider-center .d{width:5px;height:5px;background:var(--green);transform:rotate(45deg)}
-.deco-divider-center .d-sm{width:3px;height:3px;background:var(--green-light);transform:rotate(45deg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.22s;text-decoration:none;white-space:nowrap}
+.btn-lg{font-size:15px;padding:18px 40px;border-radius:50px}
+.btn-md{font-size:13px;padding:14px 30px;border-radius:50px}
+.btn-sm{font-size:12px;padding:11px 22px;border-radius:50px}
+.btn-green{background:var(--green);color:var(--black)}
+.btn-green:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 12px 36px rgba(120,200,50,0.35)}
+.btn-black{background:var(--black);color:#fff}
+.btn-black:hover{background:var(--black3);transform:translateY(-2px)}
+.btn-outline-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3)}
+.btn-outline-w:hover{border-color:var(--green);color:var(--green)}
+.btn-outline-g{background:transparent;color:var(--black);border:2px solid rgba(14,15,13,0.22)}
+.btn-outline-g:hover{border-color:var(--green);color:var(--green-dark)}
 
-.section-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.stag{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px}
+.stag-bar{width:28px;height:3px;background:var(--green);border-radius:2px;flex-shrink:0}
+.stag-txt{font-size:11px;font-weight:900;letter-spacing:0.24em;text-transform:uppercase;color:var(--green)}
+.sec-h{font-family:'Fraunces',serif;font-size:clamp(36px,4vw,60px);font-weight:900;line-height:1.05}
+.sec-h em{font-style:italic;font-weight:300}
+.sec-p{font-size:16px;line-height:1.8;color:var(--muted);max-width:480px}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0 4rem;height:72px;border-bottom:1px solid rgba(120,200,50,0.15);background:rgba(14,15,13,0.92);backdrop-filter:blur(8px)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(.22,.61,.36,1),transform 0.7s cubic-bezier(.22,.61,.36,1)}
+.rv.vis{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,15,13,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd);transition:background 0.3s}
+.nav-logo{display:flex;align-items:center;gap:10px}
 .nav-logo-img{height:42px;width:auto;object-fit:contain;flex-shrink:0}
 .nav-wordmark{display:flex;flex-direction:column;line-height:1}
-.nav-name{font-family:'Cinzel Decorative',serif;font-size:1.1rem;letter-spacing:0.15em;color:var(--green)}
-.nav-tag{font-family:'Cinzel',serif;font-size:0.45rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory-dark);margin-top:2px}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory-dark);text-decoration:none;transition:color 0.3s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--green);transform:scaleX(0);transition:transform 0.3s}
+.nav-name{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:#fff}
+.nav-tag{font-size:8.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--green);font-weight:800;margin-top:2px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;color:var(--on-dark);transition:color 0.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--green)}
-.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
 .nav-right{display:flex;align-items:center;gap:16px}
-.nav-phone{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.15em;color:var(--green)}
+.nav-phone{font-size:14px;font-weight:800;color:var(--green)}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:24px;height:2px;background:var(--green);border-radius:2px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
 
-.btn-primary{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--ink);background:var(--green);border:none;padding:1rem 2.5rem;cursor:pointer;transition:background 0.3s,transform 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:9px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
-.btn-primary:hover{background:var(--green-light);transform:translateY(-2px)}
-.btn-outline{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory);background:transparent;border:1px solid rgba(120,200,50,0.3);padding:1rem 2.5rem;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:9px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
-.btn-outline:hover{border-color:var(--green);color:var(--green)}
-.btn-sm{font-size:0.55rem;padding:0.7rem 1.5rem}
-
-.mob-nav{position:fixed;inset:0;background:var(--ink);z-index:300;display:flex;flex-direction:column;justify-content:center;padding:60px 36px;transform:translateX(100%);transition:transform 0.42s cubic-bezier(.22,.61,.36,1)}
+.mob-nav{position:fixed;inset:0;background:var(--black);z-index:300;display:flex;flex-direction:column;justify-content:center;padding:60px 36px;transform:translateX(100%);transition:transform 0.42s cubic-bezier(.22,.61,.36,1)}
 .mob-nav.open{transform:none}
-.mob-close{position:absolute;top:22px;right:26px;background:none;border:none;font-size:28px;color:var(--green);cursor:pointer}
+.mob-close{position:absolute;top:22px;right:26px;background:none;border:none;font-size:28px;color:#fff;cursor:pointer;line-height:1}
 .mob-nav ul{list-style:none;display:flex;flex-direction:column}
-.mob-nav ul li a{display:block;font-family:'Cinzel Decorative',serif;font-size:2.2rem;font-weight:400;color:var(--ivory);padding:10px 0;border-bottom:1px solid var(--bd);transition:color 0.2s;line-height:1.3}
+.mob-nav ul li a{display:block;font-family:'Fraunces',serif;font-size:44px;font-weight:900;color:#fff;padding:10px 0;border-bottom:1px solid var(--bd);transition:color 0.2s;line-height:1.2}
 .mob-nav ul li a:hover{color:var(--green)}
-.mob-phone-big{margin-top:44px;font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.2em;color:var(--green)}
+.mob-phone-big{margin-top:44px;font-size:15px;font-weight:900;color:var(--green);letter-spacing:0.06em}
 
-.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;padding:12px 16px;background:var(--ink);border-top:1px solid var(--green);gap:10px}
-.sticky-bar a{flex:1;text-align:center;font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;padding:14px 10px}
+.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;padding:12px 16px;background:var(--black);border-top:2px solid var(--green);gap:10px}
+.sticky-bar a{flex:1;text-align:center;font-size:14px;font-weight:800;padding:14px 10px;border-radius:10px;letter-spacing:0.05em;text-transform:uppercase}
 
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:72px;background:var(--ink)}
-.hero-bg{position:absolute;inset:0;opacity:0.07;background-image:repeating-linear-gradient(45deg,var(--green) 0px,var(--green) 1px,transparent 1px,transparent 40px),repeating-linear-gradient(-45deg,var(--green) 0px,var(--green) 1px,transparent 1px,transparent 40px)}
-.hero-bg-radial{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(120,200,50,0.06) 0%,transparent 70%)}
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1240px;margin:0 auto;padding:72px 4rem 120px;width:100%}
+/* HERO */
+#hero{min-height:100vh;background:var(--black);position:relative;display:flex;align-items:center;overflow:hidden;padding-top:72px}
+#hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(120,200,50,0.09) 1px,transparent 1px);background-size:28px 28px}
+#hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:90px;background:var(--off-white);clip-path:polygon(0 100%,100% 0,100% 100%)}
+.hero-glow{position:absolute;top:-200px;right:-140px;width:760px;height:760px;border-radius:50%;background:radial-gradient(ellipse,rgba(120,200,50,0.12) 0%,transparent 65%);pointer-events:none;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:0.7}50%{opacity:1}}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;max-width:1240px;margin:0 auto;padding:72px 60px 150px;width:100%}
 .hero-left{opacity:0;transform:translateY(24px);animation:fadeUp 0.9s cubic-bezier(.22,.61,.36,1) 0.15s forwards}
 .hero-right{opacity:0;transform:translateY(24px);animation:fadeUp 0.9s cubic-bezier(.22,.61,.36,1) 0.38s forwards;display:flex;justify-content:flex-end}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.hero-service-area{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green)}
+.hero-h1{font-family:'Fraunces',serif;font-size:clamp(48px,5.8vw,84px);font-weight:900;color:#fff;line-height:0.97;margin-bottom:20px}
+.hero-h1 em{font-style:italic;font-weight:300;color:var(--green)}
+.hero-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.hero-bullets li{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--on-dark);font-weight:600}
+.hero-bullets li::before{content:'';display:block;width:22px;height:22px;border-radius:50%;background:rgba(120,200,50,0.18);flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%2378c832' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.hero-nudge{font-size:12px;color:var(--dim);font-weight:600;letter-spacing:0.04em;display:flex;align-items:center;gap:8px}
+.nudge-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 
-.hero-eyebrow{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px}
-.hero-h1{font-family:'Cinzel Decorative',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;line-height:0.95;letter-spacing:0.05em;color:var(--ivory);margin-bottom:1.5rem}
-.hero-h1 em{font-style:italic;font-weight:400;color:var(--green);font-family:'Cormorant Garamond',serif}
-.hero-sub{font-size:1.1rem;font-style:italic;line-height:1.8;color:rgba(245,248,240,0.65);margin-bottom:1.5rem;max-width:480px}
-.hero-bullets{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:1.5rem}
-.hero-bullets li{display:flex;align-items:center;gap:11px;font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--on-dark)}
-.hero-bullets li::before{content:'◆';color:var(--green);font-size:0.5rem;flex-shrink:0}
-.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:1rem}
-.trust-box{padding:13px 18px;background:rgba(120,200,50,0.06);border:1px solid rgba(120,200,50,0.2);clip-path:polygon(12px 0%,100% 0%,100% calc(100% - 12px),calc(100% - 12px) 100%,0% 100%,0% 12px);margin-bottom:1.5rem}
-.trust-box p{font-size:0.9rem;font-style:italic;color:var(--on-dark);margin-bottom:8px}
-.trust-badge{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--green);display:flex;align-items:center;gap:5px}
-.google-trust{display:flex;align-items:center;gap:14px;margin-top:18px;padding:12px 18px;background:rgba(120,200,50,0.04);border:1px solid rgba(120,200,50,0.15);width:fit-content;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px)}
-
-.hero-img-wrap{position:relative;width:100%;max-width:480px}
-.hero-img-frame{overflow:hidden;aspect-ratio:3/4;position:relative;border:1px solid rgba(120,200,50,0.2);clip-path:polygon(20px 0%,100% 0%,100% calc(100% - 20px),calc(100% - 20px) 100%,0% 100%,0% 20px)}
+/* HERO IMAGE */
+.hero-img-wrap{position:relative;width:100%;max-width:440px}
+.hero-img-frame{border-radius:24px;overflow:hidden;aspect-ratio:3/4;position:relative}
 .hero-img-frame img{width:100%;height:100%;object-fit:cover;filter:brightness(0.78)}
 .hero-img-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,15,13,0.65) 0%,transparent 50%)}
-.hero-img-border{position:absolute;top:-14px;right:-14px;width:100%;height:100%;border:1px solid rgba(120,200,50,0.22);clip-path:polygon(20px 0%,100% 0%,100% calc(100% - 20px),calc(100% - 20px) 100%,0% 100%,0% 20px);z-index:-1}
-.hero-img-pill{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(14,15,13,0.9);border:1px solid rgba(120,200,50,0.25);padding:14px 22px;display:flex;align-items:center;gap:12px;white-space:nowrap;z-index:2;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px)}
-.hip-n{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--green);line-height:1;letter-spacing:0.1em}
-.hip-l{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-top:2px}
+.hero-img-border{position:absolute;top:-14px;right:-14px;width:100%;height:100%;border:2px solid rgba(120,200,50,0.2);border-radius:24px;z-index:-1}
+.hero-img-pill{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);background:#fff;border-radius:16px;padding:14px 22px;display:flex;align-items:center;gap:12px;white-space:nowrap;box-shadow:0 16px 48px rgba(0,0,0,0.38);z-index:2}
+.hip-n{font-family:'Fraunces',serif;font-size:22px;font-weight:900;color:var(--text);line-height:1}
+.hip-l{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:0.04em;margin-top:2px}
 
-.sec-pad{padding:7rem 4rem;position:relative;z-index:2}
-.sec-dark{background:var(--ink)}
-.sec-dark2{background:var(--charcoal)}
-.sec-light{background:var(--ivory)}
-.sec-lighter{background:var(--ivory-dark)}
-.sec-inner{max-width:1200px;margin:0 auto}
-
-.stag{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
-.stag-bar{width:40px;height:1px;background:var(--green)}
-.stag-txt{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--green)}
-.sec-h{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,3.8vw,3rem);font-weight:400;line-height:1.1;letter-spacing:0.03em}
-.sec-h em{font-style:italic;font-weight:300;font-family:'Cormorant Garamond',serif}
-.sec-p{font-size:1rem;line-height:1.9;color:var(--muted);max-width:480px;font-style:italic}
-
-/* WHO CARDS */
-.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.who-cards{display:flex;flex-direction:column;gap:14px}
-.who-card{background:rgba(120,200,50,0.03);border:1px solid rgba(120,200,50,0.12);padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all 0.2s;clip-path:polygon(10px 0%,100% 0%,100% calc(100% - 10px),calc(100% - 10px) 100%,0% 100%,0% 10px)}
-.who-card:hover{border-color:rgba(120,200,50,0.35);transform:translateX(4px)}
-.who-ico{width:42px;height:42px;background:rgba(120,200,50,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.who-title{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.1em;color:var(--ivory);margin-bottom:4px}
-.who-desc{font-size:0.85rem;color:var(--dim);line-height:1.6;font-style:italic}
-
-/* PRICING */
-.pricing-hero{background:var(--charcoal);border:1px solid var(--bd);padding:44px 40px;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)}
-.price-range-row{display:flex;align-items:flex-start;gap:20px;padding:20px 0;border-bottom:1px solid var(--bd)}
-.price-range-row:last-child{border-bottom:none}
-.pr-icon{width:44px;height:44px;background:rgba(120,200,50,0.13);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.pr-label{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.1em;color:var(--ivory);margin-bottom:4px}
-.pr-desc{font-size:0.8rem;color:var(--on-dark);line-height:1.55;font-style:italic}
-.pr-price{font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--green);white-space:nowrap;flex-shrink:0;margin-left:auto}
-
-/* PROCESS */
-.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.ps-card{padding:36px 28px;border:1px solid var(--bd);position:relative;transition:all 0.28s;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px);background:var(--ivory)}
-.ps-card:hover{transform:translateY(-4px);border-color:rgba(120,200,50,0.4)}
-.ps-num{font-family:'Cinzel Decorative',serif;font-size:2.5rem;color:rgba(120,200,50,0.18);line-height:1;margin-bottom:12px}
-.ps-title{font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.1em;color:var(--text);margin-bottom:10px}
-.ps-desc{font-size:0.9rem;color:var(--muted);line-height:1.7;font-style:italic}
-
-/* WHY BUILD */
-.why-build-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.wb-item{display:flex;align-items:flex-start;gap:18px;padding:22px 0;border-bottom:1px solid var(--bd)}
-.wb-item:last-child{border-bottom:none}
-.wb-ico{width:46px;height:46px;background:rgba(120,200,50,0.13);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.wb-title{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:5px}
-.wb-desc{font-size:0.9rem;color:var(--on-dark);line-height:1.65;font-style:italic}
-.why-build-img{overflow:hidden;aspect-ratio:4/5;clip-path:polygon(20px 0%,100% 0%,100% calc(100% - 20px),calc(100% - 20px) 100%,0% 100%,0% 20px);border:1px solid var(--bd)}
-.why-build-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.7)}
-
-/* FAQ */
-.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column}
-.faq-item{border-bottom:1px solid var(--bd);overflow:hidden}
-.faq-item:first-child{border-top:1px solid var(--bd)}
-.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.1em;color:var(--text);transition:color 0.2s}
-.faq-q:hover{color:var(--copper)}
-.faq-q svg{flex-shrink:0;transition:transform 0.3s}
-.faq-item.open .faq-q svg{transform:rotate(45deg)}
-.faq-item.open .faq-q{color:var(--copper)}
-.faq-a{font-size:0.95rem;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1),padding 0.2s;font-style:italic}
-.faq-item.open .faq-a{max-height:300px;padding-bottom:20px}
-
-/* MID CTA */
-.mid-cta{background:var(--green);padding:60px 4rem;position:relative;overflow:hidden}
-.mid-cta::before{content:'';position:absolute;inset:0;opacity:0.08;background-image:repeating-linear-gradient(45deg,var(--ink) 0px,var(--ink) 1px,transparent 1px,transparent 30px),repeating-linear-gradient(-45deg,var(--ink) 0px,var(--ink) 1px,transparent 1px,transparent 30px)}
-.mid-cta-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;z-index:1;flex-wrap:wrap}
-.mid-cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;max-width:1200px;margin:0 auto}
+/* SECTIONS */
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:90px}
 .ci-items{margin-top:36px;display:flex;flex-direction:column}
-.ci-item{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--bd)}
-.ci-item:first-child{border-top:1px solid var(--bd)}
-.ci-ico{width:44px;height:44px;background:rgba(120,200,50,0.1);flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.ci-lbl{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-.ci-val{font-size:0.95rem;font-weight:600;color:var(--text)}
+.ci-item{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--bd-l)}
+.ci-item:first-child{border-top:1px solid var(--bd-l)}
+.ci-ico{width:44px;height:44px;border-radius:12px;background:var(--green-pale);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.ci-lbl{font-size:10px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.ci-val{font-size:15px;font-weight:700;color:var(--text)}
 .ci-val a{color:var(--text);transition:color 0.2s}
-.ci-val a:hover{color:var(--copper)}
-.cform{background:var(--ink);border:1px solid var(--bd);padding:48px 42px;clip-path:polygon(20px 0%,100% 0%,100% calc(100% - 20px),calc(100% - 20px) 100%,0% 100%,0% 20px)}
-.cform-h{font-family:'Cinzel Decorative',serif;font-size:1.3rem;color:var(--ivory);margin-bottom:4px;letter-spacing:0.05em}
-.cform-sub{font-size:0.85rem;color:var(--dim);margin-bottom:30px;font-style:italic}
+.ci-val a:hover{color:var(--green-dark)}
+
+.cform{background:var(--black);border-radius:24px;padding:48px 42px}
+.cform-h{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:4px}
+.cform-sub{font-size:13px;color:var(--dim);margin-bottom:32px}
 .fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fg-g{display:flex;flex-direction:column;gap:6px}
-.fg-g.full{grid-column:1/-1}
-.fg-g label{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,248,240,0.36)}
-.fg-g input,.fg-g select,.fg-g textarea{padding:13px 16px;background:rgba(120,200,50,0.03);border:1px solid rgba(120,200,50,0.12);font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ivory);outline:none;transition:border-color 0.2s}
-.fg-g input::placeholder,.fg-g textarea::placeholder{color:rgba(245,248,240,0.2)}
-.fg-g input:focus,.fg-g select:focus,.fg-g textarea:focus{border-color:var(--green)}
-.fg-g select option{background:var(--charcoal)}
-.fg-g textarea{resize:none;height:100px}
-.fsub{width:100%;padding:17px;background:var(--green);color:var(--ink);font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.22s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
-.fsub:hover{background:var(--green-light)}
-.form-g{display:flex;align-items:center;gap:8px;margin-top:11px;font-size:0.75rem;color:var(--dim);font-style:italic}
+.fg-grp{display:flex;flex-direction:column;gap:6px}
+.fg-grp.full{grid-column:1/-1}
+.fg-grp label{font-size:10px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.38)}
+.fg-grp input,.fg-grp select,.fg-grp textarea{padding:13px 16px;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.09);border-radius:12px;font-family:'Manrope',sans-serif;font-size:14px;color:#fff;outline:none;transition:border-color 0.2s}
+.fg-grp input::placeholder,.fg-grp textarea::placeholder{color:rgba(255,255,255,0.2)}
+.fg-grp input:focus,.fg-grp select:focus,.fg-grp textarea:focus{border-color:var(--green)}
+.fg-grp select option{background:var(--black2)}
+.fg-grp textarea{resize:none;height:100px}
+.f-sub-btn{width:100%;padding:17px;background:var(--green);color:var(--black);font-family:'Manrope',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase;border:none;border-radius:12px;cursor:pointer;transition:all 0.22s}
+.f-sub-btn:hover{background:var(--green-dark);transform:translateY(-1px)}
+.form-guarantee{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:11px;color:var(--dim);font-weight:600}
+
+/* PROCESS CARDS */
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ps-card{background:#fff;border-radius:20px;padding:36px 28px;border:1.5px solid var(--bd-l);transition:all 0.28s}
+.ps-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.ps-num{font-family:'Fraunces',serif;font-size:48px;font-weight:900;color:rgba(120,200,50,0.18);line-height:1;margin-bottom:12px}
+.ps-title{font-size:15px;font-weight:800;color:var(--text);margin-bottom:10px}
+.ps-desc{font-size:13.5px;color:var(--muted);line-height:1.72}
 
 /* FOOTER */
-footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:68px 4rem 36px}
-.foot-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--bd);margin-bottom:32px}
-.foot-logo-img{height:38px;width:auto;object-fit:contain;margin-bottom:14px}
-.foot-brand p{font-size:0.85rem;color:var(--dim);line-height:1.8;max-width:240px;font-style:italic}
-.foot-col h5{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
-.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.foot-col ul li a{font-size:0.85rem;color:var(--dim);transition:color 0.2s}
-.foot-col ul li a:hover{color:var(--ivory)}
+footer{background:var(--black2);padding:72px 60px 36px;border-top:1px solid var(--bd)}
+.foot-top{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.3fr 0.9fr 0.9fr 0.9fr;gap:40px;padding-bottom:52px;border-bottom:1px solid var(--bd);margin-bottom:36px}
+.foot-logo-img{height:40px;width:auto;object-fit:contain;margin-bottom:14px}
+.foot-brand p{font-size:13.5px;color:var(--dim);line-height:1.8;max-width:240px}
+.foot-col h5{font-size:10px;font-weight:900;letter-spacing:0.24em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col ul li a{font-size:13.5px;color:var(--dim);font-weight:500;transition:color 0.2s}
+.foot-col ul li a:hover{color:#fff}
 .foot-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.foot-copy{font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:0.2em;color:rgba(245,248,240,0.25);text-transform:uppercase}
+.foot-copy{font-size:11.5px;color:var(--dim)}
 .foot-links{display:flex;gap:20px}
-.foot-links a{font-size:0.75rem;color:var(--dim);transition:color 0.2s}
-.foot-links a:hover{color:var(--ivory)}
+.foot-links a{font-size:11.5px;color:var(--dim);transition:color 0.2s}
+.foot-links a:hover{color:#fff}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes rotateSlow{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
+/* RESPONSIVE */
 @media(max-width:1024px){
-  nav,footer,.sec-pad,.mid-cta{padding-left:32px;padding-right:32px}
-  .foot-top{grid-template-columns:1fr 1fr!important;gap:36px!important}
-  .hero-inner{padding:60px 32px 120px;grid-template-columns:1fr;gap:60px}
-  .who-grid,.why-build-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
-  .process-steps{grid-template-columns:repeat(2,1fr)}
+  nav{padding:0 32px}
+  .hero-inner{padding:60px 32px 150px;grid-template-columns:1fr;gap:64px}
+  section,footer{padding-left:32px!important;padding-right:32px!important}
+  .contact-inner,.who-grid,.why-grid,.pricing-grid{grid-template-columns:1fr;gap:40px}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links,.nav-right{display:none}
   .hamburger{display:flex}
+  .foot-top{grid-template-columns:1fr 1fr!important;gap:36px!important}
   .hero-right{justify-content:flex-start}
-  .deco-divider{padding:1.5rem 32px}
+  .other-svc-grid{grid-template-columns:1fr!important}
 }
 @media(max-width:640px){
   nav{padding:0 18px;height:64px}
   .nav-logo-img{height:34px}
-  .hero-inner,.sec-pad,.mid-cta,footer{padding-left:18px;padding-right:18px}
-  .hero-inner{padding-top:48px;padding-bottom:100px}
-  .process-steps,.fg{grid-template-columns:1fr}
+  .hero-inner{padding:48px 18px 130px}
+  .hero-h1{font-size:clamp(36px,10vw,52px)}
+  section,footer{padding-left:18px!important;padding-right:18px!important}
+  .process-grid,.fg{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr}
   .hero-ctas{flex-direction:column;width:100%}
-  .hero-ctas a{width:100%;justify-content:center}
-  .mid-cta-inner{flex-direction:column;align-items:flex-start}
-  .mid-cta-btns{flex-direction:column;width:100%}
-  .mid-cta-btns a{width:100%;justify-content:center}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .cform{padding:32px 22px}
   .sticky-bar{display:flex}
   body{padding-bottom:68px}
   .foot-bottom{flex-direction:column;align-items:flex-start}
-  .cform{padding:32px 20px}
-  .deco-divider{padding:1.5rem 18px}
-  .mob-nav ul li a{font-size:1.8rem}
-  .google-trust{width:100%}
+  .mob-nav ul li a{font-size:32px}
+  .sec-h{font-size:clamp(28px,7vw,42px)}
   .hero-right{display:flex;justify-content:center}
-}
-@media(max-width:768px){
-  .pricing-two-col,.remo-grid,.botl-grid,.homes-intlink,.ex-proj-grid{grid-template-columns:1fr!important;gap:40px!important}
+  .who-cards-grid,.intlink-grid{grid-template-columns:1fr!important}
+  .hero-img-border{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- MOB NAV -->
+<!-- MOBILE NAV -->
 <div class="mob-nav" id="mobNav">
   <button class="mob-close" onclick="toggleNav()">&#x2715;</button>
   <ul>
@@ -294,8 +236,8 @@ footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:
 
 <!-- STICKY BAR -->
 <div class="sticky-bar">
-  <a href="tel:4054122924" class="btn-primary" style="flex:1;justify-content:center">📞 Call Now</a>
-  <a href="#contact" class="btn-outline" style="flex:1;justify-content:center;color:var(--ivory)">Schedule Consult</a>
+  <a href="tel:4054122924" class="btn btn-sm btn-green">📞 Call Now</a>
+  <a href="#contact" class="btn btn-sm btn-outline-w">Schedule Consult</a>
 </div>
 
 <!-- NAV -->
@@ -313,26 +255,23 @@ footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:
   </ul>
   <div class="nav-right">
     <a class="nav-phone" href="tel:4054122924">(405) 412-2924</a>
-    <a class="btn-primary btn-sm" href="#contact">Schedule Consult</a>
+    <a class="btn btn-sm btn-green" href="#contact">Schedule Consult</a>
   </div>
   <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ══ HERO ══ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-bg-radial"></div>
-  <svg style="position:absolute;top:50%;left:50%;animation:rotateSlow 40s linear infinite;opacity:0.05;pointer-events:none" width="700" height="700" viewBox="0 0 700 700">
-    <polygon points="350,20 680,192 680,508 350,680 20,508 20,192" fill="none" stroke="#78c832" stroke-width="1"/>
-    <polygon points="350,60 640,212 640,488 350,640 60,488 60,212" fill="none" stroke="#78c832" stroke-width="0.5"/>
-  </svg>
-
+<section id="hero">
+  <div class="hero-glow"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="deco-diamond"></span><span>Licensed Builder — Oklahoma</span><span class="deco-diamond"></span></div>
+      <div class="hero-service-area">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="2" stroke-linejoin="round"/></svg>
+        Licensed Builder — Oklahoma
+      </div>
       <h1 class="hero-h1">Build Your<br>Custom Home —<br><em>Plans to Move-In.</em></h1>
-      <div class="deco-ornament" style="justify-content:flex-start;margin:1rem 0"><div class="deco-line" style="max-width:40px"></div><div class="deco-diamond"></div></div>
-      <p class="hero-sub">Sparrow Construction is a licensed builder helping Oklahoma clients bring custom homes to life — from budgeting and planning to your final walkthrough. One company. One crew. No chaos.</p>
+      <p style="font-size:16px;color:var(--on-dark);line-height:1.8;margin-bottom:24px;max-width:440px;">Sparrow Construction is a licensed builder helping Oklahoma clients bring custom homes to life — from budgeting and planning to your final walkthrough. One company. One crew. No chaos.</p>
+
       <ul class="hero-bullets">
         <li>Licensed builder — ground-up custom homes</li>
         <li>Start-to-finish project management</li>
@@ -340,31 +279,23 @@ footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:
         <li>Clear budgeting and transparent build process</li>
         <li>One company managing the job — not scattered subs</li>
       </ul>
-      <div class="trust-box">
-        <p>Looking for a custom home builder near you in Oklahoma? Sparrow is your licensed local builder.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px">
-          <span class="trust-badge">◆ Fully licensed &amp; insured</span>
-          <span class="trust-badge">◆ Serving Oklahoma since 2007</span>
-        </div>
-      </div>
+
       <div class="hero-ctas">
-        <a class="btn-primary" href="#contact">Schedule Build Consultation →</a>
-        <a class="btn-outline" href="tel:4054122924">Talk About Your Build</a>
+        <a class="btn btn-lg btn-green" href="#contact">Schedule Build Consultation <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+        <a class="btn btn-lg btn-outline-w" href="tel:4054122924">Talk About Your Build</a>
       </div>
-      <div style="margin-top:14px;display:flex;align-items:center;gap:8px"><span class="deco-diamond" style="width:4px;height:4px"></span><span style="font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:rgba(120,200,50,0.85)">Consultation slots are limited each month — schedule early</span></div>
-      <div class="google-trust">
-        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        <span style="font-family:'Cinzel',serif;font-size:1.1rem;color:var(--ivory)">4.9</span>
-        <span style="font-size:0.85rem;color:#fbbc05;letter-spacing:1px">★★★★★</span>
-        <span style="font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.15em;color:var(--dim)">Trusted by Oklahoma homeowners since 2007</span>
+      <div class="hero-nudge">
+        <span class="nudge-dot"></span>
+        Consultation slots are limited each month — schedule early
       </div>
     </div>
+
     <div class="hero-right">
       <div class="hero-img-wrap">
         <div class="hero-img-frame"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Custom home construction" loading="eager"></div>
         <div class="hero-img-border"></div>
         <div class="hero-img-pill">
-          <div style="width:40px;height:40px;background:rgba(120,200,50,0.15);display:flex;align-items:center;justify-content:center"><span class="deco-diamond" style="width:10px;height:10px"></span></div>
+          <div style="width:40px;height:40px;border-radius:11px;background:var(--green-pale);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
           <div><div class="hip-n">Licensed</div><div class="hip-l">Oklahoma Builder</div></div>
         </div>
       </div>
@@ -372,129 +303,161 @@ footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:
   </div>
 </section>
 
-<div class="deco-divider" style="background:var(--charcoal)"><div class="deco-divider-line"></div><div class="deco-divider-center"><div class="d-sm d"></div><div class="d"></div><div class="d-sm d"></div></div><div class="deco-divider-line rev"></div></div>
-
 <!-- ══ WHO THIS IS FOR ══ -->
-<section class="sec-pad sec-dark2" id="who">
-  <div class="sec-inner">
-    <div class="reveal" style="background:var(--ink);border:1px solid var(--bd);padding:36px 44px;margin-bottom:52px;display:flex;align-items:center;gap:40px;flex-wrap:wrap;clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px)">
+<section style="background:var(--black2);padding:100px 60px;position:relative;overflow:hidden;border-top:1px solid var(--bd)">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(120,200,50,0.05) 1px,transparent 1px);background-size:26px 26px"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+
+    <div class="rv" style="background:var(--black);border:1px solid var(--bd);border-radius:24px;padding:36px 44px;margin-bottom:52px;display:flex;align-items:center;gap:40px;flex-wrap:wrap;">
       <div style="flex:1;min-width:260px">
-        <p class="section-label">◆ &nbsp; Before You Scroll Further</p>
-        <h3 style="font-family:'Cinzel Decorative',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);color:var(--ivory);line-height:1.2;letter-spacing:0.03em">This isn't just a house — it's your <em style="font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--green)">long-term home</em> built the right way from the ground up.</h3>
+        <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Before You Scroll Further</div></div>
+        <h3 style="font-family:'Fraunces',serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;color:#fff;line-height:1.2;">This isn't just a house — it's your <em style="font-style:italic;font-weight:300;color:var(--green)">long-term home</em> built the right way from the ground up.</h3>
       </div>
-      <div style="flex:1;min-width:240px"><p style="font-size:1rem;color:var(--on-dark);line-height:1.8;font-style:italic">Most people building a custom home do it once. That means one chance to get it right — the right builder, the right process, the right budget. We take that seriously.</p></div>
+      <div style="flex:1;min-width:240px"><p style="font-size:15px;color:var(--on-dark);line-height:1.8">Most people building a custom home do it once. That means one chance to get it right — the right builder, the right process, the right budget. We take that seriously.</p></div>
     </div>
-    <div class="who-grid">
-      <div class="reveal">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start" class="who-grid">
+      <div class="rv">
         <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Who This Is For</div></div>
-        <h2 class="sec-h" style="color:var(--ivory)">Is a Custom Build<br><em style="color:var(--green)">Right for You?</em></h2>
-        <div class="deco-ornament" style="justify-content:flex-start"><div class="deco-line" style="max-width:40px"></div><div class="deco-diamond"></div></div>
-        <p style="font-size:1rem;color:var(--on-dark);line-height:1.85;font-style:italic">We work best with clients who are serious, have financing in place or in motion, and are ready to move — not just dreaming. Here's who that looks like.</p>
-        <div style="margin-top:20px;padding:16px 20px;background:rgba(220,50,50,0.06);border:1px solid rgba(220,50,50,0.18)">
-          <div style="font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#e05252;margin-bottom:8px">This page is NOT for</div>
+        <h2 class="sec-h" style="color:#fff">Is a Custom Build<br><em style="color:var(--green)">Right for You?</em></h2>
+        <p style="font-size:15px;color:var(--on-dark);line-height:1.85;margin-top:16px">We work best with clients who are serious, have financing in place or in motion, and are ready to move — not just dreaming.</p>
+        <div style="margin-top:20px;background:rgba(220,50,50,0.06);border:1px solid rgba(220,50,50,0.18);border-radius:14px;padding:16px 20px">
+          <div style="font-size:11px;font-weight:900;letter-spacing:0.18em;text-transform:uppercase;color:#e05252;margin-bottom:8px">This page is NOT for</div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            <div style="font-size:0.85rem;color:var(--on-dark);display:flex;gap:8px;font-style:italic"><span style="color:#e05252;flex-shrink:0">✕</span>Small repairs or patch jobs</div>
-            <div style="font-size:0.85rem;color:var(--on-dark);display:flex;gap:8px;font-style:italic"><span style="color:#e05252;flex-shrink:0">✕</span>Clients with no financing plan in place</div>
-            <div style="font-size:0.85rem;color:var(--on-dark);display:flex;gap:8px;font-style:italic"><span style="color:#e05252;flex-shrink:0">✕</span>Casual inquiries with no timeline or budget</div>
+            <div style="font-size:13px;color:var(--on-dark);display:flex;gap:8px"><span style="color:#e05252;flex-shrink:0">✕</span>Small repairs or patch jobs</div>
+            <div style="font-size:13px;color:var(--on-dark);display:flex;gap:8px"><span style="color:#e05252;flex-shrink:0">✕</span>Clients with no financing plan in place</div>
+            <div style="font-size:13px;color:var(--on-dark);display:flex;gap:8px"><span style="color:#e05252;flex-shrink:0">✕</span>Casual inquiries with no timeline or budget</div>
           </div>
         </div>
-        <a class="btn-primary" href="#contact" style="margin-top:24px">Schedule Free Consultation</a>
+        <a class="btn btn-md btn-green" href="#contact" style="margin-top:24px;display:inline-flex">Schedule Free Consultation</a>
       </div>
-      <div class="who-cards reveal">
-        <div class="who-card"><div class="who-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="who-title">Already approved for a construction loan</div><div class="who-desc">You've spoken with a lender, have a budget range, and are actively looking for a builder — not just exploring.</div></div></div>
-        <div class="who-card"><div class="who-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="who-title">Serious buyers working with a construction lender</div><div class="who-desc">You're in the approval process and need a licensed builder who can provide documentation, budgets, and draw coordination for your lender.</div></div></div>
-        <div class="who-card"><div class="who-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="who-title">You own land or will own land soon</div><div class="who-desc">You have a lot in mind or already own the property. We need to know the site before we can give you a real number.</div></div></div>
-        <div class="who-card"><div class="who-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="who-title">Planning to build in the next 3–12 months</div><div class="who-desc">You have a real timeline. You want a builder locked in now — not when you've already lost 6 months to uncertainty.</div></div></div>
-        <div class="who-card"><div class="who-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="who-title">You want one builder — not ten subcontractors to manage</div><div class="who-desc">You want someone who takes the whole job, manages every trade, and is accountable to you as the single point of contact.</div></div></div>
+      <div class="rv" style="display:flex;flex-direction:column;gap:14px" class="who-cards-grid">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid var(--bd);border-radius:16px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all 0.2s" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div>
+          <div><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Already approved for a construction loan</div><div style="font-size:13px;color:var(--dim);line-height:1.6">You've spoken with a lender, have a budget range, and are actively looking for a builder.</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid var(--bd);border-radius:16px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all 0.2s" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div>
+          <div><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Serious buyers working with a construction lender</div><div style="font-size:13px;color:var(--dim);line-height:1.6">You're in the approval process and need a licensed builder who can provide documentation, budgets, and draw coordination.</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid var(--bd);border-radius:16px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all 0.2s" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div>
+          <div><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">You own land or will own land soon</div><div style="font-size:13px;color:var(--dim);line-height:1.6">You have a lot in mind or already own the property. We need to know the site before we can give you a real number.</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid var(--bd);border-radius:16px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all 0.2s" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div>
+          <div><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Planning to build in the next 3–12 months</div><div style="font-size:13px;color:var(--dim);line-height:1.6">You have a real timeline. You want a builder locked in now.</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid var(--bd);border-radius:16px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;transition:all 0.2s" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="width:42px;height:42px;border-radius:11px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div>
+          <div><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">You want one builder — not ten subcontractors to manage</div><div style="font-size:13px;color:var(--dim);line-height:1.6">You want someone who takes the whole job and is accountable to you as the single point of contact.</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══ PRICING ══ -->
-<section class="sec-pad sec-dark" id="pricing">
-  <div class="sec-inner">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start" class="pricing-two-col">
-      <div class="reveal">
+<section style="background:var(--black);padding:100px 60px;position:relative;z-index:2;border-top:1px solid var(--bd)">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start" class="pricing-grid">
+      <div class="rv">
         <div class="stag"><div class="stag-bar"></div><div class="stag-txt">What to Expect</div></div>
-        <h2 class="sec-h" style="color:var(--ivory)">Typical Custom<br>Home <em style="color:var(--green)">Build Cost</em><br>in Oklahoma.</h2>
-        <div class="deco-ornament" style="justify-content:flex-start"><div class="deco-line" style="max-width:40px"></div><div class="deco-diamond"></div></div>
-        <p style="font-size:1rem;color:var(--on-dark);line-height:1.85;font-style:italic">We believe in transparency. Here's an honest look at what custom homes typically cost — and what affects that number.</p>
-        <a class="btn-primary" href="#contact" style="margin-top:28px">Start Your Custom Home</a>
+        <h2 class="sec-h" style="color:#fff">Typical Custom<br>Home <em style="color:var(--green)">Build Cost</em><br>in Oklahoma.</h2>
+        <p style="font-size:15px;color:var(--on-dark);line-height:1.85;margin-top:16px">We believe in transparency. Here's an honest look at what custom homes typically cost — and what affects that number.</p>
+        <a class="btn btn-md btn-green" href="#contact" style="margin-top:28px;display:inline-flex">Start Your Custom Home</a>
       </div>
-      <div class="pricing-hero reveal">
-        <p class="section-label">◆ &nbsp; Typical Build Ranges — Oklahoma</p>
-        <div class="price-range-row">
-          <div class="pr-icon"><span class="deco-diamond" style="width:10px;height:10px"></span></div>
-          <div><div class="pr-label">Starter / Entry Custom</div><div class="pr-desc">1,400–1,800 sq ft · Practical finishes · Single story</div></div>
-          <div class="pr-price">$250k–$380k</div>
+      <div class="rv" style="background:var(--black3);border:1px solid var(--bd);border-radius:24px;padding:44px 40px;">
+        <div style="font-size:11px;font-weight:900;letter-spacing:0.24em;text-transform:uppercase;color:var(--green);margin-bottom:20px;">Typical Build Ranges — Oklahoma</div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:20px 0;border-bottom:1px solid var(--bd)">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <div style="flex:1"><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Starter / Entry Custom</div><div style="font-size:13px;color:var(--on-dark);line-height:1.55">1,400–1,800 sq ft · Practical finishes · Single story</div></div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--green);white-space:nowrap;flex-shrink:0">$250k–$380k</div>
         </div>
-        <div class="price-range-row">
-          <div class="pr-icon"><span class="deco-diamond" style="width:10px;height:10px"></span></div>
-          <div><div class="pr-label">Mid-Range Custom</div><div class="pr-desc">1,800–2,800 sq ft · Quality finishes · Open floor plan</div></div>
-          <div class="pr-price">$380k–$550k</div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:20px 0;border-bottom:1px solid var(--bd)">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <div style="flex:1"><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Mid-Range Custom</div><div style="font-size:13px;color:var(--on-dark);line-height:1.55">1,800–2,800 sq ft · Quality finishes · Open floor plan</div></div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--green);white-space:nowrap;flex-shrink:0">$380k–$550k</div>
         </div>
-        <div class="price-range-row">
-          <div class="pr-icon"><span class="deco-diamond" style="width:10px;height:10px"></span></div>
-          <div><div class="pr-label">Premium / Larger Custom</div><div class="pr-desc">2,800+ sq ft · High-end finishes · Complex design</div></div>
-          <div class="pr-price">$550k–$1M+</div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:20px 0">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#78c832" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <div style="flex:1"><div style="font-size:14px;font-weight:800;color:#fff;margin-bottom:4px">Premium / Larger Custom</div><div style="font-size:13px;color:var(--on-dark);line-height:1.55">2,800+ sq ft · High-end finishes · Complex design</div></div>
+          <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:var(--green);white-space:nowrap;flex-shrink:0">$550k–$1M+</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MID CTA -->
-<div class="mid-cta reveal">
-  <div class="mid-cta-inner">
+<!-- ══ CTA STRIP ══ -->
+<section style="background:var(--green);padding:88px 60px;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-130px;right:-100px;width:480px;height:480px;border-radius:50%;background:rgba(255,255,255,0.14);pointer-events:none"></div>
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:52px;position:relative;z-index:1;flex-wrap:wrap;">
     <div>
-      <p class="section-label" style="color:rgba(14,15,13,0.5)">◆ &nbsp; Ready to Talk?</p>
-      <h3 style="font-family:'Cinzel Decorative',serif;font-size:clamp(1.5rem,3vw,2.5rem);color:var(--ink);line-height:1.1;letter-spacing:0.03em">Let's Talk About <em style="font-style:italic;font-family:'Cormorant Garamond',serif">Your Build.</em></h3>
-      <div style="font-size:0.9rem;color:rgba(14,15,13,0.58);margin-top:8px;font-style:italic">We'll walk you through budget, timeline, and next steps — no pressure, no pitch.</div>
+      <div class="stag"><div class="stag-bar" style="background:var(--black)"></div><div class="stag-txt" style="color:rgba(14,15,13,0.5)">Ready to Talk?</div></div>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(40px,4.8vw,72px);font-weight:900;color:var(--black);line-height:0.97;margin-top:10px;">Let's Talk About<br><em style="font-style:italic;font-weight:300;">Your Build.</em></h2>
+      <div style="font-size:14px;color:rgba(14,15,13,0.55);margin-top:8px;font-weight:600;">We'll walk you through budget, timeline, and next steps — no pressure, no pitch.</div>
     </div>
-    <div class="mid-cta-btns">
-      <a class="btn-primary" href="#contact" style="background:var(--ink);color:var(--ivory)">Schedule Consultation →</a>
-      <a class="btn-outline" href="tel:4054122924" style="color:var(--ink);border-color:rgba(14,15,13,0.3)">Call (405) 412-2924</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;">
+      <a class="btn btn-lg btn-black" href="#contact">Schedule Consultation →</a>
+      <a class="btn btn-lg btn-outline-g" href="tel:4054122924">Call (405) 412-2924</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ══ BUILD PROCESS ══ -->
-<section class="sec-pad sec-light" id="process">
-  <div class="sec-inner">
-    <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto 52px">
-      <div class="stag" style="justify-content:center"><div class="stag-bar" style="background:var(--copper)"></div><div class="stag-txt" style="color:var(--copper)">Our Build Process</div><div class="stag-bar" style="background:var(--copper)"></div></div>
-      <h2 class="sec-h" style="color:var(--text)">From First Call to<br><em>Final Walkthrough.</em></h2>
-      <div class="deco-ornament"><div class="deco-line" style="max-width:60px;background:var(--copper)"></div><div class="deco-diamond" style="background:var(--copper)"></div><div class="deco-line" style="max-width:60px;background:var(--copper)"></div></div>
-      <p style="font-size:1rem;color:var(--muted);line-height:1.8;font-style:italic">Here's exactly how a Sparrow custom home build works — from your first conversation through the day you get your keys.</p>
+<section style="background:var(--off-white);padding:100px 60px;position:relative;z-index:2" id="process">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="rv" style="text-align:center;max-width:560px;margin:0 auto 52px">
+      <div class="stag" style="justify-content:center"><div class="stag-bar"></div><div class="stag-txt">Our Build Process</div><div class="stag-bar"></div></div>
+      <h2 class="sec-h">From First Call to<br><em>Final Walkthrough.</em></h2>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-top:16px">Here's exactly how a Sparrow custom home build works — from your first conversation through the day you get your keys.</p>
     </div>
-    <div class="process-steps reveal">
+    <div class="process-grid rv">
       <div class="ps-card"><div class="ps-num">01</div><div class="ps-title">Consultation &amp; Goals</div><p class="ps-desc">We sit down and talk through what you want to build, your budget, your timeline, and your land situation. We ask hard questions early so there are no surprises later.</p></div>
       <div class="ps-card"><div class="ps-num">02</div><div class="ps-title">Plans &amp; Budgeting</div><p class="ps-desc">We work from your plans or connect you with a designer. We price the build in detail — material by material, trade by trade — so you know what you're committing to.</p></div>
       <div class="ps-card"><div class="ps-num">03</div><div class="ps-title">Pre-Construction &amp; Permitting</div><p class="ps-desc">We handle all permit applications, soil testing if required, and coordinate with your lender's draw schedule before a shovel hits the ground.</p></div>
       <div class="ps-card"><div class="ps-num">04</div><div class="ps-title">Site Prep &amp; Foundation</div><p class="ps-desc">Land clearing, grading, utility connections, and foundation pour — everything is staged, inspected, and done to spec before framing begins.</p></div>
-      <div class="ps-card"><div class="ps-num">05</div><div class="ps-title">Framing Through Finishes</div><p class="ps-desc">Framing, roofing, windows, mechanicals, insulation, drywall, cabinets, flooring, paint, fixtures — we manage every trade through every phase with regular client updates.</p></div>
-      <div class="ps-card"><div class="ps-num">06</div><div class="ps-title">Final Walkthrough &amp; Keys</div><p class="ps-desc">We do a detailed walk with you before closing out. Every punch-list item is addressed. You get your warranty documents and your new home. Done right, start to finish.</p></div>
+      <div class="ps-card"><div class="ps-num">05</div><div class="ps-title">Framing Through Finishes</div><p class="ps-desc">Framing, roofing, windows, mechanicals, insulation, drywall, cabinets, flooring, paint, fixtures — we manage every trade through every phase.</p></div>
+      <div class="ps-card"><div class="ps-num">06</div><div class="ps-title">Final Walkthrough &amp; Keys</div><p class="ps-desc">We do a detailed walk with you before closing out. Every punch-list item is addressed. You get your warranty documents and your new home.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ══ WHY BUILD WITH SPARROW ══ -->
-<section class="sec-pad sec-dark" id="why">
-  <div class="sec-inner">
-    <div class="why-build-grid">
-      <div class="why-build-img reveal"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="Sparrow custom home build" loading="lazy"></div>
-      <div class="reveal">
+<section style="background:var(--black);padding:100px 60px;position:relative;overflow:hidden" id="why">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(120,200,50,0.05) 1px,transparent 1px);background-size:26px 26px"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center" class="why-grid">
+      <div class="rv" style="border-radius:24px;overflow:hidden;aspect-ratio:4/5;position:relative">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="Sparrow custom home build" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.72)">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,15,13,0.7) 0%,transparent 50%)"></div>
+      </div>
+      <div class="rv">
         <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Why Build With Sparrow</div></div>
-        <h2 class="sec-h" style="color:var(--ivory)">One Company.<br><em style="color:var(--green)">Total Accountability.</em></h2>
-        <div class="deco-ornament" style="justify-content:flex-start"><div class="deco-line" style="max-width:40px"></div><div class="deco-diamond"></div></div>
-        <p style="font-size:1rem;color:var(--on-dark);line-height:1.85;font-style:italic">Most custom home nightmares come from too many cooks — homeowners managing 12 different subs with no one responsible for the whole picture. That's not how we work.</p>
-        <div style="margin-top:28px">
-          <div class="wb-item"><div class="wb-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="wb-title">Licensed Builder — Not Just a GC</div><div class="wb-desc">We're licensed to build in Oklahoma. That means real accountability, real insurance, and real oversight at every phase.</div></div></div>
-          <div class="wb-item"><div class="wb-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="wb-title">Start-to-Finish Oversight</div><div class="wb-desc">One point of contact. One company responsible. We don't disappear mid-project and hand you off to someone else.</div></div></div>
-          <div class="wb-item"><div class="wb-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="wb-title">Clear Communication Throughout</div><div class="wb-desc">You'll know what's happening on your build every week — not just when something goes wrong.</div></div></div>
-          <div class="wb-item"><div class="wb-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="wb-title">Real Scheduling and Budget Tracking</div><div class="wb-desc">You'll have a real schedule and a real budget — and we'll flag issues before they become expensive surprises.</div></div></div>
-          <div class="wb-item"><div class="wb-ico"><span class="deco-diamond" style="width:8px;height:8px"></span></div><div><div class="wb-title">Oklahoma-Based. Local Knowledge.</div><div class="wb-desc">We know the soil conditions, the permit offices, the local subs worth using, and the codes that matter here.</div></div></div>
+        <h2 class="sec-h" style="color:#fff">One Company.<br><em style="color:var(--green)">Total Accountability.</em></h2>
+        <p style="font-size:15px;color:var(--on-dark);line-height:1.85;margin-top:16px">Most custom home nightmares come from too many cooks — homeowners managing 12 different subs with no one responsible for the whole picture.</p>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:0">
+          <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--bd);align-items:flex-start">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#78c832" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/></svg></div>
+            <div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">Licensed Builder — Not Just a GC</div><div style="font-size:13.5px;color:var(--on-dark);line-height:1.65">We're licensed to build in Oklahoma. Real accountability, real insurance, real oversight.</div></div>
+          </div>
+          <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--bd);align-items:flex-start">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#78c832" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#78c832" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">Start-to-Finish Oversight</div><div style="font-size:13.5px;color:var(--on-dark);line-height:1.65">One point of contact. One company responsible. We don't disappear mid-project.</div></div>
+          </div>
+          <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--bd);align-items:flex-start">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#78c832" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke="#78c832" stroke-width="2"/></svg></div>
+            <div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">Clear Communication Throughout</div><div style="font-size:13.5px;color:var(--on-dark);line-height:1.65">You'll know what's happening on your build every week — not just when something goes wrong.</div></div>
+          </div>
+          <div style="display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--bd);align-items:flex-start">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#78c832" stroke-width="2"/><path d="M3 10h18" stroke="#78c832" stroke-width="2"/></svg></div>
+            <div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">Real Scheduling and Budget Tracking</div><div style="font-size:13.5px;color:var(--on-dark);line-height:1.65">You'll have a real schedule and a real budget — and we'll flag issues before they become expensive surprises.</div></div>
+          </div>
+          <div style="display:flex;gap:20px;padding:24px 0;align-items:flex-start">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(120,200,50,0.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#78c832" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#78c832" stroke-width="2"/></svg></div>
+            <div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px">Oklahoma-Based. Local Knowledge.</div><div style="font-size:13.5px;color:var(--on-dark);line-height:1.65">We know the soil conditions, the permit offices, the local subs worth using, and the codes that matter here.</div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -502,96 +465,114 @@ footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:
 </section>
 
 <!-- ══ FAQ ══ -->
-<section class="sec-pad sec-light" id="faq">
-  <div class="sec-inner">
-    <div class="reveal" style="text-align:center;max-width:540px;margin:0 auto 48px">
-      <div class="stag" style="justify-content:center"><div class="stag-bar" style="background:var(--copper)"></div><div class="stag-txt" style="color:var(--copper)">Common Questions</div><div class="stag-bar" style="background:var(--copper)"></div></div>
-      <h2 class="sec-h" style="color:var(--text)">Custom Home <em>FAQ</em></h2>
-      <div class="deco-ornament"><div class="deco-line" style="max-width:60px;background:var(--copper)"></div><div class="deco-diamond" style="background:var(--copper)"></div><div class="deco-line" style="max-width:60px;background:var(--copper)"></div></div>
+<section style="background:var(--off-white);padding:100px 60px;position:relative;z-index:2" id="faq">
+  <div style="max-width:800px;margin:0 auto;">
+    <div class="rv" style="text-align:center;margin-bottom:44px">
+      <div class="stag" style="justify-content:center"><div class="stag-bar"></div><div class="stag-txt">Common Questions</div><div class="stag-bar"></div></div>
+      <h2 class="sec-h">Custom Home <em>FAQ</em></h2>
     </div>
-    <div class="faq-list reveal">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to own land before starting?<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Not necessarily — but it helps to have a plan. We can start the consultation process and discuss plans while you're still in the process of acquiring land. If you already own land, we can typically start planning right away.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can you work with my construction lender?<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Yes. We're experienced with construction loan draw schedules and understand what lenders need from a builder — licensed status, insurance documentation, itemized budgets, and inspection-ready staging.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can you build from my own plans?<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Absolutely. If you already have architectural plans or are working with a designer, we'll price directly from those drawings. If you're starting from scratch, we can recommend designers we've worked with.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does a custom home typically take to build?<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">Most custom homes take 9–18 months from permit to move-in, depending on size and complexity. We'll give you a realistic schedule in writing at the start.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What affects the final cost the most?<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-a">The biggest variables are: (1) finishes — kitchen cabinets, flooring, countertops, and fixtures, (2) square footage, (3) site conditions, and (4) plan complexity. We help you understand the cost impact of every decision before you make it.</div></div>
+    <div class="rv faq-acc">
+      <div style="border-bottom:1px solid var(--bd-l);overflow:hidden;">
+        <button onclick="toggleFaqItem(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">Do I need to own land before starting?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);"><div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Not necessarily — but it helps to have a plan. We can start the consultation process and discuss plans while you're still in the process of acquiring land. If you already own land, we can typically start planning right away.</div></div>
+      </div>
+      <div style="border-bottom:1px solid var(--bd-l);overflow:hidden;">
+        <button onclick="toggleFaqItem(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">Can you work with my construction lender?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);"><div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Yes. We're experienced with construction loan draw schedules and understand what lenders need from a builder — licensed status, insurance documentation, itemized budgets, and inspection-ready staging.</div></div>
+      </div>
+      <div style="border-bottom:1px solid var(--bd-l);overflow:hidden;">
+        <button onclick="toggleFaqItem(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">Can you build from my own plans?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);"><div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Absolutely. If you already have architectural plans or are working with a designer, we'll price directly from those drawings. If you're starting from scratch, we can recommend designers we've worked with.</div></div>
+      </div>
+      <div style="border-bottom:1px solid var(--bd-l);overflow:hidden;">
+        <button onclick="toggleFaqItem(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">How long does a custom home typically take to build?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);"><div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">Most custom homes take 9–18 months from permit to move-in, depending on size and complexity. We'll give you a realistic schedule in writing at the start.</div></div>
+      </div>
+      <div style="overflow:hidden;">
+        <button onclick="toggleFaqItem(this)" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:var(--text);">What affects the final cost the most?<svg style="flex-shrink:0;transition:transform 0.3s" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <div style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(.22,.61,.36,1);"><div style="padding:0 0 20px;font-size:14.5px;color:var(--muted);line-height:1.75;">The biggest variables are: (1) finishes — kitchen cabinets, flooring, countertops, and fixtures, (2) square footage, (3) site conditions, and (4) plan complexity. We help you understand the cost impact of every decision before you make it.</div></div>
+      </div>
     </div>
-    <div style="text-align:center;margin-top:40px" class="reveal">
-      <a class="btn-primary" href="#contact" style="background:var(--copper)">Ask Us Directly →</a>
+    <div style="text-align:center;margin-top:40px;" class="rv">
+      <a class="btn btn-md btn-green" href="#contact">Ask Us Directly →</a>
     </div>
   </div>
 </section>
 
-<!-- ══ INTERNAL LINKS ══ -->
-<section class="sec-pad sec-dark2" style="padding-top:4rem;padding-bottom:4rem">
-  <div class="sec-inner">
-    <div class="reveal" style="text-align:center;margin-bottom:36px">
-      <div class="stag" style="justify-content:center"><div class="stag-bar"></div><div class="stag-txt">Other Sparrow Services</div><div class="stag-bar"></div></div>
-      <h3 style="font-family:'Cinzel Decorative',serif;font-size:1.5rem;color:var(--ivory);letter-spacing:0.03em">We Also Handle <em style="font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--green)">Roofing &amp; Concrete.</em></h3>
+<!-- ══ OTHER SERVICES ══ -->
+<section style="background:var(--black);padding:80px 60px;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(120,200,50,0.05) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;"></div>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+    <div class="rv" style="text-align:center;max-width:600px;margin:0 auto 40px;">
+      <div class="stag" style="justify-content:center;"><div class="stag-bar"></div><div class="stag-txt">Other Sparrow Services</div><div class="stag-bar"></div></div>
+      <h2 class="sec-h" style="color:#fff;margin-top:10px;">We Also Handle <em style="color:var(--green)">Roofing &amp; Concrete.</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px" class="reveal homes-intlink">
-      <a href="/" style="background:var(--charcoal);border:1px solid var(--bd);padding:32px 36px;display:flex;align-items:center;gap:20px;transition:border-color 0.2s;clip-path:polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px)" onmouseover="this.style.borderColor='rgba(120,200,50,0.4)'" onmouseout="this.style.borderColor='rgba(120,200,50,0.15)'">
-        <div style="width:48px;height:48px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="deco-diamond" style="width:12px;height:12px"></span></div>
-        <div><div style="font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:4px">Roofing &amp; Storm Damage</div><div style="font-size:0.85rem;color:var(--dim);font-style:italic">Free inspection, insurance claim help, hail &amp; wind damage repair</div></div>
-        <span style="flex-shrink:0;margin-left:auto;color:var(--green);font-family:'Cinzel',serif;font-size:0.7rem">→</span>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;" class="other-svc-grid intlink-grid rv">
+      <a href="/" style="background:var(--black3);border:1.5px solid rgba(255,255,255,0.08);border-radius:24px;padding:36px 32px;display:flex;align-items:center;gap:20px;transition:all 0.3s;text-decoration:none;" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="24" height="24" viewBox="0 0 48 48" fill="none"><path d="M4 36L24 12L44 36H4Z" stroke="#78c832" stroke-width="2"/></svg></div>
+        <div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Roofing &amp; Storm Damage</div><div style="font-size:13px;color:var(--dim);">Free inspection, insurance claim help, hail &amp; wind damage repair</div></div>
+        <span style="flex-shrink:0;margin-left:auto;color:var(--green);font-weight:800;font-size:14px;">→</span>
       </a>
-      <a href="/concrete.html" style="background:var(--charcoal);border:1px solid var(--bd);padding:32px 36px;display:flex;align-items:center;gap:20px;transition:border-color 0.2s;clip-path:polygon(14px 0%,100% 0%,100% calc(100% - 14px),calc(100% - 14px) 100%,0% 100%,0% 14px)" onmouseover="this.style.borderColor='rgba(120,200,50,0.4)'" onmouseout="this.style.borderColor='rgba(120,200,50,0.15)'">
-        <div style="width:48px;height:48px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span class="deco-diamond" style="width:12px;height:12px"></span></div>
-        <div><div style="font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.15em;color:var(--ivory);margin-bottom:4px">Concrete Work</div><div style="font-size:0.85rem;color:var(--dim);font-style:italic">Driveways, patios, slabs, sidewalks &amp; commercial flatwork</div></div>
-        <span style="flex-shrink:0;margin-left:auto;color:var(--green);font-family:'Cinzel',serif;font-size:0.7rem">→</span>
+      <a href="/concrete.html" style="background:var(--black3);border:1.5px solid rgba(255,255,255,0.08);border-radius:24px;padding:36px 32px;display:flex;align-items:center;gap:20px;transition:all 0.3s;text-decoration:none;" onmouseover="this.style.borderColor='rgba(120,200,50,0.35)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="width:52px;height:52px;border-radius:14px;background:rgba(120,200,50,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="24" height="24" viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" stroke="#78c832" stroke-width="2"/><path d="M8 20h32M20 8v32" stroke="#78c832" stroke-width="2"/></svg></div>
+        <div><div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:4px;">Concrete Work</div><div style="font-size:13px;color:var(--dim);">Driveways, patios, slabs, sidewalks &amp; commercial flatwork</div></div>
+        <span style="flex-shrink:0;margin-left:auto;color:var(--green);font-weight:800;font-size:14px;">→</span>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ══ CONTACT ══ -->
-<section class="sec-pad sec-light" id="contact">
-  <div class="contact-grid">
-    <div class="reveal">
-      <div class="stag"><div class="stag-bar" style="background:var(--copper)"></div><div class="stag-txt" style="color:var(--copper)">Start Here — Free</div></div>
-      <h2 class="sec-h" style="color:var(--text)">Schedule Your<br>Build <em>Consultation.</em></h2>
-      <div class="deco-ornament" style="justify-content:flex-start"><div class="deco-line" style="max-width:40px;background:var(--copper)"></div><div class="deco-diamond" style="background:var(--copper)"></div></div>
-      <p class="sec-p" style="margin-top:14px">This isn't a sales call. It's a real conversation about what you want to build, what it costs, and whether we're the right fit.</p>
+<section id="contact" style="background:var(--off-white);padding:100px 60px;position:relative;z-index:2">
+  <div class="contact-inner">
+    <div class="rv">
+      <div class="stag"><div class="stag-bar"></div><div class="stag-txt">Start Here — Free</div></div>
+      <h2 class="sec-h" style="margin-top:6px">Schedule Your<br>Build <em>Consultation.</em></h2>
+      <p class="sec-p" style="margin-top:16px">This isn't a sales call. It's a real conversation about what you want to build, what it costs, and whether we're the right fit.</p>
       <div class="ci-items">
-        <div class="ci-item"><div class="ci-ico"><span class="deco-diamond" style="width:6px;height:6px;background:var(--copper)"></span></div><div><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:4054122924">(405) 412-2924</a></div></div></div>
-        <div class="ci-item"><div class="ci-ico"><span class="deco-diamond" style="width:6px;height:6px;background:var(--copper)"></span></div><div><div class="ci-lbl">Office</div><div class="ci-val">209 Arlington Drive, Yukon, Oklahoma</div></div></div>
+        <div class="ci-item"><div class="ci-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14 10.67c-1.06 0-2.09-.17-3.05-.48a.92.92 0 00-.95.23L8.45 11.9A11.04 11.04 0 014.1 7.55l1.44-1.6a.93.93 0 00.23-.96A9.63 9.63 0 015.3 2C5.3 1.45 4.85 1 4.3 1H2C1.45 1 1 1.45 1 2c0 7.18 5.82 13 13 13 .55 0 1-.45 1-1v-2.33c0-.55-.45-1-1-1z" fill="#78c832"/></svg></div><div><div class="ci-lbl">Phone</div><div class="ci-val"><a href="tel:4054122924">(405) 412-2924</a></div></div></div>
+        <div class="ci-item"><div class="ci-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="#78c832" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#78c832" stroke-width="2"/></svg></div><div><div class="ci-lbl">Office</div><div class="ci-val">209 Arlington Drive, Yukon, Oklahoma</div></div></div>
       </div>
     </div>
-    <div class="reveal">
+    <div class="rv">
       <div class="cform">
         <div class="cform-h">Request Consultation</div>
         <div class="cform-sub">We'll reach out within 1 business day to confirm your slot.</div>
         <div class="fg">
-          <div class="fg-g"><label>First Name</label><input type="text" placeholder="John"></div>
-          <div class="fg-g"><label>Last Name</label><input type="text" placeholder="Smith"></div>
-          <div class="fg-g"><label>Phone Number</label><input type="tel" placeholder="(405) 000-0000"></div>
-          <div class="fg-g"><label>Email Address</label><input type="email" placeholder="john@email.com"></div>
-          <div class="fg-g full"><label>Where Do You Plan to Build?</label><input type="text" placeholder="City, area, or land address (if known)"></div>
-          <div class="fg-g full"><label>Loan / Financing Status</label>
+          <div class="fg-grp"><label>First Name</label><input type="text" placeholder="John"></div>
+          <div class="fg-grp"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+          <div class="fg-grp"><label>Phone Number</label><input type="tel" placeholder="(405) 000-0000"></div>
+          <div class="fg-grp"><label>Email Address</label><input type="email" placeholder="john@email.com"></div>
+          <div class="fg-grp full"><label>Where Do You Plan to Build?</label><input type="text" placeholder="City, area, or land address (if known)"></div>
+          <div class="fg-grp full"><label>Loan / Financing Status</label>
             <select><option value="">Select your status...</option><option>Pre-approved for construction loan</option><option>Working with a lender now</option><option>Exploring financing options</option><option>Cash buyer</option><option>Not sure yet</option></select>
           </div>
-          <div class="fg-g full"><label>Approximate Budget Range</label>
+          <div class="fg-grp full"><label>Approximate Budget Range</label>
             <select><option value="">Select a range...</option><option>$250k – $380k</option><option>$380k – $550k</option><option>$550k – $800k</option><option>$800k+</option><option>Not sure yet — need guidance</option></select>
           </div>
-          <div class="fg-g full"><label>Tell Us About Your Plans</label><textarea placeholder="What kind of home? Do you have plans already? What's your timeline?"></textarea></div>
-          <div class="fg-g full"><button class="fsub" onclick="submitForm(this)">Schedule My Build Consultation →</button>
-          <div class="form-g"><span class="deco-diamond" style="width:4px;height:4px;flex-shrink:0"></span> No commitment. Consultations are free and confidential.</div></div>
+          <div class="fg-grp full"><label>Tell Us About Your Plans</label><textarea placeholder="What kind of home? Do you have plans already? What's your timeline?"></textarea></div>
+          <div class="fg-grp full">
+            <button class="f-sub-btn" onclick="submitForm(this)">Schedule My Build Consultation →</button>
+            <div class="form-guarantee">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#78c832" stroke-width="2"/></svg>
+              No commitment. Consultations are free and confidential.
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="foot-top">
     <div class="foot-brand">
       <a href="/" style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-        <img class="foot-logo-img" src="https://mysparrow.net/wp-content/uploads/2016/02/Sparrow-Construction-Logo-688x424-copy-compressor.png" alt="Sparrow Construction">
-        <div style="display:flex;flex-direction:column;line-height:1"><span style="font-family:'Cinzel Decorative',serif;font-size:1rem;color:var(--green);letter-spacing:0.1em">Sparrow</span><span style="font-family:'Cinzel',serif;font-size:0.4rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ivory-dark);margin-top:2px">Construction</span></div>
+        <img class="foot-logo-img" src="https://mysparrow.net/wp-content/uploads/2016/02/Sparrow-Construction-Logo-688x424-copy-compressor.png" alt="Sparrow Construction Logo">
+        <div style="display:flex;flex-direction:column;line-height:1"><span style="font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:#fff">Sparrow</span><span style="font-size:8px;letter-spacing:0.26em;text-transform:uppercase;color:var(--green);font-weight:800;margin-top:2px">Construction</span></div>
       </a>
       <p>Licensed Oklahoma contractor. Roofing, concrete, and custom homes — built right since 2007.</p>
-      <div class="deco-ornament" style="justify-content:flex-start;margin-top:1rem"><div class="deco-line" style="max-width:32px"></div><div class="deco-diamond"></div></div>
     </div>
     <div class="foot-col"><h5>Services</h5><ul><li><a href="/">Roofing</a></li><li><a href="/concrete.html">Concrete</a></li><li><a href="/custom-homes.html">Custom Homes</a></li></ul></div>
     <div class="foot-col"><h5>Company</h5><ul><li><a href="/#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
@@ -605,12 +586,11 @@ footer{background:var(--ink);border-top:1px solid rgba(120,200,50,0.15);padding:
 
 <script>
 function toggleNav(){document.getElementById('mobNav').classList.toggle('open')}
-function toggleFaq(btn){const item=btn.parentElement;const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open')}
-window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.background=window.scrollY>60?'rgba(14,15,13,0.99)':'rgba(14,15,13,0.92)'})
-const reveals=document.querySelectorAll('.reveal');
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.08});
-reveals.forEach(el=>io.observe(el));
-function submitForm(btn){btn.textContent='Submitted ✓';btn.disabled=true;btn.style.opacity='0.7'}
+function toggleFaqItem(btn){const panel=btn.nextElementSibling;const icon=btn.querySelector('svg');const isOpen=panel.style.maxHeight&&panel.style.maxHeight!=='0px';document.querySelectorAll('.faq-acc [onclick] + div').forEach(p=>{p.style.maxHeight='0px'});document.querySelectorAll('.faq-acc [onclick] svg').forEach(s=>{s.style.transform='rotate(0deg)'});if(!isOpen){panel.style.maxHeight=panel.scrollHeight+'px';icon.style.transform='rotate(45deg)'}}
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').style.background=window.scrollY>60?'rgba(14,15,13,0.99)':'rgba(14,15,13,0.95)'});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const sibs=[...e.target.parentElement.querySelectorAll('.rv')];const i=sibs.indexOf(e.target);e.target.style.transitionDelay=(i*80)+'ms';e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:0.08});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+function submitForm(btn){btn.textContent='Sending...';setTimeout(()=>{btn.textContent='✓ Request Sent! We\'ll call you soon.';btn.style.background='#3d7a0e';btn.style.color='#fff'},1100)}
 </script>
 </body>
 </html>
