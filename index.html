@@ -583,11 +583,13 @@ blockquote {
   padding: 2rem; border-radius: var(--radius);
   background: var(--dark-card);
   border: 1px solid var(--gray-800);
-  transition: all 0.4s;
+  transition: all 0.4s cubic-bezier(.22,.61,.36,1);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 .review-card:hover {
   border-color: rgba(120,200,50,0.2);
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(120,200,50,0.08);
 }
 .review-card.featured {
   background: var(--green); border-color: transparent;
