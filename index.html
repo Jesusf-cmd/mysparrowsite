@@ -282,24 +282,16 @@ nav.scrolled {
 }
 
 /* ── SECTION DIVIDERS ── */
-.section-divider {
-  height: 80px; position: relative; overflow: hidden;
-}
-.section-divider::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, var(--dark), var(--dark-elevated));
-}
-.section-divider.dark-to-light::before {
-  background: linear-gradient(to bottom, var(--dark), var(--dark-elevated));
-}
-.section-divider.light-to-dark::before {
-  background: linear-gradient(to bottom, var(--dark-elevated), var(--dark));
-}
 .section-divider-angle {
   position: relative; margin-top: -1px;
 }
 .section-divider-angle svg {
   display: block; width: 100%;
+}
+.section-divider-angle::after {
+  content: ''; position: absolute; bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(120,200,50,0.2) 30%, rgba(120,200,50,0.35) 50%, rgba(120,200,50,0.2) 70%, transparent);
 }
 
 /* ── SECTIONS ── */
