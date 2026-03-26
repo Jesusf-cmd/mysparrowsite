@@ -118,7 +118,38 @@ nav.scrolled{padding:.7rem 4rem;background:rgba(15,17,23,0.95);box-shadow:0 4px 
 .section-divider-angle svg{display:block;width:100%}
 .section-divider-angle{position:relative;margin-top:-1px}
 .section-divider-angle::after{content:'';position:absolute;bottom:0;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,rgba(120,200,50,.15) 20%,rgba(120,200,50,.4) 50%,rgba(120,200,50,.15) 80%,transparent);filter:blur(.5px)}
-section{padding:7rem 4rem;position:relative}
+section{padding:8rem 4rem;position:relative}
+
+/* AUTHORITY STRIP */
+.authority-strip{padding:5rem 4rem;position:relative;background:var(--dark-elevated)}
+.authority-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:1000px;margin:0 auto}
+.authority-item{text-align:center;padding:2rem 1rem;border-radius:var(--radius);background:rgba(28,31,43,.6);border:1px solid rgba(120,200,50,.06);transition:all .4s}
+.authority-item:hover{border-color:rgba(120,200,50,.2);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.authority-icon{width:48px;height:48px;margin:0 auto 1rem;background:rgba(120,200,50,.08);border:1px solid rgba(120,200,50,.15);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
+.authority-icon svg{width:22px;height:22px;color:var(--green)}
+.authority-item h4{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:.35rem}
+.authority-item p{font-size:.8rem;color:var(--gray-400);line-height:1.5}
+
+/* CORNERS SECTION */
+.corners-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1000px;margin:0 auto;align-items:start}
+.corners-problem,.corners-solution{padding:2.5rem;border-radius:var(--radius);position:relative}
+.corners-problem{background:rgba(220,40,40,.04);border:1px solid rgba(220,40,40,.12)}
+.corners-solution{background:rgba(120,200,50,.04);border:1px solid rgba(120,200,50,.12)}
+.corners-problem h3,.corners-solution h3{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:1.5rem}
+.corners-problem h3{color:#e85454}.corners-solution h3{color:var(--green)}
+.corners-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.corners-list li{display:flex;gap:.75rem;font-size:.9rem;color:var(--gray-300);line-height:1.6}
+.corners-list li svg{width:18px;height:18px;flex-shrink:0;margin-top:3px}
+.corners-problem .corners-list li svg{color:#e85454}
+.corners-solution .corners-list li svg{color:var(--green)}
+
+/* CERT LOGOS */
+.cert-strip{display:flex;gap:3rem;justify-content:center;align-items:center;flex-wrap:wrap;padding:2rem 0;margin-top:2rem}
+.cert-badge{display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.6;transition:opacity .3s}
+.cert-badge:hover{opacity:1}
+.cert-badge-icon{width:56px;height:56px;background:rgba(120,200,50,.08);border:1px solid rgba(120,200,50,.12);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
+.cert-badge-icon svg{width:28px;height:28px;color:var(--green)}
+.cert-badge span{font-size:.7rem;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:.08em}
 .section-dark{background:var(--dark)}.section-light{background:var(--dark-elevated)}
 .section-header{text-align:center;margin-bottom:4.5rem}
 .section-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
@@ -301,9 +332,12 @@ footer{background:var(--dark);padding:4rem;border-top:1px solid var(--gray-800);
   .reviews-grid{grid-template-columns:1fr}
   .compare-cell{padding:.8rem 1rem;font-size:.8rem}
   .breadcrumb{padding:.6rem 2rem}
+  .authority-grid{grid-template-columns:1fr 1fr}
+  .corners-grid{grid-template-columns:1fr}
+  .authority-strip{padding:3rem 2rem}
 }
 @media(max-width:640px){
-  nav{padding:.8rem 1.2rem}section{padding:3.5rem 1.2rem}
+  nav{padding:.8rem 1.2rem}section{padding:4rem 1.2rem}
   .hero{padding:6rem 1.2rem 4rem}.hero-title{font-size:clamp(2.2rem,9vw,3.5rem)}
   .hero-trust{gap:1rem}.hero-trust-item{font-size:.72rem}
   .features-grid,.services-grid,.process-grid{grid-template-columns:1fr}
@@ -317,6 +351,9 @@ footer{background:var(--dark);padding:4rem;border-top:1px solid var(--gray-800);
   .breadcrumb{padding:.5rem 1.2rem;margin-top:58px}
   .pricing-grid{grid-template-columns:1fr}
   .specs-grid{grid-template-columns:1fr}
+  .authority-grid{grid-template-columns:1fr 1fr}
+  .authority-strip{padding:2.5rem 1.2rem}
+  .corners-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -336,7 +373,7 @@ footer{background:var(--dark);padding:4rem;border-top:1px solid var(--gray-800);
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div><div class="hero-grid"></div>
-  <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Licensed &amp; Insured Roofing Contractor</div>
+  <div class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Serving OKC Since 2007</div>
   <h1 class="hero-title">Roofing Contractor in<br><span>Oklahoma City</span> (OKC)</h1>
   <p class="hero-desc"><strong>Roof replacement, hail damage repair, and full insurance claim support</strong> — backed by 18+ years of experience and 500+ completed roofs across the OKC metro.</p>
   <p class="hero-pricing">Most homeowners pay <strong>$0 out of pocket</strong> with insurance. Typical replacements: <strong>$7,000 – $15,000+</strong></p>
@@ -345,16 +382,28 @@ footer{background:var(--dark);padding:4rem;border-top:1px solid var(--gray-800);
     <a href="tel:4054122924" class="btn-secondary">(405) 412-2924</a>
   </div>
   <div class="hero-trust">
-    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> GAF &amp; CertainTeed Certified</div>
-    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9★ · 94 Google Reviews</div>
-    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Full Insurance Claim Support</div>
+    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 500+ Projects Completed</div>
+    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Licensed &amp; Insured</div>
+    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> GAF &amp; CertainTeed Certified</div>
+    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Insurance Claim Specialists</div>
   </div>
   <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
 <div class="section-divider-angle"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;"><polygon points="0,60 1440,0 1440,60" fill="#161922"/></svg></div>
 
-<!-- SERVICES -->
+<!-- AUTHORITY STRIP -->
+<div class="authority-strip">
+  <div class="authority-grid">
+    <div class="authority-item reveal"><div class="authority-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h4>500+ Projects</h4><p>Completed across the OKC metro since 2007</p></div>
+    <div class="authority-item reveal" style="transition-delay:.05s"><div class="authority-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Licensed &amp; Insured</h4><p>Full liability &amp; workers' comp coverage</p></div>
+    <div class="authority-item reveal" style="transition-delay:.1s"><div class="authority-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h4>GAF Certified</h4><p>Factory-certified installer with enhanced warranties</p></div>
+    <div class="authority-item reveal" style="transition-delay:.15s"><div class="authority-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h4>Insurance Specialists</h4><p>Full claim support from inspection to install</p></div>
+  </div>
+</div>
+
+<div class="section-divider-angle"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;"><polygon points="0,60 1440,0 1440,60" fill="#161922"/></svg></div>
+
 <section class="section-light">
   <div class="section-header reveal"><div class="section-badge">Roofing Services</div><h2 class="section-title">What We Do for<br>Oklahoma Homeowners</h2><p class="section-subtitle">From storm damage repair to full roof replacements — we handle it all with one crew, no subcontractor surprises.</p></div>
   <div class="power-intro reveal"><p><strong>Sparrow Construction</strong> is a trusted <strong>roofing contractor in Oklahoma City (OKC)</strong> specializing in <strong>roof replacement</strong>, <strong>hail damage repair</strong>, and <strong>insurance claim support</strong>. With over 500 completed projects across the OKC metro, we install roofing systems built to withstand Oklahoma's extreme weather conditions.</p></div>
@@ -465,7 +514,41 @@ footer{background:var(--dark);padding:4rem;border-top:1px solid var(--gray-800);
 
 <div class="section-divider-angle"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;"><polygon points="0,0 1440,60 1440,0" fill="#0f1117"/></svg></div>
 
-<!-- PROJECTS -->
+<!-- WHY MOST CONTRACTORS CUT CORNERS -->
+<section class="section-light">
+  <div class="section-header reveal"><div class="section-badge">The Hard Truth</div><h2 class="section-title">Why Most Contractors in<br>Oklahoma City Cut Corners</h2><p class="section-subtitle">Not all roofing contractors are built the same. Here's what separates Sparrow from the storm-chasers.</p></div>
+  <div class="corners-grid reveal">
+    <div class="corners-problem">
+      <h3>What Low-Cost Roofers Do</h3>
+      <ul class="corners-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> Skip proper ventilation to save time</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> Reuse old flashing instead of replacing it</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> Hire rotating subcontractors with no accountability</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> Use the cheapest underlayment available</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg> Disappear after the check clears</li>
+      </ul>
+    </div>
+    <div class="corners-solution">
+      <h3>What Sparrow Does Differently</h3>
+      <ul class="corners-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Full ventilation system on every roof</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> All new flashing — valleys, chimneys, walls</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> One crew, one project manager, full accountability</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> GAF-approved synthetic underlayment standard</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> We're here for warranty, follow-up, and future work</li>
+      </ul>
+    </div>
+  </div>
+  <div class="cert-strip reveal">
+    <div class="cert-badge"><div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span>GAF Certified</span></div>
+    <div class="cert-badge"><div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><span>CertainTeed</span></div>
+    <div class="cert-badge"><div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span>Licensed &amp; Insured</span></div>
+    <div class="cert-badge"><div class="cert-badge-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span>4.9★ Google</span></div>
+  </div>
+</section>
+
+<div class="section-divider-angle"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;"><polygon points="0,60 1440,0 1440,60" fill="#0f1117"/></svg></div>
+
 <section class="section-light">
   <div class="section-header reveal"><div class="section-badge">Recent Work</div><h2 class="section-title">Roofing Projects<br>Across Oklahoma</h2><p class="section-subtitle">Real projects, real results — completed by one crew with no shortcuts.</p></div>
   <div class="services-grid">
