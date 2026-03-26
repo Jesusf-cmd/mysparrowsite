@@ -71,9 +71,12 @@ section{padding:6rem 4rem;position:relative}
 .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:1rem}
 .section-subtitle{font-size:1rem;color:var(--gray-400);max-width:550px;margin:0 auto}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.step-card{padding:2rem;border-radius:var(--radius);background:var(--dark-card);border:1px solid var(--gray-800);transition:all .4s}
-.step-card:hover{border-color:rgba(120,200,50,.25);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.step-num{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:800;color:rgba(120,200,50,.12);margin-bottom:.5rem}
+.step-card{padding:2rem;border-radius:var(--radius);background:var(--dark-card);border:1px solid var(--gray-800);transition:all .4s cubic-bezier(.22,.61,.36,1);box-shadow:0 2px 12px rgba(0,0,0,.15);position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;top:0;left:20%;right:20%;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);border-radius:0 0 4px 4px;opacity:0;transition:opacity .4s}
+.step-card:hover{border-color:rgba(120,200,50,.25);transform:translateY(-6px);box-shadow:0 12px 36px rgba(0,0,0,.35),0 0 20px rgba(120,200,50,.05)}
+.step-card:hover::before{opacity:1}
+.step-num{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:800;color:rgba(120,200,50,.12);margin-bottom:.5rem;transition:color .4s}
+.step-card:hover .step-num{color:rgba(120,200,50,.22)}
 .step-title{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;color:var(--green);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
 .step-desc{font-size:.85rem;color:var(--gray-400);line-height:1.7}
 .quote-section{text-align:center;padding:6rem 4rem;position:relative;overflow:hidden}
