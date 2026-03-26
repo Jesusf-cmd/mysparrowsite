@@ -1192,13 +1192,20 @@ footer {
 </div>
 
 <script>
+// Scroll progress bar
+const scrollProg = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  scrollProg.style.width = (window.scrollY / h * 100) + '%';
+}, { passive: true });
+
 // Nav scroll effect
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
-});
+}, { passive: true });
 
-// Reveal on scroll
+// Reveal on scroll with stagger
 const reveals = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -1224,11 +1231,28 @@ function toggleFaq(btn) {
 // Form submit
 function submitForm(btn) {
   btn.textContent = 'Sending...';
-  setTimeout(() => {
-    btn.textContent = '✓ Request Sent!';
-    btn.style.background = '#5aaa18';
-  }, 1100);
+  setTimeout(() => { btn.textContent = '✓ Request Sent!'; btn.style.background = '#5aaa18'; }, 1100);
 }
+
+// Before/After slider
+document.querySelectorAll('[data-ba]').forEach(slider => {
+  const handle = slider.querySelector('.ba-handle');
+  const after = slider.querySelector('.ba-after');
+  let dragging = false;
+  function updatePos(x) {
+    const rect = slider.getBoundingClientRect();
+    let pct = ((x - rect.left) / rect.width) * 100;
+    pct = Math.max(5, Math.min(95, pct));
+    handle.style.left = pct + '%';
+    after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+  }
+  slider.addEventListener('mousedown', e => { dragging = true; updatePos(e.clientX); });
+  slider.addEventListener('touchstart', e => { dragging = true; updatePos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mousemove', e => { if (dragging) updatePos(e.clientX); });
+  window.addEventListener('touchmove', e => { if (dragging) updatePos(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('mouseup', () => { dragging = false; });
+  window.addEventListener('touchend', () => { dragging = false; });
+});
 </script>
 </body>
 </html>
