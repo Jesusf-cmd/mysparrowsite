@@ -61,6 +61,8 @@ nav.scrolled{padding:.7rem 4rem;background:rgba(15,17,23,0.95);box-shadow:0 4px 
 .scroll-indicator span{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gray-500)}
 .scroll-line{width:1px;height:30px;background:linear-gradient(to bottom,var(--green),transparent);animation:scrollPulse 2s ease-in-out infinite}
 .section-divider-angle svg{display:block;width:100%}
+.section-divider-angle{position:relative}
+.section-divider-angle::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(120,200,50,.2) 30%,rgba(120,200,50,.35) 50%,rgba(120,200,50,.2) 70%,transparent)}
 section{padding:6rem 4rem;position:relative}
 .section-dark{background:var(--dark)}.section-light{background:var(--dark-elevated)}
 .section-header{text-align:center;margin-bottom:4rem}
