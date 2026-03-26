@@ -370,7 +370,8 @@ footer{background:var(--dark);padding:4rem;border-top:1px solid var(--gray-800);
 <div class="footer-bottom"><p>© 2025 Sparrow Construction LLC. All rights reserved.</p><p>Built to last · Oklahoma</p></div>
 
 <script>
-const nav=document.getElementById('mainNav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+const sp=document.getElementById('scrollProgress');window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;sp.style.width=(window.scrollY/h*100)+'%'},{passive:true});
+const nav=document.getElementById('mainNav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)},{passive:true});
 const reveals=document.querySelectorAll('.reveal');const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});reveals.forEach(el=>io.observe(el));
 function toggleNav(){document.getElementById('mobNav').classList.toggle('open')}
 function toggleFaq(btn){const panel=btn.nextElementSibling;const icon=btn.querySelector('svg');const isOpen=panel.style.maxHeight&&panel.style.maxHeight!=='0px';document.querySelectorAll('.faq-panel').forEach(p=>{p.style.maxHeight='0px'});document.querySelectorAll('.faq-btn svg').forEach(s=>{s.style.transform='rotate(0deg)'});if(!isOpen){panel.style.maxHeight=panel.scrollHeight+'px';icon.style.transform='rotate(45deg)'}}
