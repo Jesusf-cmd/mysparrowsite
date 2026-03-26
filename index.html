@@ -495,6 +495,45 @@ blockquote { font-size: clamp(1.15rem, 2.5vw, 1.6rem); font-weight: 400; font-st
 .ba-label-before { left: 12px; }
 .ba-label-after { right: 12px; }
 .ba-overlay {
+
+/* ── BREADCRUMB ── */
+.breadcrumb { padding: 0.6rem 4rem; font-size: 0.75rem; color: var(--gray-500); background: rgba(15,17,23,0.6); border-bottom: 1px solid var(--gray-800); }
+.breadcrumb a { color: var(--gray-400); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--green); }
+.breadcrumb span.bc-sep { margin: 0 6px; color: var(--gray-600); }
+.breadcrumb span.bc-current { color: var(--green); font-weight: 600; }
+
+/* ── POWER INTRO ── */
+.power-intro { max-width: 800px; margin: 0 auto; padding: 3rem 4rem 0; text-align: center; }
+.power-intro p { font-size: 1.05rem; color: var(--gray-300); line-height: 1.8; }
+
+/* ── MATERIALS GRID ── */
+.materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.material-card { padding: 2rem 1.5rem; border-radius: var(--radius); background: rgba(28,31,43,0.8); backdrop-filter: blur(6px); border: 1px solid rgba(120,200,50,0.08); transition: all 0.4s cubic-bezier(.22,.61,.36,1); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+.material-card:hover { border-color: rgba(120,200,50,0.25); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 24px rgba(120,200,50,0.06); }
+.material-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+.material-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.7; }
+
+/* ── PROBLEMS LIST ── */
+.problems-list { max-width: 700px; margin: 0 auto; list-style: none; }
+.problems-list li { display: flex; align-items: flex-start; gap: 12px; padding: 0.85rem 0; border-bottom: 1px solid var(--gray-800); font-size: 0.95rem; color: var(--gray-300); line-height: 1.6; }
+.problems-list li svg { flex-shrink: 0; width: 18px; height: 18px; color: var(--green); margin-top: 3px; }
+
+/* ── MID CTA ── */
+.mid-cta { padding: 4rem 4rem; text-align: center; background: linear-gradient(135deg, rgba(120,200,50,0.06), rgba(120,200,50,0.02)); border-top: 1px solid rgba(120,200,50,0.1); border-bottom: 1px solid rgba(120,200,50,0.1); }
+.mid-cta h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.mid-cta p { font-size: 1rem; color: var(--gray-400); margin-bottom: 1.5rem; }
+.mid-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── FRESHNESS ── */
+.freshness { text-align: center; font-size: 0.75rem; color: var(--gray-500); padding: 1rem 0; margin-top: 1rem; }
+
+@media (max-width: 640px) {
+  .breadcrumb { padding: 0.5rem 1.2rem; }
+  .power-intro { padding: 2rem 1.2rem 0; }
+  .materials-grid { grid-template-columns: 1fr; }
+  .mid-cta { padding: 3rem 1.2rem; }
+}
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 1.5rem; background: linear-gradient(to top, rgba(15,17,23,0.9), transparent);
   z-index: 8; pointer-events: none;
@@ -714,6 +753,13 @@ footer {
   </button>
 </nav>
 
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/">Home</a><span class="bc-sep">›</span>
+  <a href="/">Roofing</a><span class="bc-sep">›</span>
+  <span class="bc-current">Oklahoma City</span>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
@@ -753,6 +799,11 @@ footer {
     <div class="scroll-line"></div>
   </div>
 </section>
+
+<!-- POWER INTRO -->
+<div class="power-intro reveal">
+  <p><strong>Sparrow Construction</strong> is a trusted roofing contractor in <strong>Oklahoma City (OKC)</strong> specializing in <strong>roof replacement</strong>, <strong>hail damage repair</strong>, and <strong>insurance claim support</strong>. With over 500 completed projects across the OKC metro, we install roofing systems built to withstand Oklahoma's extreme weather conditions.</p>
+</div>
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
@@ -824,7 +875,7 @@ footer {
 
   <div class="services-grid">
     <div class="service-card reveal">
-      <img class="service-card-img" src="https://www.fowlerexteriors.com/wp-content/uploads/2023/05/new-metal-roof-standing-seam-scaled.jpg" alt="Roof replacement by Sparrow Construction" loading="lazy">
+      <img class="service-card-img" src="https://www.fowlerexteriors.com/wp-content/uploads/2023/05/new-metal-roof-standing-seam-scaled.jpg" alt="Roof replacement in Oklahoma City by Sparrow Construction" loading="lazy">
       <div class="service-card-overlay">
         <div class="service-card-title">Roof Replacement &amp; Repair</div>
         <div class="service-card-desc">Storm damage · Insurance claims · Shingles &amp; metal</div>
@@ -842,7 +893,7 @@ footer {
     </div>
 
     <div class="service-card reveal" style="transition-delay:0.2s">
-      <img class="service-card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Commercial roofing" loading="lazy">
+      <img class="service-card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Commercial roofing contractor in Oklahoma City" loading="lazy">
       <div class="service-card-overlay">
         <div class="service-card-title">Commercial Roofing</div>
         <div class="service-card-desc">TPO · EPDM · Flat roofs · Metal systems</div>
@@ -852,13 +903,76 @@ footer {
   </div>
 </section>
 
+<!-- ANGLE DIVIDER -->
+<div class="section-divider-angle">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;"><polygon points="0,0 1440,60 1440,0" fill="#161922"/></svg>
+</div>
+
+<!-- ROOFING SYSTEMS WE INSTALL -->
+<section class="section-light">
+  <div class="section-header reveal">
+    <div class="section-badge">Roof Types</div>
+    <h2 class="section-title">Roofing Systems We Install</h2>
+    <p class="section-subtitle">From standard shingles to premium metal — we install the best systems for Oklahoma weather.</p>
+  </div>
+  <div class="materials-grid">
+    <div class="material-card reveal">
+      <h3>Architectural Shingles</h3>
+      <p>The most popular choice for <strong>architectural shingles in Oklahoma City</strong>. We install GAF Timberline and CertainTeed Landmark — durable, attractive, and backed by manufacturer warranties. The go-to for most OKC homeowners.</p>
+    </div>
+    <div class="material-card reveal" style="transition-delay:0.1s">
+      <h3>Impact-Resistant Class 4 Shingles</h3>
+      <p>Designed for maximum hail protection, <strong>impact-resistant shingles in Oklahoma City</strong> reduce future storm damage and often qualify for insurance premium discounts. Ideal for Oklahoma's severe weather.</p>
+    </div>
+    <div class="material-card reveal" style="transition-delay:0.2s">
+      <h3>Standing Seam Metal Roofing</h3>
+      <p>A premium long-term option, <strong>metal roofing in OKC</strong> offers 40–70 year lifespans, superior wind resistance, and energy efficiency. Standing seam panels provide a sleek, modern look with virtually zero maintenance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANGLE DIVIDER -->
+<div class="section-divider-angle">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:60px;"><polygon points="0,60 1440,0 1440,60" fill="#0f1117"/></svg>
+</div>
+
+<!-- COMMON ROOFING PROBLEMS -->
+<section class="section-dark">
+  <div class="section-header reveal">
+    <div class="section-badge">Common Issues</div>
+    <h2 class="section-title">Common Roofing Problems<br>in Oklahoma City Homes</h2>
+    <p class="section-subtitle">Oklahoma homes face recurring roofing issues due to <strong>hail, wind, age, and severe weather</strong>. Here are the most common problems we see — and fix — every week.</p>
+  </div>
+  <ul class="problems-list">
+    <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span><strong>Hail damage to shingles</strong> — dents, cracks, and bruising that compromise your roof's waterproof barrier</span></li>
+    <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span><strong>Wind-lifted or missing shingles</strong> — exposing your decking to water infiltration</span></li>
+    <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span><strong>Flashing failures</strong> around chimneys, vents, and valleys</span></li>
+    <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span><strong>Roof leaks after storms</strong> — often starting small and worsening over time</span></li>
+    <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span><strong>Aging roofs over 15–20 years old</strong> — past their effective lifespan in Oklahoma weather</span></li>
+    <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span><strong>Granule loss and exposed shingles</strong> — reducing UV protection and accelerating decay</span></li>
+    <li class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span><strong>Ventilation problems</strong> that shorten roof life and increase energy costs</span></li>
+  </ul>
+  <div style="text-align:center;margin-top:2.5rem" class="reveal"><a href="#contact" class="btn-primary">Get a Free Roof Inspection →</a></div>
+</section>
+
+<!-- MID-PAGE CTA STRIP -->
+<div class="mid-cta">
+  <h2 class="reveal">Need a Roof Inspection in OKC?</h2>
+  <p class="reveal">Call now or request your free estimate today.</p>
+  <div class="mid-cta-btns reveal">
+    <a href="tel:4054122924" class="btn-primary">Call Now — (405) 412-2924</a>
+    <a href="#contact" class="btn-secondary">Get Free Quote →</a>
+  </div>
+</div>
+
 <!-- QUOTE -->
 <section class="quote-section section-light">
   <div class="quote-mark reveal">"</div>
   <blockquote class="reveal" style="transition-delay:0.1s">
     Most homeowners don't know what storm damage is covered —<br>or how to deal with adjusters. We do.
   </blockquote>
-  <p class="quote-attr reveal" style="transition-delay:0.2s">— $0 out of pocket in most insurance claims</p>
+      <p class="quote-attr reveal" style="transition-delay:0.2s">— $0 out of pocket in most insurance claims</p>
+      <p class="reveal" style="transition-delay:0.3s;font-size:0.85rem;color:var(--gray-400);margin-top:1.5rem;">Most OKC homeowners replace their roof every <strong style="color:var(--gray-200);">15–25 years</strong> depending on materials and storm exposure.</p>
 </section>
 
 <!-- ANGLE DIVIDER -->
@@ -955,8 +1069,8 @@ footer {
 
   <div class="projects-grid">
     <div class="ba-slider reveal" data-ba>
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Before roof replacement" class="ba-before">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="After roof replacement" class="ba-after">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Before hail damage roofing repair in Yukon OK" class="ba-before">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="After roof replacement in Oklahoma City by Sparrow Construction" class="ba-after">
       <div class="ba-handle"></div>
       <span class="ba-label ba-label-before">Before</span>
       <span class="ba-label ba-label-after">After</span>
@@ -966,14 +1080,14 @@ footer {
       </div>
     </div>
     <div class="project-card reveal" style="transition-delay:0.1s">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Siding replacement in Yukon" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Siding replacement project in Yukon Oklahoma" loading="lazy">
       <div class="project-overlay">
         <div class="project-type">Siding</div>
         <div class="project-name">Exterior Siding Replacement – Yukon, OK</div>
       </div>
     </div>
     <div class="project-card reveal" style="transition-delay:0.2s">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Commercial TPO roof in OKC" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Commercial TPO flat roof installation in Oklahoma City" loading="lazy">
       <div class="project-overlay">
         <div class="project-type">Commercial</div>
         <div class="project-name">TPO Flat Roof Install – OKC, OK</div>
@@ -987,6 +1101,7 @@ footer {
   <div class="section-header reveal">
     <div class="section-badge">Real Google Reviews</div>
     <h2 class="section-title">94 Oklahoma Homeowners<br>Can't Be Wrong</h2>
+    <p class="section-subtitle">We've completed roofing projects across <strong style="color:var(--white);">Oklahoma City, Yukon, Edmond, Norman</strong>, and surrounding OKC neighborhoods.</p>
   </div>
 
   <div class="reviews-grid">
@@ -1146,7 +1261,7 @@ footer {
       <img src="https://mysparrow.net/wp-content/uploads/2016/02/Sparrow-Construction-Logo-688x424-copy-compressor.png" alt="Sparrow Construction Logo" style="height:36px">
       <span class="nav-logo-text">Sparrow<span style="color:var(--green)">.</span></span>
     </a>
-    <p>Licensed Oklahoma contractor. Roofing, concrete, and custom homes — built right since 2007.</p>
+    <p>Licensed Oklahoma contractor. Roofing, <a href="/concrete.html" style="color:var(--green);text-decoration:none;">concrete services in Oklahoma City</a>, and <a href="/custom-homes.html" style="color:var(--green);text-decoration:none;">custom home construction</a> — built right since 2007.</p>
   </div>
   <div class="footer-col">
     <h4>Services</h4>
@@ -1190,6 +1305,7 @@ footer {
   <p>© 2025 Sparrow Construction LLC. All rights reserved.</p>
   <p>Built to last · Oklahoma</p>
 </div>
+<div class="freshness">Last updated: March 2026</div>
 
 <script>
 // Scroll progress bar
