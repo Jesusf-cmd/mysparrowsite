@@ -173,14 +173,24 @@ nav.scrolled {
   color: var(--dark); background: var(--green);
   border: none; padding: 0.9rem 2rem;
   border-radius: var(--radius-sm); cursor: pointer;
-  transition: all 0.3s; text-decoration: none;
-  box-shadow: 0 0 0 rgba(120,200,50,0), 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.35s cubic-bezier(.22,.61,.36,1); text-decoration: none;
+  box-shadow: 0 0 16px rgba(120,200,50,0.18), 0 2px 8px rgba(0,0,0,0.2);
+  position: relative;
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: -1px;
+  border-radius: inherit; opacity: 0;
+  background: linear-gradient(135deg, rgba(120,200,50,0.4), rgba(120,200,50,0.1));
+  filter: blur(12px); z-index: -1;
+  transition: opacity 0.35s;
 }
 .btn-primary:hover {
   background: var(--green-light);
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px var(--green-glow), 0 4px 16px rgba(0,0,0,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(120,200,50,0.45), 0 0 60px rgba(120,200,50,0.12), 0 6px 20px rgba(0,0,0,0.3);
 }
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:active { transform: translateY(-1px); }
 .btn-secondary {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 8px; font-family: 'Inter', sans-serif;
@@ -188,12 +198,13 @@ nav.scrolled {
   color: var(--green); background: transparent;
   border: 1px solid rgba(120,200,50,0.35);
   padding: 0.9rem 2rem; border-radius: var(--radius-sm);
-  cursor: pointer; transition: all 0.3s; text-decoration: none;
+  cursor: pointer; transition: all 0.35s cubic-bezier(.22,.61,.36,1); text-decoration: none;
 }
 .btn-secondary:hover {
   border-color: var(--green);
   background: rgba(120,200,50,0.08);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(120,200,50,0.1);
 }
 
 /* ── HERO ── */
