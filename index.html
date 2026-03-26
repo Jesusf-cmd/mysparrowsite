@@ -157,6 +157,35 @@ section{padding:9rem 4rem;position:relative}
 .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-0.035em;line-height:1.06;margin-bottom:1.3rem}
 .section-subtitle{font-size:.94rem;color:var(--gray-400);max-width:520px;margin:0 auto;line-height:1.78}
 
+/* TAGLINE */
+.tagline-strip{padding:3.5rem 4rem;text-align:center;background:rgba(120,200,50,.025);border-top:1px solid rgba(120,200,50,.06);border-bottom:1px solid rgba(120,200,50,.06)}
+.tagline-strip p{font-family:'Space Grotesk',sans-serif;font-size:clamp(.82rem,1.8vw,1.05rem);font-weight:600;color:var(--gray-400);letter-spacing:.04em;max-width:700px;margin:0 auto;line-height:1.7}
+.tagline-strip strong{color:var(--green)}
+
+/* ADVANTAGE GRID */
+.advantage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:var(--container-wide);margin:0 auto}
+.advantage-card{padding:2.8rem 2rem;border-radius:var(--radius-lg);background:rgba(28,31,43,.55);border:1px solid rgba(120,200,50,.04);transition:all .45s cubic-bezier(.22,.61,.36,1);position:relative}
+.advantage-card:hover{border-color:rgba(120,200,50,.12);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.28)}
+.advantage-card h3{font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.75rem;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.advantage-card h3 svg{width:20px;height:20px;color:var(--green);opacity:.7;flex-shrink:0}
+.advantage-card p{font-size:.86rem;color:var(--gray-400);line-height:1.75}
+
+/* SERVICE AREA EXPANDED */
+.area-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:var(--container-wide);margin:0 auto}
+.area-card{padding:2rem 1.6rem;border-radius:var(--radius);background:rgba(28,31,43,.5);border:1px solid rgba(120,200,50,.04);transition:all .4s cubic-bezier(.22,.61,.36,1)}
+.area-card:hover{border-color:rgba(120,200,50,.12);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.area-card h3{font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;gap:8px}
+.area-card h3 svg{width:16px;height:16px;color:var(--green);opacity:.7}
+.area-card p{font-size:.82rem;color:var(--gray-500);line-height:1.68}
+.area-seo-text{max-width:var(--container);margin:4rem auto 0;text-align:center}
+.area-seo-text p{font-size:.88rem;color:var(--gray-400);line-height:1.88;margin-bottom:1.2rem}
+.area-seo-text strong{color:var(--white)}
+
+/* POSITIONING */
+.positioning-line{text-align:center;padding:4rem 2rem;max-width:640px;margin:0 auto}
+.positioning-line p{font-family:'Space Grotesk',sans-serif;font-size:clamp(.92rem,2vw,1.15rem);font-weight:600;color:var(--gray-300);line-height:1.7;font-style:italic;letter-spacing:-.01em}
+.positioning-line p span{color:var(--green)}
+
 /* POWER INTRO */
 .power-intro{max-width:660px;margin:-1rem auto 0;text-align:center;padding:0 2rem}
 .power-intro p{font-size:.94rem;color:var(--gray-300);line-height:1.9}
