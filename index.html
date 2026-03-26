@@ -734,13 +734,14 @@ blockquote {
   font-size: 0.85rem; font-weight: 600;
   background: var(--green); color: var(--dark);
   border: none; border-radius: var(--radius-sm);
-  cursor: pointer; transition: all 0.3s; margin-top: 0.5rem;
-  box-shadow: 0 0 0 rgba(120,200,50,0);
+  cursor: pointer; transition: all 0.35s cubic-bezier(.22,.61,.36,1); margin-top: 0.5rem;
+  box-shadow: 0 0 16px rgba(120,200,50,0.18);
+  position: relative;
 }
 .form-submit:hover {
   background: var(--green-light);
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px var(--green-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(120,200,50,0.45), 0 0 60px rgba(120,200,50,0.12);
 }
 .form-guarantee {
   display: flex; align-items: center; gap: 6px;
