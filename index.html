@@ -67,8 +67,11 @@ nav.scrolled .nav-links a{color:var(--text-secondary)}
 nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--accent)}
 nav.scrolled .nav-links a::after{background:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
-.nav-phone{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;transition:color .3s}
-nav.scrolled .nav-phone{color:var(--text-secondary)}
+.nav-phone-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.nav-phone{font-size:.92rem;font-weight:700;color:rgba(255,255,255,.9);text-decoration:none;transition:color .3s;letter-spacing:.01em}
+.nav-phone-sub{font-size:.62rem;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.03em}
+nav.scrolled .nav-phone{color:var(--text);font-weight:700}
+nav.scrolled .nav-phone-sub{color:var(--text-muted)}
 .nav-phone:hover{color:#fff}
 nav.scrolled .nav-phone:hover{color:var(--accent)}
 .nav-cta{display:inline-flex;align-items:center;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:#fff;background:var(--accent);border:none;padding:.7rem 1.6rem;border-radius:var(--radius);cursor:pointer;transition:all .3s;text-decoration:none}
