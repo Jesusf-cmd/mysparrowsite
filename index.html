@@ -67,8 +67,11 @@ nav.scrolled .nav-links a{color:var(--text-secondary)}
 nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.active{color:var(--accent)}
 nav.scrolled .nav-links a::after{background:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
-.nav-phone{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.7);text-decoration:none;transition:color .3s}
-nav.scrolled .nav-phone{color:var(--text-secondary)}
+.nav-phone-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.nav-phone{font-size:.92rem;font-weight:700;color:rgba(255,255,255,.9);text-decoration:none;transition:color .3s;letter-spacing:.01em}
+.nav-phone-sub{font-size:.62rem;font-weight:500;color:rgba(255,255,255,.4);letter-spacing:.03em}
+nav.scrolled .nav-phone{color:var(--text);font-weight:700}
+nav.scrolled .nav-phone-sub{color:var(--text-muted)}
 .nav-phone:hover{color:#fff}
 nav.scrolled .nav-phone:hover{color:var(--accent)}
 .nav-cta{display:inline-flex;align-items:center;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:#fff;background:var(--accent);border:none;padding:.7rem 1.6rem;border-radius:var(--radius);cursor:pointer;transition:all .3s;text-decoration:none}
@@ -82,8 +85,29 @@ nav.scrolled .hamburger span{background:var(--text)}
 .mob-nav ul{list-style:none}.mob-nav ul li a{display:block;font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--text);padding:12px 0;border-bottom:1px solid var(--divider);transition:color .2s;text-decoration:none}
 .mob-nav ul li a:hover{color:var(--accent)}
 .mob-phone-big{margin-top:40px;font-size:1rem;font-weight:600;color:var(--accent)}
-.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;padding:12px 16px;background:rgba(245,240,234,0.97);backdrop-filter:blur(20px);border-top:1px solid var(--divider);gap:10px}
-.sticky-bar a{flex:1;text-align:center;font-size:.8rem;font-weight:600;padding:14px 10px;text-decoration:none;border-radius:var(--radius);transition:all .3s}
+.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;padding:10px 12px;background:rgba(245,240,234,0.97);backdrop-filter:blur(20px);border-top:1px solid var(--divider);gap:8px}
+.sticky-bar a{flex:1;text-align:center;font-size:.82rem;font-weight:700;padding:15px 10px;text-decoration:none;border-radius:var(--radius);transition:all .3s}
+.sticky-call-fab{display:none;position:fixed;bottom:80px;right:16px;z-index:191;width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(156,122,75,.35);transition:all .3s;text-decoration:none;align-items:center;justify-content:center;font-size:1.3rem}
+.sticky-call-fab:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(156,122,75,.45)}
+
+/* MICRO TRUST */
+.micro-trust{font-size:.72rem;color:var(--text-muted);margin-top:.6rem;display:flex;align-items:center;gap:5px;justify-content:center}
+.micro-trust svg{width:13px;height:13px;color:var(--accent);opacity:.6}
+.micro-trust-light{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.6rem;display:flex;align-items:center;gap:5px;justify-content:center}
+.micro-trust-light svg{width:13px;height:13px;color:var(--accent-light);opacity:.6}
+
+/* RIGHT FIT */
+.right-fit{max-width:680px;margin:0 auto;text-align:center;padding:2rem 0}
+.right-fit p{font-size:1rem;color:var(--text-secondary);line-height:1.9;margin-bottom:1rem}
+.right-fit p:first-child{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--text);line-height:1.5;margin-bottom:1.5rem}
+.right-fit p:last-of-type{color:var(--text);font-weight:500}
+
+/* TRUST BULLETS */
+.trust-bullets{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:center;margin-top:1.5rem}
+.trust-bullet{display:flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:500;color:var(--text-secondary)}
+.trust-bullet svg{width:15px;height:15px;color:var(--accent);flex-shrink:0}
+.trust-bullets-light .trust-bullet{color:rgba(255,255,255,.5)}
+.trust-bullets-light .trust-bullet svg{color:var(--accent-light)}
 
 /* BUTTONS */
 .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.02em;color:#fff;background:var(--accent);border:none;padding:1rem 2.4rem;border-radius:var(--radius);cursor:pointer;transition:all .3s;text-decoration:none}
@@ -295,7 +319,7 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
   .stats-row{gap:2rem}
   footer{grid-template-columns:1fr;padding:3rem 1.2rem}
   .footer-bottom{flex-direction:column;padding:1.2rem;gap:.5rem}
-  .sticky-bar{display:flex}body{padding-bottom:68px}
+  .sticky-bar{display:flex}.sticky-call-fab{display:flex}body{padding-bottom:68px}
   .cta-section,.quote-section{padding:5rem 1.2rem}
   .reviews-grid{grid-template-columns:1fr}
   .split{gap:2.5rem}
@@ -311,11 +335,12 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="mob-nav" id="mobNav"><button class="mob-close" onclick="toggleNav()">&#x2715;</button><ul><li><a href="/" onclick="toggleNav()">Roofing</a></li><li><a href="/concrete.html" onclick="toggleNav()">Concrete</a></li><li><a href="/custom-homes.html" onclick="toggleNav()">Custom Homes</a></li><li><a href="#contact" onclick="toggleNav()">Contact</a></li></ul><a href="#contact" onclick="toggleNav()" style="display:block;text-align:center;margin-top:2rem;padding:1rem;background:var(--accent);color:#fff;border-radius:var(--radius);font-weight:600;text-decoration:none;font-size:.92rem">Get a Real Estimate</a><div class="mob-phone-big"><a href="tel:4054122924" style="color:var(--accent);text-decoration:none">(405) 412-2924</a></div></div>
-<div class="sticky-bar"><a href="tel:4054122924" style="color:#fff;background:var(--charcoal);font-weight:700;">📞 Call Now</a><a href="#contact" style="color:#fff;background:var(--accent);font-weight:700;">Get Estimate</a></div>
+<div class="sticky-bar"><a href="tel:4054122924" style="color:#fff;background:var(--charcoal);font-weight:700;">📞 Call Now</a><a href="#contact" style="color:#fff;background:var(--accent);font-weight:700;">Get Real Estimate</a></div>
+<a href="tel:4054122924" class="sticky-call-fab" aria-label="Call Sparrow Construction">📞</a>
 <nav id="mainNav">
   <a class="nav-logo" href="/"><img class="nav-logo-img" src="https://mysparrow.net/wp-content/uploads/2016/02/Sparrow-Construction-Logo-688x424-copy-compressor.png" alt="Sparrow Construction Logo"><span class="nav-logo-text">Sparrow<span>.</span></span></a>
   <ul class="nav-links"><li><a href="/" class="active">Roofing</a></li><li><a href="/concrete.html">Concrete</a></li><li><a href="/custom-homes.html">Custom Homes</a></li><li><a href="#contact">Contact</a></li></ul>
-  <div class="nav-right"><a class="nav-phone" href="tel:4054122924">(405) 412-2924</a><a href="#contact" class="nav-cta">Get a Real Estimate</a></div>
+  <div class="nav-right"><div class="nav-phone-wrap"><a class="nav-phone" href="tel:4054122924">(405) 412-2924</a><span class="nav-phone-sub">Call for fastest response</span></div><a href="#contact" class="nav-cta">Get a Real Estimate</a></div>
   <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
 
@@ -328,6 +353,7 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
     <a href="#contact" class="hero-btn-light">Get a Real Estimate</a>
     <a href="tel:4054122924" class="hero-btn-ghost">Call (405) 412-2924</a>
   </div>
+  <div class="micro-trust-light" style="opacity:0;animation:fadeUp .9s .8s ease forwards;position:relative;z-index:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Most estimates delivered within 24 hours · Same-week scheduling available</div>
   <div class="hero-trust">
     <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Licensed &amp; Insured</div>
     <div class="hero-trust-divider"></div>
@@ -393,6 +419,7 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
       <p class="split-text">Since 2007, Sparrow Construction has served Oklahoma families with one simple promise: <strong>do the job right the first time</strong>. We're a Yukon-based, family-operated contractor specializing in roofing, concrete, and custom homes across the OKC metro.</p>
       <p class="split-text">Every project is completed by our own crew — no subcontractors, no shortcuts, no excuses. That's how we've built a 4.9-star reputation on Google and a business that runs entirely on referrals.</p>
       <a href="#contact" class="btn-primary">Get a Real Estimate</a>
+      <div class="micro-trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No pressure · We'll walk you through everything</div>
     </div>
   </div>
 </section>
@@ -508,6 +535,8 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
         <a href="#contact" class="btn-primary">Get a Real Estimate</a>
         <a href="tel:4054122924" class="btn-secondary">Call Now</a>
       </div>
+      <div class="micro-trust" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Local Yukon contractor · Straightforward estimates</div>
+      </div>
     </div>
   </div>
 </section>
@@ -540,6 +569,24 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
   </div>
   <div class="reviews-cta reveal">
     <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
+    <div class="micro-trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No pressure estimate · Response within 24 hours</div>
+    <div class="trust-bullets reveal" style="margin-top:2rem">
+      <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Local to Yukon / OKC</div>
+      <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Licensed &amp; insured</div>
+      <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Straightforward estimates</div>
+      <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No shortcuts</div>
+    </div>
+  </div>
+</section>
+
+<!-- RIGHT FIT SECTION -->
+<section class="section-light" style="padding:7rem 4rem">
+  <div class="right-fit reveal">
+    <p>We're not the cheapest contractor in Oklahoma City.</p>
+    <p>If you're just looking for the lowest price, we're probably not the right fit. But if you want a job done right — clean work that lasts, and a crew that shows up and communicates — we're a solid choice.</p>
+    <p>That's how we've earned 94 five-star reviews and a business built entirely on referrals.</p>
+    <a href="#contact" class="btn-primary" style="margin-top:2rem">Get a Real Estimate</a>
+    <div class="micro-trust"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No pressure · No obligation</div>
   </div>
 </section>
 
@@ -587,15 +634,21 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
   </div>
 </section>
 
-<!-- CTA -->
+<!-- GLOBAL CTA -->
 <section class="cta-section">
-  <h2 class="cta-title reveal">Ready to Start<br>Your Project?</h2>
-  <p class="cta-text reveal">Get a real estimate from a local contractor who shows up, does the work right, and stands behind it.</p>
+  <h2 class="cta-title reveal">Ready to Get Started?</h2>
+  <p class="cta-text reveal">If you're planning a project, we'll give you a clear estimate and walk you through the next steps — no pressure, no guessing.</p>
   <div class="cta-btns reveal">
     <a href="#contact" class="cta-btn-light">Get a Real Estimate</a>
     <a href="tel:4054122924" class="cta-btn-outline">Call (405) 412-2924</a>
   </div>
-  <p class="cta-urgency reveal">Get scheduled this week · Limited availability during peak season</p>
+  <div class="trust-bullets trust-bullets-light reveal" style="margin-top:2rem">
+    <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Local to Yukon / OKC</div>
+    <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Licensed &amp; insured</div>
+    <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Straightforward estimates</div>
+    <div class="trust-bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> No shortcuts</div>
+  </div>
+  <p class="cta-urgency reveal">Schedule your project this week · Limited availability during peak season</p>
 </section>
 
 <!-- CONTACT -->
