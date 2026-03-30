@@ -102,9 +102,34 @@ nav.scrolled .hamburger span{background:var(--text)}
 .hero-btn-light:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18)}
 .hero-btn-ghost{display:inline-flex;align-items:center;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.75);background:transparent;border:1px solid rgba(255,255,255,.2);padding:1.05rem 2.6rem;border-radius:var(--radius);cursor:pointer;transition:all .3s;text-decoration:none}
 .hero-btn-ghost:hover{border-color:rgba(255,255,255,.45);color:#fff;transform:translateY(-2px)}
+.hero-trust{display:flex;align-items:center;gap:1.8rem;margin-top:3rem;opacity:0;animation:fadeUp .9s .9s ease forwards;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
+.hero-trust-item{display:flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.01em}
+.hero-trust-item svg{width:16px;height:16px;color:var(--accent-light);opacity:.8}
+.hero-trust-divider{width:1px;height:16px;background:rgba(255,255,255,.15)}
 .scroll-indicator{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .9s 1s ease forwards;z-index:1}
 .scroll-indicator span{font-size:.6rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.35)}
 .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);animation:scrollPulse 2.5s ease-in-out infinite}
+
+/* INLINE FORM */
+.inline-form-section{background:var(--charcoal);padding:0 4rem;position:relative;overflow:hidden}
+.inline-form-wrapper{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;max-width:var(--container-wide);margin:0 auto;align-items:center;padding:5.5rem 0}
+.inline-form-content h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.15;color:#fff;margin-bottom:1.2rem}
+.inline-form-content p{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.85;margin-bottom:2rem;max-width:380px}
+.inline-form-review{display:flex;gap:1rem;padding:1.5rem;background:rgba(255,255,255,.04);border-radius:var(--radius);border:1px solid rgba(255,255,255,.06);margin-top:1.5rem}
+.inline-form-review-text{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.7;font-style:italic}
+.inline-form-review-name{font-size:.72rem;color:var(--accent-light);font-weight:600;margin-top:.5rem}
+.inline-form-review-stars{font-size:.7rem;color:var(--accent);letter-spacing:2px;margin-bottom:.4rem}
+.inline-form-box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:2.5rem}
+.inline-form-box .form-title{color:#fff}
+.inline-form-box .form-subtitle{color:rgba(255,255,255,.45)}
+.inline-form-box .form-group label{color:rgba(255,255,255,.45)}
+.inline-form-box .form-group input,.inline-form-box .form-group select,.inline-form-box .form-group textarea{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:#fff}
+.inline-form-box .form-group input::placeholder,.inline-form-box .form-group textarea::placeholder{color:rgba(255,255,255,.25)}
+.inline-form-box .form-group input:focus,.inline-form-box .form-group select:focus,.inline-form-box .form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(156,122,75,.15)}
+.inline-form-box .form-group select option{background:var(--charcoal);color:#fff}
+.inline-form-box .form-guarantee{color:rgba(255,255,255,.35)}
+.inline-form-urgency{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--accent-light);font-weight:500;margin-top:.6rem}
+.inline-form-urgency svg{width:14px;height:14px;opacity:.7}
 
 /* SECTION SYSTEM */
 section{padding:10rem 4rem;position:relative}
@@ -133,7 +158,7 @@ section{padding:10rem 4rem;position:relative}
 
 /* SERVICES CARDS */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:var(--container-wide);margin:0 auto}
-.service-card{position:relative;overflow:hidden;border-radius:var(--radius-lg);cursor:pointer;transition:all .5s cubic-bezier(.22,.61,.36,1);background:#000}
+.service-card{position:relative;overflow:hidden;border-radius:var(--radius-lg);cursor:pointer;transition:all .5s cubic-bezier(.22,.61,.36,1);background:#000;text-decoration:none}
 .service-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
 .service-card-img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:brightness(.55);transition:all .6s cubic-bezier(.22,.61,.36,1)}
 .service-card:hover .service-card-img{filter:brightness(.35);transform:scale(1.04)}
@@ -141,6 +166,8 @@ section{padding:10rem 4rem;position:relative}
 .service-card-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px}
 .service-card-loc{font-size:.75rem;color:var(--accent-light);font-weight:500;margin-bottom:8px;letter-spacing:.04em}
 .service-card-desc{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6}
+.service-card-cta{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--accent-light);margin-top:12px;transition:color .3s}
+.service-card:hover .service-card-cta{color:#fff}
 
 /* STATS */
 .stats-row{display:flex;justify-content:center;gap:5rem;flex-wrap:wrap;max-width:var(--container-wide);margin:0 auto;padding:2rem 0}
@@ -157,12 +184,28 @@ section{padding:10rem 4rem;position:relative}
 .rev-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;font-style:italic;line-height:1.75;color:var(--text);margin-bottom:1.8rem}
 .rev-name{font-size:.82rem;font-weight:600;color:var(--text);letter-spacing:.02em}
 .rev-detail{font-size:.72rem;color:var(--text-muted);margin-top:4px}
+.reviews-cta{text-align:center;margin-top:3.5rem}
 
 /* QUOTE */
 .quote-section{text-align:center;padding:8rem 4rem;position:relative;overflow:hidden}
 .quote-mark{font-family:'Playfair Display',serif;font-size:6rem;line-height:.5;font-weight:700;color:rgba(156,122,75,.1);margin-bottom:2rem}
 blockquote{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:400;font-style:italic;line-height:1.75;max-width:640px;margin:0 auto 2rem;color:var(--text)}
 .quote-attr{font-size:.78rem;font-weight:600;color:var(--accent);letter-spacing:.04em}
+
+/* WHY CHOOSE US */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;max-width:var(--container-wide);margin:0 auto}
+.why-item{text-align:center;padding:2.5rem 2rem}
+.why-icon{width:48px;height:48px;margin:0 auto 1.5rem;color:var(--accent);opacity:.7}
+.why-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:.8rem}
+.why-text{font-size:.88rem;color:var(--text-secondary);line-height:1.8}
+
+/* INLINE REVIEW STRIP */
+.review-strip{background:var(--dark-elevated);padding:4rem;overflow:hidden}
+.review-strip-inner{display:flex;gap:3rem;max-width:var(--container-wide);margin:0 auto;align-items:center;justify-content:center;flex-wrap:wrap}
+.review-strip-item{display:flex;gap:1rem;max-width:320px}
+.review-strip-quote{font-size:.85rem;font-style:italic;color:var(--text-secondary);line-height:1.7}
+.review-strip-name{font-size:.72rem;font-weight:600;color:var(--accent);margin-top:.4rem}
+.review-strip-stars{font-size:.65rem;color:var(--accent);letter-spacing:1px;margin-bottom:.3rem}
 
 /* FAQ */
 .faq-container{max-width:680px;margin:0 auto}
@@ -212,6 +255,7 @@ blockquote{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.6
 .cta-btn-light:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
 .cta-btn-outline{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.7);background:transparent;border:1px solid rgba(255,255,255,.2);padding:1rem 2.4rem;border-radius:var(--radius);cursor:pointer;transition:all .3s;text-decoration:none}
 .cta-btn-outline:hover{border-color:rgba(255,255,255,.4);color:#fff;transform:translateY(-2px)}
+.cta-urgency{font-size:.78rem;color:var(--accent-light);margin-top:1.5rem;font-weight:500}
 
 /* FOOTER */
 footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divider);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3.5rem;max-width:1200px;margin:0 auto}
@@ -238,6 +282,10 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
   .contact-grid{grid-template-columns:1fr}footer{grid-template-columns:1fr 1fr}
   .reviews-grid{grid-template-columns:1fr}
   .stats-row{gap:3rem}
+  .inline-form-wrapper{grid-template-columns:1fr;gap:2.5rem;padding:4rem 0}
+  .inline-form-section{padding:0 2rem}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .review-strip-inner{flex-direction:column;gap:2rem}
 }
 @media(max-width:640px){
   nav{padding:.8rem 1.2rem}section{padding:5.5rem 1.2rem}
@@ -252,17 +300,22 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
   .reviews-grid{grid-template-columns:1fr}
   .split{gap:2.5rem}
   .section-header{margin-bottom:3.5rem}
+  .inline-form-section{padding:0 1.2rem}
+  .inline-form-wrapper{padding:3.5rem 0}
+  .why-grid{grid-template-columns:1fr}
+  .hero-trust{gap:1rem}
+  .hero-trust-divider{display:none}
 }
 </style>
 </head>
 <body>
 <div class="scroll-progress" id="scrollProgress"></div>
-<div class="mob-nav" id="mobNav"><button class="mob-close" onclick="toggleNav()">&#x2715;</button><ul><li><a href="/" onclick="toggleNav()">Roofing</a></li><li><a href="/concrete.html" onclick="toggleNav()">Concrete</a></li><li><a href="/custom-homes.html" onclick="toggleNav()">Custom Homes</a></li><li><a href="#contact" onclick="toggleNav()">Contact</a></li></ul><div class="mob-phone-big">(405) 412-2924</div></div>
-<div class="sticky-bar"><a href="tel:4054122924" style="color:var(--charcoal);background:var(--accent);font-weight:700;">Call Now</a><a href="#contact" style="color:var(--accent);border:1px solid rgba(156,122,75,.35);">Get Estimate</a></div>
+<div class="mob-nav" id="mobNav"><button class="mob-close" onclick="toggleNav()">&#x2715;</button><ul><li><a href="/" onclick="toggleNav()">Roofing</a></li><li><a href="/concrete.html" onclick="toggleNav()">Concrete</a></li><li><a href="/custom-homes.html" onclick="toggleNav()">Custom Homes</a></li><li><a href="#contact" onclick="toggleNav()">Contact</a></li></ul><a href="#contact" onclick="toggleNav()" style="display:block;text-align:center;margin-top:2rem;padding:1rem;background:var(--accent);color:#fff;border-radius:var(--radius);font-weight:600;text-decoration:none;font-size:.92rem">Get a Real Estimate</a><div class="mob-phone-big"><a href="tel:4054122924" style="color:var(--accent);text-decoration:none">(405) 412-2924</a></div></div>
+<div class="sticky-bar"><a href="tel:4054122924" style="color:#fff;background:var(--charcoal);font-weight:700;">📞 Call Now</a><a href="#contact" style="color:#fff;background:var(--accent);font-weight:700;">Get Estimate</a></div>
 <nav id="mainNav">
   <a class="nav-logo" href="/"><img class="nav-logo-img" src="https://mysparrow.net/wp-content/uploads/2016/02/Sparrow-Construction-Logo-688x424-copy-compressor.png" alt="Sparrow Construction Logo"><span class="nav-logo-text">Sparrow<span>.</span></span></a>
   <ul class="nav-links"><li><a href="/" class="active">Roofing</a></li><li><a href="/concrete.html">Concrete</a></li><li><a href="/custom-homes.html">Custom Homes</a></li><li><a href="#contact">Contact</a></li></ul>
-  <div class="nav-right"><a class="nav-phone" href="tel:4054122924">(405) 412-2924</a><a href="#contact" class="nav-cta">Get Estimate</a></div>
+  <div class="nav-right"><a class="nav-phone" href="tel:4054122924">(405) 412-2924</a><a href="#contact" class="nav-cta">Get a Real Estimate</a></div>
   <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
 
@@ -272,14 +325,54 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
   <h1 class="hero-title">Craftsmanship That<br>Stands the Test of Time</h1>
   <p class="hero-desc">Premium roofing, concrete, and custom home construction for Oklahoma homeowners who expect more.</p>
   <div class="hero-btns">
-    <a href="#contact" class="hero-btn-light">Schedule a Consultation</a>
-    <a href="tel:4054122924" class="hero-btn-ghost">(405) 412-2924</a>
+    <a href="#contact" class="hero-btn-light">Get a Real Estimate</a>
+    <a href="tel:4054122924" class="hero-btn-ghost">Call (405) 412-2924</a>
+  </div>
+  <div class="hero-trust">
+    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Licensed &amp; Insured</div>
+    <div class="hero-trust-divider"></div>
+    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Locally Owned Since 2007</div>
+    <div class="hero-trust-divider"></div>
+    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9★ on Google (94 reviews)</div>
   </div>
   <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
+<!-- QUICK ESTIMATE FORM (Above fold on scroll) -->
+<div class="inline-form-section">
+  <div class="inline-form-wrapper reveal">
+    <div class="inline-form-content">
+      <span class="section-label" style="color:var(--accent-light)">Free Estimate</span>
+      <h2>Get Your Project<br>Started This Week</h2>
+      <p>Tell us what you need — we'll get back to you within 24 hours with a real estimate, not a sales pitch.</p>
+      <div class="inline-form-review">
+        <div>
+          <div class="inline-form-review-stars">★ ★ ★ ★ ★</div>
+          <div class="inline-form-review-text">"Sparrow came out the next day, walked my roof with me, and had a claim filed by the end of the week."</div>
+          <div class="inline-form-review-name">— Stephen G., Yukon</div>
+        </div>
+      </div>
+    </div>
+    <div class="inline-form-box">
+      <div class="form-title">Request a Real Estimate</div>
+      <div class="form-subtitle">No obligation · Response within 24 hours</div>
+      <div class="form-grid">
+        <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="(405) 000-0000"></div>
+        <div class="form-group full"><label>Service Needed</label><select><option value="">Select a service...</option><option>Roofing</option><option>Concrete</option><option>Custom Home</option><option>Storm Damage / Insurance</option><option>Other</option></select></div>
+        <div class="form-group full"><label>Brief Description</label><textarea placeholder="Tell us about your project..." style="height:80px"></textarea></div>
+        <div class="form-group full">
+          <button class="form-submit" onclick="submitForm(this)">Get My Estimate</button>
+          <div class="form-guarantee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Free consultation · No pressure · No obligation</div>
+          <div class="inline-form-urgency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Limited scheduling available during peak season</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- TRUST NUMBERS -->
-<section class="section-charcoal" style="padding:5rem 4rem">
+<section class="section-dark" style="padding:5rem 4rem">
   <div class="stats-row reveal">
     <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Projects completed since 2007</div></div>
     <div class="stat-item"><div class="stat-num">18</div><div class="stat-label">Years serving the OKC metro</div></div>
@@ -299,7 +392,7 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
       <h2 class="split-title">Built on Referrals,<br>Not Advertising</h2>
       <p class="split-text">Since 2007, Sparrow Construction has served Oklahoma families with one simple promise: <strong>do the job right the first time</strong>. We're a Yukon-based, family-operated contractor specializing in roofing, concrete, and custom homes across the OKC metro.</p>
       <p class="split-text">Every project is completed by our own crew — no subcontractors, no shortcuts, no excuses. That's how we've built a 4.9-star reputation on Google and a business that runs entirely on referrals.</p>
-      <a href="#contact" class="btn-primary">Start a Conversation</a>
+      <a href="#contact" class="btn-primary">Get a Real Estimate</a>
     </div>
   </div>
 </section>
@@ -312,32 +405,88 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
     <p class="section-subtitle">Roofing, concrete, and custom homes — all under one team, one standard of quality.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card reveal">
+    <a href="/" class="service-card reveal">
       <img class="service-card-img" src="https://www.fowlerexteriors.com/wp-content/uploads/2023/05/new-metal-roof-standing-seam-scaled.jpg" alt="Premium roof replacement in Oklahoma City" loading="lazy">
       <div class="service-card-overlay">
         <div class="service-card-title">Roofing</div>
         <div class="service-card-loc">Residential &amp; Commercial</div>
         <div class="service-card-desc">Full replacements, storm damage repair, and insurance claim support with GAF &amp; CertainTeed certified materials.</div>
+        <div class="service-card-cta">Get Estimate →</div>
       </div>
-    </div>
-    <div class="service-card reveal" style="transition-delay:.1s">
+    </a>
+    <a href="/concrete.html" class="service-card reveal" style="transition-delay:.1s">
       <img class="service-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80" alt="Concrete driveway and patio work in OKC" loading="lazy">
       <div class="service-card-overlay">
         <div class="service-card-title">Concrete</div>
         <div class="service-card-loc">Driveways, Patios &amp; Foundations</div>
         <div class="service-card-desc">Driveways, patios, sidewalks, and foundations engineered for Oklahoma's clay soil and weather conditions.</div>
+        <div class="service-card-cta">Get Estimate →</div>
       </div>
-    </div>
-    <div class="service-card reveal" style="transition-delay:.2s">
+    </a>
+    <a href="/custom-homes.html" class="service-card reveal" style="transition-delay:.2s">
       <img class="service-card-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Custom home construction in Edmond Oklahoma" loading="lazy">
       <div class="service-card-overlay">
         <div class="service-card-title">Custom Homes</div>
         <div class="service-card-loc">Ground-Up Construction</div>
         <div class="service-card-desc">Custom home construction from $180–$300+ per sq ft. Designed and built for Oklahoma families who want quality.</div>
+        <div class="service-card-cta">Get Estimate →</div>
       </div>
+    </a>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section-dark">
+  <div class="section-header reveal">
+    <span class="section-label">Why Sparrow</span>
+    <h2 class="section-title">What Sets Us Apart</h2>
+    <p class="section-subtitle">Quality isn't just a word we use. It's the only way we know how to build.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-item">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="why-title">Licensed &amp; Insured</div>
+      <div class="why-text">Full liability coverage and worker's comp on every project. Your home is protected from start to finish.</div>
+    </div>
+    <div class="why-item">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="why-title">Our Own Crew</div>
+      <div class="why-text">No random subcontractors. The same experienced team handles your project from first nail to final cleanup.</div>
+    </div>
+    <div class="why-item">
+      <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <div class="why-title">18 Years Local</div>
+      <div class="why-text">We live here, we work here, and we stand behind every job. Yukon-based, serving the entire OKC metro.</div>
     </div>
   </div>
 </section>
+
+<!-- REVIEW STRIP (inline social proof) -->
+<div class="review-strip reveal">
+  <div class="review-strip-inner">
+    <div class="review-strip-item">
+      <div>
+        <div class="review-strip-stars">★ ★ ★ ★ ★</div>
+        <div class="review-strip-quote">"My adjuster initially approved a partial repair. Sparrow pushed back and got us a full replacement."</div>
+        <div class="review-strip-name">— Dianne A., Edmond</div>
+      </div>
+    </div>
+    <div class="review-strip-item">
+      <div>
+        <div class="review-strip-stars">★ ★ ★ ★ ★</div>
+        <div class="review-strip-quote">"Three neighbors had Sparrow do their roofs. Two-day job, clean site every evening."</div>
+        <div class="review-strip-name">— Allison V., Mustang</div>
+      </div>
+    </div>
+    <div class="review-strip-item">
+      <div>
+        <div class="review-strip-stars">★ ★ ★ ★ ★</div>
+        <div class="review-strip-quote">"The driveway turned out incredible. Properly graded, clean edges, and no cracking a year later."</div>
+        <div class="review-strip-name">— Marcus T., OKC</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- APPROACH SPLIT -->
 <section class="section-dark">
@@ -355,7 +504,10 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Full insurance claim support included</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Manufacturer-backed warranties on every project</li>
       </ul>
-      <a href="#contact" class="btn-secondary">Learn More</a>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="#contact" class="btn-primary">Get a Real Estimate</a>
+        <a href="tel:4054122924" class="btn-secondary">Call Now</a>
+      </div>
     </div>
   </div>
 </section>
@@ -386,6 +538,9 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
       <div class="rev-detail">Mustang, OK · GAF Replacement</div>
     </div>
   </div>
+  <div class="reviews-cta reveal">
+    <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
+  </div>
 </section>
 
 <!-- QUOTE -->
@@ -402,11 +557,12 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
     <h2 class="section-title">What Homeowners<br>Want to Know</h2>
   </div>
   <div class="faq-container">
-    <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">How do I know if my roof has hail damage? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">Hail damage isn't always visible from the ground. Look for dents in gutters, damaged vents, or cracked shingles. We provide free inspections and document everything for your insurance claim.</div></div></div>
-    <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">Will my insurance cover a roof replacement? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">In most hail and storm damage cases, yes. We work directly with your insurance company and handle the entire claim process. Most homeowners pay only their deductible.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">How do I know if my roof has hail damage? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">Hail damage isn't always visible from the ground. Look for dents in gutters, damaged vents, or cracked shingles. We provide free inspections and document everything for your insurance claim. <a href="#contact" style="color:var(--accent);font-weight:600;text-decoration:none">Schedule a free inspection →</a></div></div></div>
+    <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">Will my insurance cover a roof replacement? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">In most hail and storm damage cases, yes. We work directly with your insurance company and handle the entire claim process. Most homeowners pay only their deductible. <a href="#contact" style="color:var(--accent);font-weight:600;text-decoration:none">Get help with your claim →</a></div></div></div>
     <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">How long does a roof replacement take? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">Most residential roofs are completed in 1–2 days. We schedule promptly after claim approval and clean up every evening.</div></div></div>
     <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">What types of roofing do you install? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">We install architectural shingles (GAF Timberline, CertainTeed Landmark), impact-resistant Class 4 shingles, standing seam metal roofing, TPO flat roofing, and EPDM commercial systems.</div></div></div>
     <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">What warranty do you offer? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">Every roof comes with a full manufacturer warranty (GAF or CertainTeed) plus our workmanship warranty. As a certified installer, we offer enhanced warranty coverage.</div></div></div>
+    <div class="faq-item reveal"><button class="faq-btn" onclick="toggleFaq(this)">How much does a new roof cost in Oklahoma? <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="faq-panel"><div class="faq-panel-inner">Most residential roof replacements in the OKC metro range from $7,000–$15,000 depending on size, pitch, and material. With insurance coverage for storm damage, most homeowners pay only their deductible. <a href="#contact" style="color:var(--accent);font-weight:600;text-decoration:none">Get your free estimate →</a></div></div></div>
   </div>
 </section>
 
@@ -433,12 +589,13 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2 class="cta-title reveal">Ready to Start Your Project?</h2>
-  <p class="cta-text reveal">Schedule a free consultation to discuss your roofing, concrete, or custom home project.</p>
+  <h2 class="cta-title reveal">Ready to Start<br>Your Project?</h2>
+  <p class="cta-text reveal">Get a real estimate from a local contractor who shows up, does the work right, and stands behind it.</p>
   <div class="cta-btns reveal">
-    <a href="#contact" class="cta-btn-light">Schedule Consultation</a>
+    <a href="#contact" class="cta-btn-light">Get a Real Estimate</a>
     <a href="tel:4054122924" class="cta-btn-outline">Call (405) 412-2924</a>
   </div>
+  <p class="cta-urgency reveal">Get scheduled this week · Limited availability during peak season</p>
 </section>
 
 <!-- CONTACT -->
@@ -446,18 +603,19 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
   <div class="contact-grid">
     <div class="reveal">
       <span class="section-label" style="text-align:left">Get in Touch</span>
-      <h2 class="section-title" style="text-align:left">Schedule Your Free<br>Consultation</h2>
-      <p style="font-size:.95rem;color:var(--text-secondary);line-height:1.9;margin-top:1.2rem;max-width:380px">We'll discuss your project, assess your needs, and walk you through your options — <strong style="color:var(--text)">no cost, no pressure</strong>.</p>
+      <h2 class="section-title" style="text-align:left">Get a Real Estimate —<br>Not a Sales Pitch</h2>
+      <p style="font-size:.95rem;color:var(--text-secondary);line-height:1.9;margin-top:1.2rem;max-width:380px">We'll discuss your project, assess your needs, and walk you through your options — <strong style="color:var(--text)">no cost, no pressure, no gimmicks</strong>.</p>
       <div style="margin-top:2.5rem;">
         <div class="contact-info-item"><div><div class="ci-label">Call or Text</div><div class="ci-value"><a href="tel:4054122924">(405) 412-2924</a></div></div></div>
         <div class="contact-info-item"><div><div class="ci-label">Office</div><div class="ci-value">209 Arlington Drive, Yukon, Oklahoma</div></div></div>
         <div class="contact-info-item"><div><div class="ci-label">Hours</div><div class="ci-value">Mon – Fri, 8:00 AM – 6:00 PM</div></div></div>
+        <div class="contact-info-item"><div><div class="ci-label">Response Time</div><div class="ci-value">Within 24 hours — usually same day</div></div></div>
       </div>
-      <p style="font-size:.8rem;color:var(--text-muted);margin-top:2.5rem;line-height:1.65">Also offering <a href="/concrete.html" style="color:var(--accent);text-decoration:none">concrete services</a> and <a href="/custom-homes.html" style="color:var(--accent);text-decoration:none">custom home construction</a>.</p>
+      <p style="font-size:.8rem;color:var(--text-muted);margin-top:2.5rem;line-height:1.65">Also offering <a href="/concrete.html" style="color:var(--accent);text-decoration:none">concrete services</a> and <a href="/custom-homes.html" style="color:var(--accent);text-decoration:none">custom home construction</a> across the OKC metro.</p>
     </div>
     <div class="contact-form reveal" style="transition-delay:.15s">
-      <div class="form-title">Request a Consultation</div>
-      <div class="form-subtitle">We'll get back to you within 24 hours.</div>
+      <div class="form-title">Request Your Estimate</div>
+      <div class="form-subtitle">We respond within 24 hours · No obligation</div>
       <div class="form-grid">
         <div class="form-group"><label>First Name</label><input type="text" placeholder="John"></div>
         <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
@@ -466,7 +624,7 @@ footer{background:var(--dark);padding:5rem 4rem;border-top:1px solid var(--divid
         <div class="form-group full"><label>Property Address</label><input type="text" placeholder="123 Main St, Yukon, OK"></div>
         <div class="form-group full"><label>Service Needed</label><select><option value="">Select...</option><option>Roofing</option><option>Concrete</option><option>Custom Home</option><option>Storm Damage / Insurance</option><option>Other</option></select></div>
         <div class="form-group full"><label>Details</label><textarea placeholder="Tell us about your project..."></textarea></div>
-        <div class="form-group full"><button class="form-submit" onclick="submitForm(this)">Request Consultation</button><div class="form-guarantee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Free consultation · No obligation</div></div>
+        <div class="form-group full"><button class="form-submit" onclick="submitForm(this)">Get My Estimate</button><div class="form-guarantee"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Free consultation · No obligation · No pressure</div></div>
       </div>
     </div>
   </div>
