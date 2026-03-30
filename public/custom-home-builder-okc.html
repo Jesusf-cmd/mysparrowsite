@@ -37,7 +37,7 @@ nav.scrolled{padding:.75rem 4rem;background:rgba(244,241,237,0.96);box-shadow:0 
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
 .nav-links a:hover,.nav-links a.active{color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:1.5rem}
-.nav-phone{font-size:.84rem;font-weight:600;color:var(--text);text-decoration:none;transition:color .3s}
+.nav-phone-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:1px}.nav-phone-sub{font-size:.62rem;font-weight:500;color:var(--text-muted);letter-spacing:.03em}.nav-phone{font-size:.84rem;font-weight:700;color:var(--text);text-decoration:none;transition:color .3s}
 .nav-phone:hover{color:var(--accent)}
 .nav-cta{display:inline-flex;align-items:center;font-size:.82rem;font-weight:600;color:#fff;background:var(--accent);border:none;padding:.7rem 1.6rem;border-radius:8px;cursor:pointer;transition:all .3s;text-decoration:none}.nav-cta:hover{background:var(--accent-light);transform:translateY(-1px)}.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;margin:5px 0;transition:all .3s}
@@ -48,6 +48,7 @@ nav.scrolled{padding:.75rem 4rem;background:rgba(244,241,237,0.96);box-shadow:0 
 .mob-nav ul li a:hover{color:var(--accent)}
 .mob-phone-big{margin-top:40px;font-size:1rem;font-weight:600;color:var(--accent)}
 .sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:190;padding:12px 16px;background:rgba(244,241,237,0.95);backdrop-filter:blur(20px);border-top:1px solid rgba(156,122,75,.2);gap:10px}
+.sticky-call-fab{display:none;position:fixed;bottom:80px;right:16px;z-index:191;width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(156,122,75,.35);transition:all .3s;text-decoration:none;align-items:center;justify-content:center;font-size:1.3rem}.sticky-call-fab:hover{transform:scale(1.05)}
 .sticky-bar a{flex:1;text-align:center;font-size:.8rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:14px 10px;text-decoration:none;border-radius:var(--radius-sm);transition:all .3s}
 .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-size:.84rem;font-weight:600;letter-spacing:.02em;color:#fff;background:var(--accent);border:none;padding:.95rem 2.2rem;border-radius:var(--radius-sm);cursor:pointer;transition:all .4s cubic-bezier(.22,.61,.36,1);text-decoration:none;box-shadow:0 6px 20px rgba(156,122,75,.2);position:relative}
 .btn-primary::after{content:'';position:absolute;inset:-1px;border-radius:inherit;opacity:0;background:linear-gradient(135deg,rgba(156,122,75,.3),rgba(156,122,75,.1));filter:blur(14px);z-index:-1;transition:opacity .4s}
@@ -187,6 +188,7 @@ footer{background:var(--dark);padding:4rem;border-top:1px solid var(--gray-800);
 .internal-links p{font-size:.86rem;color:var(--text-secondary);line-height:1.85}
 .internal-links a{color:var(--accent);text-decoration:none;transition:color .2s}
 .internal-links a:hover{color:var(--accent-light)}
+.micro-trust{font-size:.72rem;color:var(--text-muted);margin-top:.6rem;display:flex;align-items:center;gap:5px;justify-content:center}.micro-trust svg{width:13px;height:13px;color:var(--accent);opacity:.6}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scrollPulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.1)}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
@@ -208,7 +210,7 @@ nav{padding:.8rem 1.2rem}section{padding:4rem 1.2rem}
 .form-grid{grid-template-columns:1fr}
 footer{grid-template-columns:1fr;padding:3rem 1.2rem}
 .footer-bottom{flex-direction:column;padding:1.2rem;gap:.5rem}
-.sticky-bar{display:flex}body{padding-bottom:68px}
+.sticky-bar{display:flex}.sticky-call-fab{display:flex}body{padding-bottom:68px}
 .cta-section,.mid-cta{padding:4rem 1.2rem}
 .breadcrumb{padding:.5rem 1.2rem;margin-top:58px}
 .pricing-grid{grid-template-columns:1fr}
@@ -222,6 +224,7 @@ footer{grid-template-columns:1fr;padding:3rem 1.2rem}
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="mob-nav" id="mobNav"><button class="mob-close" onclick="toggleNav()">&#x2715;</button><ul><li><a href="/" onclick="toggleNav()">Roofing</a></li><li><a href="/concrete.html" onclick="toggleNav()">Concrete</a></li><li><a href="/custom-homes.html" onclick="toggleNav()">Custom Homes</a></li><li><a href="#contact" onclick="toggleNav()">Contact</a></li></ul><div class="mob-phone-big">(405) 412-2924</div></div>
 <div class="sticky-bar"><a href="tel:4054122924" style="color:#fff;background:var(--charcoal);font-weight:700;">📞 Call Now</a><a href="#contact" style="color:#fff;background:var(--accent);font-weight:700;">Get Estimate</a></div>
+<a href="tel:4054122924" class="sticky-call-fab" aria-label="Call Sparrow Construction">📞</a>
 <nav id="mainNav">
   <a class="nav-logo" href="/"><img class="nav-logo-img" src="https://mysparrow.net/wp-content/uploads/2016/02/Sparrow-Construction-Logo-688x424-copy-compressor.png" alt="Sparrow Construction Logo"><span class="nav-logo-text">Sparrow<span>.</span></span></a>
   <ul class="nav-links"><li><a href="/">Roofing</a></li><li><a href="/concrete.html">Concrete</a></li><li><a href="/custom-homes.html" class="active">Custom Homes</a></li><li><a href="#contact">Contact</a></li></ul>
@@ -301,7 +304,7 @@ footer{grid-template-columns:1fr;padding:3rem 1.2rem}
 </section>
 
 <section class="cta-section">
-  <h2 class="cta-title reveal">Ready to Build Your Dream Home in OKC?</h2>
+  <h2 class="cta-title reveal">Ready to Get Started?</h2>
   <div class="cta-btns reveal"><a href="#contact" class="cta-btn-dark">Schedule Build Consultation &rarr;</a><a href="tel:4054122924" class="cta-btn-dark">Call (405) 412-2924</a></div>
 <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:1.5rem;font-weight:500">Get scheduled this week · Limited availability during peak season</p>
 </section>
